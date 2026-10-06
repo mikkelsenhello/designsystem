@@ -1,0 +1,21 @@
+/*
+ * Button component tokens. Colors are not here: Button reads the data-color context
+ * (bg-base-default etc.), so its color comes from the theme's families.
+ * A theme can override any of these, e.g. --ds-button-radius: var(--ds-radius-full) for pill buttons.
+ * Sizes follow designsystemet's button (48px tall at md, 8px/16px padding).
+ */
+
+:root {
+  --ds-button-radius: var(--ds-radius-default);
+  --ds-button-font-weight: var(--ds-font-weight-medium);
+  --ds-button-gap: var(--ds-space-2);
+  --ds-button-padding-y: var(--ds-space-2);
+
+  --ds-button-height-sm: var(--ds-space-10);      /* 40px */
+  --ds-button-height-md: var(--ds-space-12);      /* 48px */
+  --ds-button-height-lg: var(--ds-space-14);      /* 56px */
+
+  --ds-button-padding-x-sm: var(--ds-space-3);    /* 12px */
+  --ds-button-padding-x-md: var(--ds-space-4);    /* 16px */
+  --ds-button-padding-x-lg: var(--ds-space-5);    /* 20px */
+}

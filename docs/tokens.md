@@ -8,33 +8,39 @@ These are the **only** styling classes and tokens that exist. Tailwind's default
 
 ```css
 @import "tailwindcss";
-@import "designsystem/tokens/index.css";    /* global values + default theme */
+@import "designsystem/tokens/index.css";    /* all token values + default theme */
 @import "designsystem/tokens/tailwind.css"; /* Tailwind utilities → tokens */
 ```
 
 Dark mode: set `data-color-scheme="dark"` (or `"auto"` to follow the OS) on `<html>` or any element. Light is the default.
 
-## Color: `{bg|text|border}-{family}-{role}`
+## Color
 
 **Families** (pick by meaning): `neutral` (default UI), `primary` (brand, main action), `info`, `success`, `warning`, `danger`.
 
-Each role only exists on the utility it's meant for:
+**Two forms of every color class:**
+- `bg-surface-default`, `text-subtle`, `border-strong`: follow the **color context**. The context is `neutral`, unless an ancestor (or the element itself) has `data-color="primary|danger|…"`. Prefer this form: one attribute recolors a whole block.
+- `bg-primary-surface-default`, `text-danger-subtle`: always that family.
 
-| Utility | Roles | Use |
+Each role only exists on the utility it's meant for (`bg-subtle` or `text-surface-default` don't exist):
+
+| Utility | Roles (`{family}-` optional) | Use |
 |---|---|---|
 | `bg-*` | `background-default`, `background-tinted` | Page / section background |
 | | `surface-default`, `surface-tinted`, `surface-hover`, `surface-active` | Cards, inputs, menus, and their states |
 | | `base-default`, `base-hover`, `base-active` | Solid fills: primary button, filled badge |
-| `text-*` | `text-default`, `text-subtle` | Main and secondary text |
+| `text-*` | `default`, `subtle` | Main and secondary text |
 | | `base-contrast-default`, `base-contrast-subtle` | Text/icons on a `base` fill |
-| `border-*`, `divide-*` | `border-subtle` | Dividers, decorative |
-| | `border-default` | Interactive controls (3:1 contrast) |
-| | `border-strong` | Extra emphasis |
-| | `base-default` | Border matching a solid fill (outlined button) |
+| `border-*`, `divide-*` | `subtle` | Dividers, decorative |
+| | `default` | Interactive controls (3:1 contrast) |
+| | `strong` | Extra emphasis |
+| | `base-default` | Border matching a solid fill |
 
-Examples: `bg-primary-base-default text-primary-base-contrast-default`, `bg-neutral-surface-default border-neutral-border-default`, `text-danger-text-default`.
+Examples: `bg-base-default text-base-contrast-default` (inside `data-color="primary"` = primary button colors), `bg-surface-default border-default`, `text-danger-default`, `text-subtle`.
 
-Also: `text-link-visited`, `outline-focus-outer`, `ring-focus-inner`.
+Also: `text-link-visited`.
+
+`data-color-scheme` resets the color context to `neutral` on that element, so put `data-color` on the same element or inside it.
 
 ## Spacing: `p-* m-* gap-* w-* h-* size-* inset-* space-*` …
 
@@ -60,6 +66,7 @@ Pick the heading size by visual weight, independent of `h1`–`h6`.
 | `shadow-*` | `xs`, `sm`, `md`, `lg`, `xl` (low → high elevation) |
 | `border-width-default` | themed border width (use with a `border-*` color) |
 | `opacity-disabled` | disabled controls |
+| `focus-ring` | keyboard focus ring (`:focus-visible`); put on every focusable element you build |
 
 Breakpoints: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536 (px).
 
@@ -67,6 +74,12 @@ Breakpoints: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536 (px).
 
 Tailwind generates some classes from bare numbers regardless of the theme: `border-2`, `outline-3`, `ring-2`, `opacity-50`, `z-10`, `duration-200`, plus all arbitrary values `[...]`. Don't use them for styling; use the token classes above. (`z-*` for stacking order is fine until stacking tokens exist.)
 
+## Component tokens (inside `src/components` only)
+
+Per-component values a brand may want to tune live in `tokens/components/<name>.css` (`--ds-button-radius`, …). Their class is the token name without `--ds-`: `rounded-button`, `px-button-padding-x-md`, `min-h-button-height-md`. Don't use these outside the component they belong to.
+
 ## Token layers (for theme authors)
 
-`tokens/global/*.css` (raw `--ds-*` values) → `tokens/themes/default.css` (meaning, `--ds-color-*`, `--ds-text-*`, `--ds-radius-*` …) → `tokens/tailwind.css` (utilities). A new theme defines every name in `default.css`; `npm run check:tokens` verifies it.
+`tokens/global/*.css` (raw `--ds-*` values) → `tokens/themes/default.css` (meaning: `--ds-color-{family}-{role}`, `--ds-text-*`, `--ds-radius-*` …) → `tokens/components/*.css` and `tokens/color-context.css` → `tokens/tailwind.css` (utilities).
+
+A new theme defines every name in `default.css` (keep its `:root, [data-color-scheme]` selector) and may also override component tokens (e.g. `--ds-button-radius: var(--ds-radius-full)` for pill buttons). `npm run check:tokens` verifies it.

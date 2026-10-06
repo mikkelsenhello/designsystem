@@ -1,6 +1,7 @@
 /*
- * All design tokens: global raw values, then the default theme.
- * To rebrand, import tokens/global/*.css plus your own theme file instead of this one.
+ * All design tokens, in layer order: global raw values, component tokens, theme, color context.
+ * To rebrand, swap themes/default.css for your own theme file (keep the other imports).
+ * The theme comes after components so it can override component tokens.
  */
 
 @import "./global/color.css";
@@ -10,4 +11,8 @@
 @import "./global/typography.css";
 @import "./global/border.css";
 @import "./global/opacity.css";
+
+@import "./components/button.css";
+
 @import "./themes/default.css";
+@import "./color-context.css";

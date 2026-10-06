@@ -1,0 +1,6 @@
+/* Same setup a consuming app uses (see docs/tokens.md). */
+@import "tailwindcss";
+@import "../../tokens/index.css";
+@import "../../tokens/tailwind.css";
+
+@source "..";

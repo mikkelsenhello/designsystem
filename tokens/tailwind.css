@@ -36,10 +36,24 @@
   --breakpoint-2xl: 96rem;  /* 1536px */
 
   /* ------------------------------------------------------------------
-   * Color: utility = {bg|text|border}-{family}-{role}, same names as --ds-color-{family}-{role}
+   * Color. Two forms of every utility:
+   *   bg-surface-default, text-subtle, border-strong   follow the data-color context (color-context.css)
+   *   bg-primary-surface-default, text-danger-subtle   always that family
+   * text-* and border-* drop the role's redundant prefix: text-subtle = role text-subtle,
+   * border-strong = role border-strong.
    * ------------------------------------------------------------------ */
 
-  /* bg-* */
+  /* bg-{role}  (current data-color context) */
+  --background-color-background-default: var(--ds-color-background-default);
+  --background-color-background-tinted: var(--ds-color-background-tinted);
+  --background-color-surface-default: var(--ds-color-surface-default);
+  --background-color-surface-tinted: var(--ds-color-surface-tinted);
+  --background-color-surface-hover: var(--ds-color-surface-hover);
+  --background-color-surface-active: var(--ds-color-surface-active);
+  --background-color-base-default: var(--ds-color-base-default);
+  --background-color-base-hover: var(--ds-color-base-hover);
+  --background-color-base-active: var(--ds-color-base-active);
+  /* bg-{family}-{role}  (fixed family) */
   --background-color-neutral-background-default: var(--ds-color-neutral-background-default);
   --background-color-neutral-background-tinted: var(--ds-color-neutral-background-tinted);
   --background-color-neutral-surface-default: var(--ds-color-neutral-surface-default);
@@ -95,61 +109,69 @@
   --background-color-danger-base-hover: var(--ds-color-danger-base-hover);
   --background-color-danger-base-active: var(--ds-color-danger-base-active);
 
-  /* text-* */
-  --text-color-neutral-text-default: var(--ds-color-neutral-text-default);
-  --text-color-neutral-text-subtle: var(--ds-color-neutral-text-subtle);
+  /* text-{role}  (current data-color context) */
+  --text-color-default: var(--ds-color-text-default);
+  --text-color-subtle: var(--ds-color-text-subtle);
+  --text-color-base-contrast-default: var(--ds-color-base-contrast-default);
+  --text-color-base-contrast-subtle: var(--ds-color-base-contrast-subtle);
+  /* text-{family}-{role}  (fixed family) */
+  --text-color-neutral-default: var(--ds-color-neutral-text-default);
+  --text-color-neutral-subtle: var(--ds-color-neutral-text-subtle);
   --text-color-neutral-base-contrast-default: var(--ds-color-neutral-base-contrast-default);
   --text-color-neutral-base-contrast-subtle: var(--ds-color-neutral-base-contrast-subtle);
-  --text-color-primary-text-default: var(--ds-color-primary-text-default);
-  --text-color-primary-text-subtle: var(--ds-color-primary-text-subtle);
+  --text-color-primary-default: var(--ds-color-primary-text-default);
+  --text-color-primary-subtle: var(--ds-color-primary-text-subtle);
   --text-color-primary-base-contrast-default: var(--ds-color-primary-base-contrast-default);
   --text-color-primary-base-contrast-subtle: var(--ds-color-primary-base-contrast-subtle);
-  --text-color-info-text-default: var(--ds-color-info-text-default);
-  --text-color-info-text-subtle: var(--ds-color-info-text-subtle);
+  --text-color-info-default: var(--ds-color-info-text-default);
+  --text-color-info-subtle: var(--ds-color-info-text-subtle);
   --text-color-info-base-contrast-default: var(--ds-color-info-base-contrast-default);
   --text-color-info-base-contrast-subtle: var(--ds-color-info-base-contrast-subtle);
-  --text-color-success-text-default: var(--ds-color-success-text-default);
-  --text-color-success-text-subtle: var(--ds-color-success-text-subtle);
+  --text-color-success-default: var(--ds-color-success-text-default);
+  --text-color-success-subtle: var(--ds-color-success-text-subtle);
   --text-color-success-base-contrast-default: var(--ds-color-success-base-contrast-default);
   --text-color-success-base-contrast-subtle: var(--ds-color-success-base-contrast-subtle);
-  --text-color-warning-text-default: var(--ds-color-warning-text-default);
-  --text-color-warning-text-subtle: var(--ds-color-warning-text-subtle);
+  --text-color-warning-default: var(--ds-color-warning-text-default);
+  --text-color-warning-subtle: var(--ds-color-warning-text-subtle);
   --text-color-warning-base-contrast-default: var(--ds-color-warning-base-contrast-default);
   --text-color-warning-base-contrast-subtle: var(--ds-color-warning-base-contrast-subtle);
-  --text-color-danger-text-default: var(--ds-color-danger-text-default);
-  --text-color-danger-text-subtle: var(--ds-color-danger-text-subtle);
+  --text-color-danger-default: var(--ds-color-danger-text-default);
+  --text-color-danger-subtle: var(--ds-color-danger-text-subtle);
   --text-color-danger-base-contrast-default: var(--ds-color-danger-base-contrast-default);
   --text-color-danger-base-contrast-subtle: var(--ds-color-danger-base-contrast-subtle);
 
-  /* border-* / divide-* */
-  --border-color-neutral-border-subtle: var(--ds-color-neutral-border-subtle);
-  --border-color-neutral-border-default: var(--ds-color-neutral-border-default);
-  --border-color-neutral-border-strong: var(--ds-color-neutral-border-strong);
+  /* border- / divide-{role}  (current data-color context) */
+  --border-color-subtle: var(--ds-color-border-subtle);
+  --border-color-default: var(--ds-color-border-default);
+  --border-color-strong: var(--ds-color-border-strong);
+  --border-color-base-default: var(--ds-color-base-default);
+  /* border- / divide-{family}-{role}  (fixed family) */
+  --border-color-neutral-subtle: var(--ds-color-neutral-border-subtle);
+  --border-color-neutral-default: var(--ds-color-neutral-border-default);
+  --border-color-neutral-strong: var(--ds-color-neutral-border-strong);
   --border-color-neutral-base-default: var(--ds-color-neutral-base-default);
-  --border-color-primary-border-subtle: var(--ds-color-primary-border-subtle);
-  --border-color-primary-border-default: var(--ds-color-primary-border-default);
-  --border-color-primary-border-strong: var(--ds-color-primary-border-strong);
+  --border-color-primary-subtle: var(--ds-color-primary-border-subtle);
+  --border-color-primary-default: var(--ds-color-primary-border-default);
+  --border-color-primary-strong: var(--ds-color-primary-border-strong);
   --border-color-primary-base-default: var(--ds-color-primary-base-default);
-  --border-color-info-border-subtle: var(--ds-color-info-border-subtle);
-  --border-color-info-border-default: var(--ds-color-info-border-default);
-  --border-color-info-border-strong: var(--ds-color-info-border-strong);
+  --border-color-info-subtle: var(--ds-color-info-border-subtle);
+  --border-color-info-default: var(--ds-color-info-border-default);
+  --border-color-info-strong: var(--ds-color-info-border-strong);
   --border-color-info-base-default: var(--ds-color-info-base-default);
-  --border-color-success-border-subtle: var(--ds-color-success-border-subtle);
-  --border-color-success-border-default: var(--ds-color-success-border-default);
-  --border-color-success-border-strong: var(--ds-color-success-border-strong);
+  --border-color-success-subtle: var(--ds-color-success-border-subtle);
+  --border-color-success-default: var(--ds-color-success-border-default);
+  --border-color-success-strong: var(--ds-color-success-border-strong);
   --border-color-success-base-default: var(--ds-color-success-base-default);
-  --border-color-warning-border-subtle: var(--ds-color-warning-border-subtle);
-  --border-color-warning-border-default: var(--ds-color-warning-border-default);
-  --border-color-warning-border-strong: var(--ds-color-warning-border-strong);
+  --border-color-warning-subtle: var(--ds-color-warning-border-subtle);
+  --border-color-warning-default: var(--ds-color-warning-border-default);
+  --border-color-warning-strong: var(--ds-color-warning-border-strong);
   --border-color-warning-base-default: var(--ds-color-warning-base-default);
-  --border-color-danger-border-subtle: var(--ds-color-danger-border-subtle);
-  --border-color-danger-border-default: var(--ds-color-danger-border-default);
-  --border-color-danger-border-strong: var(--ds-color-danger-border-strong);
+  --border-color-danger-subtle: var(--ds-color-danger-border-subtle);
+  --border-color-danger-default: var(--ds-color-danger-border-default);
+  --border-color-danger-strong: var(--ds-color-danger-border-strong);
   --border-color-danger-base-default: var(--ds-color-danger-base-default);
 
   --text-color-link-visited: var(--ds-color-link-visited);
-  --outline-color-focus-outer: var(--ds-color-focus-outer);
-  --ring-color-focus-inner: var(--ds-color-focus-inner);
 
   /* ------------------------------------------------------------------
    * Spacing: p-*, m-*, gap-*, w-*, h-*, size-*, inset-*, ... (N x 4px)
@@ -266,6 +288,23 @@
   --radius-full: var(--ds-radius-full);
   --radius-default: var(--ds-radius-default);
 
+  /* ------------------------------------------------------------------
+   * Component tokens (tokens/components/*.css). Key = token name without --ds-,
+   * e.g. --ds-button-padding-x-md -> px-button-padding-x-md. For use inside src/components only.
+   * ------------------------------------------------------------------ */
+
+  /* Button */
+  --radius-button: var(--ds-button-radius);
+  --font-weight-button: var(--ds-button-font-weight);
+  --spacing-button-gap: var(--ds-button-gap);
+  --spacing-button-padding-y: var(--ds-button-padding-y);
+  --spacing-button-height-sm: var(--ds-button-height-sm);
+  --spacing-button-height-md: var(--ds-button-height-md);
+  --spacing-button-height-lg: var(--ds-button-height-lg);
+  --spacing-button-padding-x-sm: var(--ds-button-padding-x-sm);
+  --spacing-button-padding-x-md: var(--ds-button-padding-x-md);
+  --spacing-button-padding-x-lg: var(--ds-button-padding-x-lg);
+
   /* shadow-{xs|sm|md|lg|xl} */
   --shadow-xs: var(--ds-shadow-xs);
   --shadow-sm: var(--ds-shadow-sm);
@@ -288,6 +327,15 @@
 /* Utilities with no Tailwind theme namespace */
 @utility opacity-disabled {
   opacity: var(--ds-opacity-disabled);
+}
+
+/* Keyboard focus ring (designsystemet's two-tone style): inner ring + outer outline, visible on any fill. */
+@utility focus-ring {
+  &:focus-visible {
+    box-shadow: 0 0 0 var(--ds-border-width-focus) var(--ds-color-focus-inner);
+    outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+    outline-offset: var(--ds-border-width-focus);
+  }
 }
 
 @utility border-width-default {

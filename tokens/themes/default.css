@@ -15,6 +15,10 @@
  *   data-color-scheme="auto"   follows the OS setting
  *   data-color-scheme="light"  always light (e.g. a light area inside a dark page)
  * Every color token uses light-dark(), so these rules are all the switching a theme needs.
+ *
+ * The token block below is declared on `:root, [data-color-scheme]`, not just :root. Required:
+ * Tailwind's build rewrites light-dark() for older browsers into a form that is resolved where
+ * the token is declared, so each color-scheme boundary must re-declare the tokens.
  * ------------------------------------------------------------------ */
 
 :root,
@@ -30,7 +34,8 @@
   color-scheme: light dark;
 }
 
-:root {
+:root,
+[data-color-scheme] {
   /* ------------------------------------------------------------------
    * Color: --ds-color-{family}-{role}
    *

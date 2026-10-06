@@ -79,7 +79,13 @@ Configure Tailwind so its theme (`colors`, `spacing`, `borderRadius`, etc.) poin
 ### Phase 3 — Component token layer
 For each component we're about to build, a small `tokens/components/<name>.css` mapping theme tokens → component-specific variables (e.g. `--button-bg-hover: color-mix(in srgb, var(--color-primary) 85%, black)`). Keeps component code itself free of any styling decisions — it only reads component tokens.
 
+**Decided (Phase 3, in progress per component):** component tokens hold only per-component *knobs* a brand might tune (radius, heights, padding, weight), not colors. Colors come from a **color context** (`tokens/color-context.css`, designsystemet's `data-color` pattern): family-less tokens `--ds-color-{role}` that `data-color="primary|danger|…"` re-points; default context is `neutral`. Components set `data-color` from their `color` prop and use family-less classes (`bg-base-default`), so variants × colors need no extra code. Themes may override component tokens. Tailwind key = component token name without `--ds-` (`--ds-button-radius` → `rounded-button`).
+
+**Dark-mode gotcha (found in Phase 4 visual QA):** Tailwind's Lightning CSS rewrites `light-dark()` for older browsers into a form resolved where the token is *declared*, so theme and context tokens are declared on `:root, [data-color-scheme]`, not just `:root`. Side effect: `data-color-scheme` resets the color context to neutral on that element.
+
 ### Phase 4 — Build components, in the order the landing page needs them
+
+**Progress:** Heading, Paragraph, Label, Button done (playground: `npm run playground`, each page shows light + dark side by side). Components ship as `.tsx` source, so a Next.js consumer needs `transpilePackages: ["designsystem"]` (Phase 9 docs). No `tailwind-merge`: it can't tell `text-heading-lg` (size) from `text-subtle` (color) and would drop one.
 First batch (unblocks the newsletter landing page): **Heading, Paragraph, Label, Button, Textfield (email capture), Checkbox (consent), Card, Badge, Accordion (FAQ — not in designsystemet's list; built the same token-driven way as an extension)**. Each one:
 - Built with Tailwind utilities that only reference tokens (Radix primitive underneath for Accordion's expand/collapse behavior).
 - Colocated `README.md`: use for / **don't use for** / props / a wrong→right example.
