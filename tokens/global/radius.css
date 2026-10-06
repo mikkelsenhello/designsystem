@@ -1,0 +1,18 @@
+/*
+ * Global border-radius scale: raw values only, no meaning.
+ * Source: designsystemet.no (Digdir), design-tokens/themes/designsystemet.json (border-radius)
+ * @digdir/designsystemet v1.23.0, MIT. See NOTICE.md.
+ *
+ * designsystemet defines radius from base = 4px and scale = 4px:
+ *   1 = min(base*0.5, scale)    2 = min(base, scale*2)    3 = min(base*2, scale*5)
+ *   4 = min(base*3, scale*7)    5 ("default") = base      6 ("full") = 9999px
+ * Resolved to static values here. Their "default" (= 4px) is a meaning and belongs in the theme layer.
+ */
+
+:root {
+  --radius-1: 0.125rem;     /* 2px  (designsystemet: sm) */
+  --radius-2: 0.25rem;      /* 4px  (designsystemet: md, also default) */
+  --radius-3: 0.5rem;       /* 8px  (designsystemet: lg) */
+  --radius-4: 0.75rem;      /* 12px (designsystemet: xl) */
+  --radius-full: 9999px;    /* pill / circle (designsystemet: full) */
+}

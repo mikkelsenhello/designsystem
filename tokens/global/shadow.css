@@ -1,0 +1,16 @@
+/*
+ * Global shadow/elevation scale: raw values only, no meaning.
+ * Source: designsystemet.no (Digdir), design-tokens/primitives/globals.json (shadow.100–500)
+ * @digdir/designsystemet v1.23.0, MIT. See NOTICE.md.
+ *
+ * Each step layers a 1px hairline with progressively larger, softer drop shadows.
+ * designsystemet exposes these as xs / sm / md / lg / xl.
+ */
+
+:root {
+  --shadow-100: 0 0 1px 0 rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  --shadow-200: 0 0 1px 0 rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-300: 0 0 1px 0 rgba(0, 0, 0, 0.14), 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.12);
+  --shadow-400: 0 0 1px 0 rgba(0, 0, 0, 0.13), 0 3px 5px 0 rgba(0, 0, 0, 0.13), 0 6px 12px 0 rgba(0, 0, 0, 0.14);
+  --shadow-500: 0 0 1px 0 rgba(0, 0, 0, 0.12), 0 4px 8px 0 rgba(0, 0, 0, 0.16), 0 12px 24px 0 rgba(0, 0, 0, 0.16);
+}
