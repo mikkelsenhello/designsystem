@@ -14,5 +14,5 @@
   --radius-2: 0.25rem;      /* 4px  (designsystemet: md, also default) */
   --radius-3: 0.5rem;       /* 8px  (designsystemet: lg) */
   --radius-4: 0.75rem;      /* 12px (designsystemet: xl) */
-  --radius-full: 9999px;    /* pill / circle (designsystemet: full) */
+  --radius-max: 9999px;     /* pill / circle (designsystemet: full) */
 }

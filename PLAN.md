@@ -67,6 +67,8 @@ Build `tokens/themes/default.css`: give the global tokens meaning (`--color-prim
 
 **Output:** `tokens/themes/default.css`, with every semantic name documented (what it's *for*, so a second theme author knows what to fill in).
 
+**Decided (Phase 1 done):** color names follow designsystemet's role system, `--color-{family}-{role}` (families: neutral, primary, info, success, warning, danger; 16 roles each, e.g. `--color-primary-base-default`, `--color-neutral-text-subtle`) rather than the flat `--color-primary`/`--color-surface` examples above. Dark mode is built in via CSS `light-dark()`; light is default, opt in with `data-color-scheme="dark|auto"`. Spacing is not themed (Tailwind maps `--space-*` from global directly).
+
 ### Phase 2 — Wire Tailwind to tokens
 Configure Tailwind so its theme (`colors`, `spacing`, `borderRadius`, etc.) points at the CSS variables from Phase 1, not Tailwind's own defaults. Add the escape-hatch rule in docs: "if a value you need isn't a token, stop and add one — don't reach for a raw Tailwind class."
 

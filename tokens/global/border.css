@@ -1,0 +1,10 @@
+/*
+ * Global border-width scale: raw values only, no meaning.
+ * Source: designsystemet.no (Digdir), design-tokens/primitives/globals.json (border-width)
+ * @digdir/designsystemet v1.23.0, MIT. See NOTICE.md.
+ */
+
+:root {
+  --border-width-1: 1px;
+  --border-width-3: 3px;
+}

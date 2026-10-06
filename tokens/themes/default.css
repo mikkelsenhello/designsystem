@@ -1,0 +1,281 @@
+/*
+ * Default theme: the meaning layer. This is the file that gets swapped to rebrand.
+ *
+ * Mirrors designsystemet.no's own semantic layer (see NOTICE.md). Components and Tailwind only
+ * reference the names defined here, never tokens/global/ directly. A second theme must define
+ * every custom property in this file under the same names; only the var(...) values change.
+ * Load all of tokens/global/*.css before this file.
+ *
+ * Not themed: spacing. Tailwind maps tokens/global/spacing.css (--space-*) directly.
+ */
+
+/* ------------------------------------------------------------------
+ * Color scheme. Light by default. Opt in to dark mode on any element:
+ *   data-color-scheme="dark"   always dark
+ *   data-color-scheme="auto"   follows the OS setting
+ *   data-color-scheme="light"  always light (e.g. a light area inside a dark page)
+ * Every color token uses light-dark(), so these rules are all the switching a theme needs.
+ * ------------------------------------------------------------------ */
+
+:root,
+[data-color-scheme="light"] {
+  color-scheme: light;
+}
+
+[data-color-scheme="dark"] {
+  color-scheme: dark;
+}
+
+[data-color-scheme="auto"] {
+  color-scheme: light dark;
+}
+
+:root {
+  /* ------------------------------------------------------------------
+   * Color: --color-{family}-{role}
+   *
+   * Every family has the same 16 roles. Pick the family by meaning, the role by job:
+   *
+   *   background-default     Page background.
+   *   background-tinted      Tinted page background, e.g. an alternating section band.
+   *   surface-default        Components sitting on the page: cards, inputs, menus.
+   *   surface-tinted         Subtly tinted surface: highlighted card, selected row.
+   *   surface-hover          Surface in hover state.
+   *   surface-active         Surface in pressed / active state.
+   *   border-subtle          Decorative borders and dividers (no contrast requirement).
+   *   border-default         Borders of interactive controls: inputs, checkboxes (meets 3:1).
+   *   border-strong          Borders that need more emphasis than border-default.
+   *   text-subtle            Secondary text: descriptions, help text, metadata.
+   *   text-default           Main text.
+   *   base-default           Solid fill: primary button, filled badge, checked checkbox.
+   *   base-hover             Solid fill in hover state.
+   *   base-active            Solid fill in pressed / active state.
+   *   base-contrast-subtle   Secondary text or icons on a base fill.
+   *   base-contrast-default  Text and icons on a base fill, e.g. a primary button label.
+   * ------------------------------------------------------------------ */
+
+  /* neutral: Default UI color: page, cards, body text, borders, neutral buttons. */
+  --color-neutral-background-default: light-dark(var(--gray-1), var(--gray-dark-1));
+  --color-neutral-background-tinted: light-dark(var(--gray-2), var(--gray-dark-2));
+  --color-neutral-surface-default: light-dark(var(--gray-3), var(--gray-dark-3));
+  --color-neutral-surface-tinted: light-dark(var(--gray-4), var(--gray-dark-4));
+  --color-neutral-surface-hover: light-dark(var(--gray-5), var(--gray-dark-5));
+  --color-neutral-surface-active: light-dark(var(--gray-6), var(--gray-dark-6));
+  --color-neutral-border-subtle: light-dark(var(--gray-7), var(--gray-dark-7));
+  --color-neutral-border-default: light-dark(var(--gray-8), var(--gray-dark-8));
+  --color-neutral-border-strong: light-dark(var(--gray-9), var(--gray-dark-9));
+  --color-neutral-text-subtle: light-dark(var(--gray-10), var(--gray-dark-10));
+  --color-neutral-text-default: light-dark(var(--gray-11), var(--gray-dark-11));
+  --color-neutral-base-default: light-dark(var(--gray-12), var(--gray-dark-12));
+  --color-neutral-base-hover: light-dark(var(--gray-13), var(--gray-dark-13));
+  --color-neutral-base-active: light-dark(var(--gray-14), var(--gray-dark-14));
+  --color-neutral-base-contrast-subtle: light-dark(var(--gray-15), var(--gray-dark-15));
+  --color-neutral-base-contrast-default: light-dark(var(--gray-16), var(--gray-dark-16));
+
+  /* primary: Brand / main action color: primary buttons, links, selected and focused states. */
+  --color-primary-background-default: light-dark(var(--blue-1), var(--blue-dark-1));
+  --color-primary-background-tinted: light-dark(var(--blue-2), var(--blue-dark-2));
+  --color-primary-surface-default: light-dark(var(--blue-3), var(--blue-dark-3));
+  --color-primary-surface-tinted: light-dark(var(--blue-4), var(--blue-dark-4));
+  --color-primary-surface-hover: light-dark(var(--blue-5), var(--blue-dark-5));
+  --color-primary-surface-active: light-dark(var(--blue-6), var(--blue-dark-6));
+  --color-primary-border-subtle: light-dark(var(--blue-7), var(--blue-dark-7));
+  --color-primary-border-default: light-dark(var(--blue-8), var(--blue-dark-8));
+  --color-primary-border-strong: light-dark(var(--blue-9), var(--blue-dark-9));
+  --color-primary-text-subtle: light-dark(var(--blue-10), var(--blue-dark-10));
+  --color-primary-text-default: light-dark(var(--blue-11), var(--blue-dark-11));
+  --color-primary-base-default: light-dark(var(--blue-12), var(--blue-dark-12));
+  --color-primary-base-hover: light-dark(var(--blue-13), var(--blue-dark-13));
+  --color-primary-base-active: light-dark(var(--blue-14), var(--blue-dark-14));
+  --color-primary-base-contrast-subtle: light-dark(var(--blue-15), var(--blue-dark-15));
+  --color-primary-base-contrast-default: light-dark(var(--blue-16), var(--blue-dark-16));
+
+  /* info: Informational messages and badges. */
+  --color-info-background-default: light-dark(var(--sky-1), var(--sky-dark-1));
+  --color-info-background-tinted: light-dark(var(--sky-2), var(--sky-dark-2));
+  --color-info-surface-default: light-dark(var(--sky-3), var(--sky-dark-3));
+  --color-info-surface-tinted: light-dark(var(--sky-4), var(--sky-dark-4));
+  --color-info-surface-hover: light-dark(var(--sky-5), var(--sky-dark-5));
+  --color-info-surface-active: light-dark(var(--sky-6), var(--sky-dark-6));
+  --color-info-border-subtle: light-dark(var(--sky-7), var(--sky-dark-7));
+  --color-info-border-default: light-dark(var(--sky-8), var(--sky-dark-8));
+  --color-info-border-strong: light-dark(var(--sky-9), var(--sky-dark-9));
+  --color-info-text-subtle: light-dark(var(--sky-10), var(--sky-dark-10));
+  --color-info-text-default: light-dark(var(--sky-11), var(--sky-dark-11));
+  --color-info-base-default: light-dark(var(--sky-12), var(--sky-dark-12));
+  --color-info-base-hover: light-dark(var(--sky-13), var(--sky-dark-13));
+  --color-info-base-active: light-dark(var(--sky-14), var(--sky-dark-14));
+  --color-info-base-contrast-subtle: light-dark(var(--sky-15), var(--sky-dark-15));
+  --color-info-base-contrast-default: light-dark(var(--sky-16), var(--sky-dark-16));
+
+  /* success: Success and confirmation states. */
+  --color-success-background-default: light-dark(var(--green-1), var(--green-dark-1));
+  --color-success-background-tinted: light-dark(var(--green-2), var(--green-dark-2));
+  --color-success-surface-default: light-dark(var(--green-3), var(--green-dark-3));
+  --color-success-surface-tinted: light-dark(var(--green-4), var(--green-dark-4));
+  --color-success-surface-hover: light-dark(var(--green-5), var(--green-dark-5));
+  --color-success-surface-active: light-dark(var(--green-6), var(--green-dark-6));
+  --color-success-border-subtle: light-dark(var(--green-7), var(--green-dark-7));
+  --color-success-border-default: light-dark(var(--green-8), var(--green-dark-8));
+  --color-success-border-strong: light-dark(var(--green-9), var(--green-dark-9));
+  --color-success-text-subtle: light-dark(var(--green-10), var(--green-dark-10));
+  --color-success-text-default: light-dark(var(--green-11), var(--green-dark-11));
+  --color-success-base-default: light-dark(var(--green-12), var(--green-dark-12));
+  --color-success-base-hover: light-dark(var(--green-13), var(--green-dark-13));
+  --color-success-base-active: light-dark(var(--green-14), var(--green-dark-14));
+  --color-success-base-contrast-subtle: light-dark(var(--green-15), var(--green-dark-15));
+  --color-success-base-contrast-default: light-dark(var(--green-16), var(--green-dark-16));
+
+  /* warning: Warnings that need attention but do not block. */
+  --color-warning-background-default: light-dark(var(--orange-1), var(--orange-dark-1));
+  --color-warning-background-tinted: light-dark(var(--orange-2), var(--orange-dark-2));
+  --color-warning-surface-default: light-dark(var(--orange-3), var(--orange-dark-3));
+  --color-warning-surface-tinted: light-dark(var(--orange-4), var(--orange-dark-4));
+  --color-warning-surface-hover: light-dark(var(--orange-5), var(--orange-dark-5));
+  --color-warning-surface-active: light-dark(var(--orange-6), var(--orange-dark-6));
+  --color-warning-border-subtle: light-dark(var(--orange-7), var(--orange-dark-7));
+  --color-warning-border-default: light-dark(var(--orange-8), var(--orange-dark-8));
+  --color-warning-border-strong: light-dark(var(--orange-9), var(--orange-dark-9));
+  --color-warning-text-subtle: light-dark(var(--orange-10), var(--orange-dark-10));
+  --color-warning-text-default: light-dark(var(--orange-11), var(--orange-dark-11));
+  --color-warning-base-default: light-dark(var(--orange-12), var(--orange-dark-12));
+  --color-warning-base-hover: light-dark(var(--orange-13), var(--orange-dark-13));
+  --color-warning-base-active: light-dark(var(--orange-14), var(--orange-dark-14));
+  --color-warning-base-contrast-subtle: light-dark(var(--orange-15), var(--orange-dark-15));
+  --color-warning-base-contrast-default: light-dark(var(--orange-16), var(--orange-dark-16));
+
+  /* danger: Errors, destructive actions, invalid fields. */
+  --color-danger-background-default: light-dark(var(--red-1), var(--red-dark-1));
+  --color-danger-background-tinted: light-dark(var(--red-2), var(--red-dark-2));
+  --color-danger-surface-default: light-dark(var(--red-3), var(--red-dark-3));
+  --color-danger-surface-tinted: light-dark(var(--red-4), var(--red-dark-4));
+  --color-danger-surface-hover: light-dark(var(--red-5), var(--red-dark-5));
+  --color-danger-surface-active: light-dark(var(--red-6), var(--red-dark-6));
+  --color-danger-border-subtle: light-dark(var(--red-7), var(--red-dark-7));
+  --color-danger-border-default: light-dark(var(--red-8), var(--red-dark-8));
+  --color-danger-border-strong: light-dark(var(--red-9), var(--red-dark-9));
+  --color-danger-text-subtle: light-dark(var(--red-10), var(--red-dark-10));
+  --color-danger-text-default: light-dark(var(--red-11), var(--red-dark-11));
+  --color-danger-base-default: light-dark(var(--red-12), var(--red-dark-12));
+  --color-danger-base-hover: light-dark(var(--red-13), var(--red-dark-13));
+  --color-danger-base-active: light-dark(var(--red-14), var(--red-dark-14));
+  --color-danger-base-contrast-subtle: light-dark(var(--red-15), var(--red-dark-15));
+  --color-danger-base-contrast-default: light-dark(var(--red-16), var(--red-dark-16));
+
+  /* Visited links. Unvisited links use --color-primary-text-default. */
+  --color-link-visited: light-dark(var(--violet), var(--violet-dark));
+
+  /* Focus ring: two-tone outline (inner, then outer) so it stays visible on light and dark fills. */
+  --color-focus-inner: light-dark(var(--gray-1), var(--gray-dark-1));
+  --color-focus-outer: light-dark(var(--gray-11), var(--gray-dark-11));
+
+  /* ------------------------------------------------------------------
+   * Typography
+   * ------------------------------------------------------------------ */
+
+  /* Font families. Same family in the default theme; a brand can give headings their own. */
+  --font-family-heading: var(--font-inter);
+  --font-family-body: var(--font-inter);
+
+  /* Font weights, by role */
+  --font-weight-regular: var(--font-weight-400);   /* body text */
+  --font-weight-medium: var(--font-weight-500);    /* headings, labels, buttons */
+  --font-weight-semibold: var(--font-weight-600);  /* strong emphasis */
+
+  /* Heading styles: --text-heading-{size}-{property}. 2xl is the largest (hero), 2xs the smallest.
+     Choose the size by visual weight, independent of the HTML heading level (h1–h6). */
+  --text-heading-2xl-font-size: var(--font-size-10);
+  --text-heading-2xl-line-height: var(--line-height-130);
+  --text-heading-2xl-font-weight: var(--font-weight-medium);
+  --text-heading-2xl-letter-spacing: var(--letter-spacing-1);
+
+  --text-heading-xl-font-size: var(--font-size-9);
+  --text-heading-xl-line-height: var(--line-height-130);
+  --text-heading-xl-font-weight: var(--font-weight-medium);
+  --text-heading-xl-letter-spacing: var(--letter-spacing-1);
+
+  --text-heading-lg-font-size: var(--font-size-8);
+  --text-heading-lg-line-height: var(--line-height-130);
+  --text-heading-lg-font-weight: var(--font-weight-medium);
+  --text-heading-lg-letter-spacing: var(--letter-spacing-2);
+
+  --text-heading-md-font-size: var(--font-size-7);
+  --text-heading-md-line-height: var(--line-height-130);
+  --text-heading-md-font-weight: var(--font-weight-medium);
+  --text-heading-md-letter-spacing: var(--letter-spacing-3);
+
+  --text-heading-sm-font-size: var(--font-size-6);
+  --text-heading-sm-line-height: var(--line-height-130);
+  --text-heading-sm-font-weight: var(--font-weight-medium);
+  --text-heading-sm-letter-spacing: var(--letter-spacing-5);
+
+  --text-heading-xs-font-size: var(--font-size-5);
+  --text-heading-xs-line-height: var(--line-height-130);
+  --text-heading-xs-font-weight: var(--font-weight-medium);
+  --text-heading-xs-letter-spacing: var(--letter-spacing-6);
+
+  --text-heading-2xs-font-size: var(--font-size-4);
+  --text-heading-2xs-line-height: var(--line-height-130);
+  --text-heading-2xs-font-weight: var(--font-weight-medium);
+  --text-heading-2xs-letter-spacing: var(--letter-spacing-6);
+
+  /* Body styles: --text-body-{size}-{property}. md is the default body size. */
+  --text-body-xl-font-size: var(--font-size-6);
+  --text-body-xl-line-height: var(--line-height-150);
+  --text-body-xl-font-weight: var(--font-weight-regular);
+  --text-body-xl-letter-spacing: var(--letter-spacing-8);
+
+  --text-body-lg-font-size: var(--font-size-5);
+  --text-body-lg-line-height: var(--line-height-150);
+  --text-body-lg-font-weight: var(--font-weight-regular);
+  --text-body-lg-letter-spacing: var(--letter-spacing-8);
+
+  --text-body-md-font-size: var(--font-size-4);
+  --text-body-md-line-height: var(--line-height-150);
+  --text-body-md-font-weight: var(--font-weight-regular);
+  --text-body-md-letter-spacing: var(--letter-spacing-8);
+
+  --text-body-sm-font-size: var(--font-size-3);
+  --text-body-sm-line-height: var(--line-height-150);
+  --text-body-sm-font-weight: var(--font-weight-regular);
+  --text-body-sm-letter-spacing: var(--letter-spacing-7);
+
+  --text-body-xs-font-size: var(--font-size-2);
+  --text-body-xs-line-height: var(--line-height-150);
+  --text-body-xs-font-weight: var(--font-weight-regular);
+  --text-body-xs-letter-spacing: var(--letter-spacing-6);
+
+  /* Body line-height variants, usable with any body size:
+     short = single-line UI text (buttons, labels, table cells); long = long-form reading. */
+  --text-body-short-line-height: var(--line-height-130);
+  --text-body-long-line-height: var(--line-height-170);
+
+  /* ------------------------------------------------------------------
+   * Shape
+   * ------------------------------------------------------------------ */
+
+  /* Border radius */
+  --radius-sm: var(--radius-1);        /* small inner details: checkbox, tag */
+  --radius-md: var(--radius-2);        /* controls: buttons, inputs */
+  --radius-lg: var(--radius-3);        /* containers: cards, dialogs */
+  --radius-xl: var(--radius-4);        /* large containers, hero panels */
+  --radius-full: var(--radius-max);    /* pills and circles: avatars, badges */
+  --radius-default: var(--radius-md);  /* when unsure; change this one value to re-round the brand */
+
+  /* Border width */
+  --border-width-default: var(--border-width-1);  /* all component borders */
+  --border-width-focus: var(--border-width-3);    /* focus ring */
+
+  /* Shadow / elevation, low to high */
+  --shadow-xs: var(--shadow-100);  /* barely raised: inputs, small cards */
+  --shadow-sm: var(--shadow-200);  /* cards */
+  --shadow-md: var(--shadow-300);  /* dropdowns, popovers */
+  --shadow-lg: var(--shadow-400);  /* sticky headers, floating panels */
+  --shadow-xl: var(--shadow-500);  /* dialogs, modals */
+
+  /* ------------------------------------------------------------------
+   * State
+   * ------------------------------------------------------------------ */
+
+  --opacity-disabled: var(--opacity-30);  /* disabled controls */
+}

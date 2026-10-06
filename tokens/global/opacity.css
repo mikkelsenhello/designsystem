@@ -1,0 +1,9 @@
+/*
+ * Global opacity scale: raw values only, no meaning.
+ * Source: designsystemet.no (Digdir), design-tokens/primitives/globals.json (opacity)
+ * @digdir/designsystemet v1.23.0, MIT. See NOTICE.md.
+ */
+
+:root {
+  --opacity-30: 30%;
+}
