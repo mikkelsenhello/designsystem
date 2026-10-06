@@ -1,0 +1,13 @@
+/*
+ * All design tokens: global raw values, then the default theme.
+ * To rebrand, import tokens/global/*.css plus your own theme file instead of this one.
+ */
+
+@import "./global/color.css";
+@import "./global/spacing.css";
+@import "./global/radius.css";
+@import "./global/shadow.css";
+@import "./global/typography.css";
+@import "./global/border.css";
+@import "./global/opacity.css";
+@import "./themes/default.css";

@@ -6,7 +6,7 @@
  * every custom property in this file under the same names; only the var(...) values change.
  * Load all of tokens/global/*.css before this file.
  *
- * Not themed: spacing. Tailwind maps tokens/global/spacing.css (--space-*) directly.
+ * Not themed: spacing. Tailwind maps tokens/global/spacing.css (--ds-space-*) directly.
  */
 
 /* ------------------------------------------------------------------
@@ -32,7 +32,7 @@
 
 :root {
   /* ------------------------------------------------------------------
-   * Color: --color-{family}-{role}
+   * Color: --ds-color-{family}-{role}
    *
    * Every family has the same 16 roles. Pick the family by meaning, the role by job:
    *
@@ -55,227 +55,227 @@
    * ------------------------------------------------------------------ */
 
   /* neutral: Default UI color: page, cards, body text, borders, neutral buttons. */
-  --color-neutral-background-default: light-dark(var(--gray-1), var(--gray-dark-1));
-  --color-neutral-background-tinted: light-dark(var(--gray-2), var(--gray-dark-2));
-  --color-neutral-surface-default: light-dark(var(--gray-3), var(--gray-dark-3));
-  --color-neutral-surface-tinted: light-dark(var(--gray-4), var(--gray-dark-4));
-  --color-neutral-surface-hover: light-dark(var(--gray-5), var(--gray-dark-5));
-  --color-neutral-surface-active: light-dark(var(--gray-6), var(--gray-dark-6));
-  --color-neutral-border-subtle: light-dark(var(--gray-7), var(--gray-dark-7));
-  --color-neutral-border-default: light-dark(var(--gray-8), var(--gray-dark-8));
-  --color-neutral-border-strong: light-dark(var(--gray-9), var(--gray-dark-9));
-  --color-neutral-text-subtle: light-dark(var(--gray-10), var(--gray-dark-10));
-  --color-neutral-text-default: light-dark(var(--gray-11), var(--gray-dark-11));
-  --color-neutral-base-default: light-dark(var(--gray-12), var(--gray-dark-12));
-  --color-neutral-base-hover: light-dark(var(--gray-13), var(--gray-dark-13));
-  --color-neutral-base-active: light-dark(var(--gray-14), var(--gray-dark-14));
-  --color-neutral-base-contrast-subtle: light-dark(var(--gray-15), var(--gray-dark-15));
-  --color-neutral-base-contrast-default: light-dark(var(--gray-16), var(--gray-dark-16));
+  --ds-color-neutral-background-default: light-dark(var(--ds-gray-1), var(--ds-gray-dark-1));
+  --ds-color-neutral-background-tinted: light-dark(var(--ds-gray-2), var(--ds-gray-dark-2));
+  --ds-color-neutral-surface-default: light-dark(var(--ds-gray-3), var(--ds-gray-dark-3));
+  --ds-color-neutral-surface-tinted: light-dark(var(--ds-gray-4), var(--ds-gray-dark-4));
+  --ds-color-neutral-surface-hover: light-dark(var(--ds-gray-5), var(--ds-gray-dark-5));
+  --ds-color-neutral-surface-active: light-dark(var(--ds-gray-6), var(--ds-gray-dark-6));
+  --ds-color-neutral-border-subtle: light-dark(var(--ds-gray-7), var(--ds-gray-dark-7));
+  --ds-color-neutral-border-default: light-dark(var(--ds-gray-8), var(--ds-gray-dark-8));
+  --ds-color-neutral-border-strong: light-dark(var(--ds-gray-9), var(--ds-gray-dark-9));
+  --ds-color-neutral-text-subtle: light-dark(var(--ds-gray-10), var(--ds-gray-dark-10));
+  --ds-color-neutral-text-default: light-dark(var(--ds-gray-11), var(--ds-gray-dark-11));
+  --ds-color-neutral-base-default: light-dark(var(--ds-gray-12), var(--ds-gray-dark-12));
+  --ds-color-neutral-base-hover: light-dark(var(--ds-gray-13), var(--ds-gray-dark-13));
+  --ds-color-neutral-base-active: light-dark(var(--ds-gray-14), var(--ds-gray-dark-14));
+  --ds-color-neutral-base-contrast-subtle: light-dark(var(--ds-gray-15), var(--ds-gray-dark-15));
+  --ds-color-neutral-base-contrast-default: light-dark(var(--ds-gray-16), var(--ds-gray-dark-16));
 
   /* primary: Brand / main action color: primary buttons, links, selected and focused states. */
-  --color-primary-background-default: light-dark(var(--blue-1), var(--blue-dark-1));
-  --color-primary-background-tinted: light-dark(var(--blue-2), var(--blue-dark-2));
-  --color-primary-surface-default: light-dark(var(--blue-3), var(--blue-dark-3));
-  --color-primary-surface-tinted: light-dark(var(--blue-4), var(--blue-dark-4));
-  --color-primary-surface-hover: light-dark(var(--blue-5), var(--blue-dark-5));
-  --color-primary-surface-active: light-dark(var(--blue-6), var(--blue-dark-6));
-  --color-primary-border-subtle: light-dark(var(--blue-7), var(--blue-dark-7));
-  --color-primary-border-default: light-dark(var(--blue-8), var(--blue-dark-8));
-  --color-primary-border-strong: light-dark(var(--blue-9), var(--blue-dark-9));
-  --color-primary-text-subtle: light-dark(var(--blue-10), var(--blue-dark-10));
-  --color-primary-text-default: light-dark(var(--blue-11), var(--blue-dark-11));
-  --color-primary-base-default: light-dark(var(--blue-12), var(--blue-dark-12));
-  --color-primary-base-hover: light-dark(var(--blue-13), var(--blue-dark-13));
-  --color-primary-base-active: light-dark(var(--blue-14), var(--blue-dark-14));
-  --color-primary-base-contrast-subtle: light-dark(var(--blue-15), var(--blue-dark-15));
-  --color-primary-base-contrast-default: light-dark(var(--blue-16), var(--blue-dark-16));
+  --ds-color-primary-background-default: light-dark(var(--ds-blue-1), var(--ds-blue-dark-1));
+  --ds-color-primary-background-tinted: light-dark(var(--ds-blue-2), var(--ds-blue-dark-2));
+  --ds-color-primary-surface-default: light-dark(var(--ds-blue-3), var(--ds-blue-dark-3));
+  --ds-color-primary-surface-tinted: light-dark(var(--ds-blue-4), var(--ds-blue-dark-4));
+  --ds-color-primary-surface-hover: light-dark(var(--ds-blue-5), var(--ds-blue-dark-5));
+  --ds-color-primary-surface-active: light-dark(var(--ds-blue-6), var(--ds-blue-dark-6));
+  --ds-color-primary-border-subtle: light-dark(var(--ds-blue-7), var(--ds-blue-dark-7));
+  --ds-color-primary-border-default: light-dark(var(--ds-blue-8), var(--ds-blue-dark-8));
+  --ds-color-primary-border-strong: light-dark(var(--ds-blue-9), var(--ds-blue-dark-9));
+  --ds-color-primary-text-subtle: light-dark(var(--ds-blue-10), var(--ds-blue-dark-10));
+  --ds-color-primary-text-default: light-dark(var(--ds-blue-11), var(--ds-blue-dark-11));
+  --ds-color-primary-base-default: light-dark(var(--ds-blue-12), var(--ds-blue-dark-12));
+  --ds-color-primary-base-hover: light-dark(var(--ds-blue-13), var(--ds-blue-dark-13));
+  --ds-color-primary-base-active: light-dark(var(--ds-blue-14), var(--ds-blue-dark-14));
+  --ds-color-primary-base-contrast-subtle: light-dark(var(--ds-blue-15), var(--ds-blue-dark-15));
+  --ds-color-primary-base-contrast-default: light-dark(var(--ds-blue-16), var(--ds-blue-dark-16));
 
   /* info: Informational messages and badges. */
-  --color-info-background-default: light-dark(var(--sky-1), var(--sky-dark-1));
-  --color-info-background-tinted: light-dark(var(--sky-2), var(--sky-dark-2));
-  --color-info-surface-default: light-dark(var(--sky-3), var(--sky-dark-3));
-  --color-info-surface-tinted: light-dark(var(--sky-4), var(--sky-dark-4));
-  --color-info-surface-hover: light-dark(var(--sky-5), var(--sky-dark-5));
-  --color-info-surface-active: light-dark(var(--sky-6), var(--sky-dark-6));
-  --color-info-border-subtle: light-dark(var(--sky-7), var(--sky-dark-7));
-  --color-info-border-default: light-dark(var(--sky-8), var(--sky-dark-8));
-  --color-info-border-strong: light-dark(var(--sky-9), var(--sky-dark-9));
-  --color-info-text-subtle: light-dark(var(--sky-10), var(--sky-dark-10));
-  --color-info-text-default: light-dark(var(--sky-11), var(--sky-dark-11));
-  --color-info-base-default: light-dark(var(--sky-12), var(--sky-dark-12));
-  --color-info-base-hover: light-dark(var(--sky-13), var(--sky-dark-13));
-  --color-info-base-active: light-dark(var(--sky-14), var(--sky-dark-14));
-  --color-info-base-contrast-subtle: light-dark(var(--sky-15), var(--sky-dark-15));
-  --color-info-base-contrast-default: light-dark(var(--sky-16), var(--sky-dark-16));
+  --ds-color-info-background-default: light-dark(var(--ds-sky-1), var(--ds-sky-dark-1));
+  --ds-color-info-background-tinted: light-dark(var(--ds-sky-2), var(--ds-sky-dark-2));
+  --ds-color-info-surface-default: light-dark(var(--ds-sky-3), var(--ds-sky-dark-3));
+  --ds-color-info-surface-tinted: light-dark(var(--ds-sky-4), var(--ds-sky-dark-4));
+  --ds-color-info-surface-hover: light-dark(var(--ds-sky-5), var(--ds-sky-dark-5));
+  --ds-color-info-surface-active: light-dark(var(--ds-sky-6), var(--ds-sky-dark-6));
+  --ds-color-info-border-subtle: light-dark(var(--ds-sky-7), var(--ds-sky-dark-7));
+  --ds-color-info-border-default: light-dark(var(--ds-sky-8), var(--ds-sky-dark-8));
+  --ds-color-info-border-strong: light-dark(var(--ds-sky-9), var(--ds-sky-dark-9));
+  --ds-color-info-text-subtle: light-dark(var(--ds-sky-10), var(--ds-sky-dark-10));
+  --ds-color-info-text-default: light-dark(var(--ds-sky-11), var(--ds-sky-dark-11));
+  --ds-color-info-base-default: light-dark(var(--ds-sky-12), var(--ds-sky-dark-12));
+  --ds-color-info-base-hover: light-dark(var(--ds-sky-13), var(--ds-sky-dark-13));
+  --ds-color-info-base-active: light-dark(var(--ds-sky-14), var(--ds-sky-dark-14));
+  --ds-color-info-base-contrast-subtle: light-dark(var(--ds-sky-15), var(--ds-sky-dark-15));
+  --ds-color-info-base-contrast-default: light-dark(var(--ds-sky-16), var(--ds-sky-dark-16));
 
   /* success: Success and confirmation states. */
-  --color-success-background-default: light-dark(var(--green-1), var(--green-dark-1));
-  --color-success-background-tinted: light-dark(var(--green-2), var(--green-dark-2));
-  --color-success-surface-default: light-dark(var(--green-3), var(--green-dark-3));
-  --color-success-surface-tinted: light-dark(var(--green-4), var(--green-dark-4));
-  --color-success-surface-hover: light-dark(var(--green-5), var(--green-dark-5));
-  --color-success-surface-active: light-dark(var(--green-6), var(--green-dark-6));
-  --color-success-border-subtle: light-dark(var(--green-7), var(--green-dark-7));
-  --color-success-border-default: light-dark(var(--green-8), var(--green-dark-8));
-  --color-success-border-strong: light-dark(var(--green-9), var(--green-dark-9));
-  --color-success-text-subtle: light-dark(var(--green-10), var(--green-dark-10));
-  --color-success-text-default: light-dark(var(--green-11), var(--green-dark-11));
-  --color-success-base-default: light-dark(var(--green-12), var(--green-dark-12));
-  --color-success-base-hover: light-dark(var(--green-13), var(--green-dark-13));
-  --color-success-base-active: light-dark(var(--green-14), var(--green-dark-14));
-  --color-success-base-contrast-subtle: light-dark(var(--green-15), var(--green-dark-15));
-  --color-success-base-contrast-default: light-dark(var(--green-16), var(--green-dark-16));
+  --ds-color-success-background-default: light-dark(var(--ds-green-1), var(--ds-green-dark-1));
+  --ds-color-success-background-tinted: light-dark(var(--ds-green-2), var(--ds-green-dark-2));
+  --ds-color-success-surface-default: light-dark(var(--ds-green-3), var(--ds-green-dark-3));
+  --ds-color-success-surface-tinted: light-dark(var(--ds-green-4), var(--ds-green-dark-4));
+  --ds-color-success-surface-hover: light-dark(var(--ds-green-5), var(--ds-green-dark-5));
+  --ds-color-success-surface-active: light-dark(var(--ds-green-6), var(--ds-green-dark-6));
+  --ds-color-success-border-subtle: light-dark(var(--ds-green-7), var(--ds-green-dark-7));
+  --ds-color-success-border-default: light-dark(var(--ds-green-8), var(--ds-green-dark-8));
+  --ds-color-success-border-strong: light-dark(var(--ds-green-9), var(--ds-green-dark-9));
+  --ds-color-success-text-subtle: light-dark(var(--ds-green-10), var(--ds-green-dark-10));
+  --ds-color-success-text-default: light-dark(var(--ds-green-11), var(--ds-green-dark-11));
+  --ds-color-success-base-default: light-dark(var(--ds-green-12), var(--ds-green-dark-12));
+  --ds-color-success-base-hover: light-dark(var(--ds-green-13), var(--ds-green-dark-13));
+  --ds-color-success-base-active: light-dark(var(--ds-green-14), var(--ds-green-dark-14));
+  --ds-color-success-base-contrast-subtle: light-dark(var(--ds-green-15), var(--ds-green-dark-15));
+  --ds-color-success-base-contrast-default: light-dark(var(--ds-green-16), var(--ds-green-dark-16));
 
   /* warning: Warnings that need attention but do not block. */
-  --color-warning-background-default: light-dark(var(--orange-1), var(--orange-dark-1));
-  --color-warning-background-tinted: light-dark(var(--orange-2), var(--orange-dark-2));
-  --color-warning-surface-default: light-dark(var(--orange-3), var(--orange-dark-3));
-  --color-warning-surface-tinted: light-dark(var(--orange-4), var(--orange-dark-4));
-  --color-warning-surface-hover: light-dark(var(--orange-5), var(--orange-dark-5));
-  --color-warning-surface-active: light-dark(var(--orange-6), var(--orange-dark-6));
-  --color-warning-border-subtle: light-dark(var(--orange-7), var(--orange-dark-7));
-  --color-warning-border-default: light-dark(var(--orange-8), var(--orange-dark-8));
-  --color-warning-border-strong: light-dark(var(--orange-9), var(--orange-dark-9));
-  --color-warning-text-subtle: light-dark(var(--orange-10), var(--orange-dark-10));
-  --color-warning-text-default: light-dark(var(--orange-11), var(--orange-dark-11));
-  --color-warning-base-default: light-dark(var(--orange-12), var(--orange-dark-12));
-  --color-warning-base-hover: light-dark(var(--orange-13), var(--orange-dark-13));
-  --color-warning-base-active: light-dark(var(--orange-14), var(--orange-dark-14));
-  --color-warning-base-contrast-subtle: light-dark(var(--orange-15), var(--orange-dark-15));
-  --color-warning-base-contrast-default: light-dark(var(--orange-16), var(--orange-dark-16));
+  --ds-color-warning-background-default: light-dark(var(--ds-orange-1), var(--ds-orange-dark-1));
+  --ds-color-warning-background-tinted: light-dark(var(--ds-orange-2), var(--ds-orange-dark-2));
+  --ds-color-warning-surface-default: light-dark(var(--ds-orange-3), var(--ds-orange-dark-3));
+  --ds-color-warning-surface-tinted: light-dark(var(--ds-orange-4), var(--ds-orange-dark-4));
+  --ds-color-warning-surface-hover: light-dark(var(--ds-orange-5), var(--ds-orange-dark-5));
+  --ds-color-warning-surface-active: light-dark(var(--ds-orange-6), var(--ds-orange-dark-6));
+  --ds-color-warning-border-subtle: light-dark(var(--ds-orange-7), var(--ds-orange-dark-7));
+  --ds-color-warning-border-default: light-dark(var(--ds-orange-8), var(--ds-orange-dark-8));
+  --ds-color-warning-border-strong: light-dark(var(--ds-orange-9), var(--ds-orange-dark-9));
+  --ds-color-warning-text-subtle: light-dark(var(--ds-orange-10), var(--ds-orange-dark-10));
+  --ds-color-warning-text-default: light-dark(var(--ds-orange-11), var(--ds-orange-dark-11));
+  --ds-color-warning-base-default: light-dark(var(--ds-orange-12), var(--ds-orange-dark-12));
+  --ds-color-warning-base-hover: light-dark(var(--ds-orange-13), var(--ds-orange-dark-13));
+  --ds-color-warning-base-active: light-dark(var(--ds-orange-14), var(--ds-orange-dark-14));
+  --ds-color-warning-base-contrast-subtle: light-dark(var(--ds-orange-15), var(--ds-orange-dark-15));
+  --ds-color-warning-base-contrast-default: light-dark(var(--ds-orange-16), var(--ds-orange-dark-16));
 
   /* danger: Errors, destructive actions, invalid fields. */
-  --color-danger-background-default: light-dark(var(--red-1), var(--red-dark-1));
-  --color-danger-background-tinted: light-dark(var(--red-2), var(--red-dark-2));
-  --color-danger-surface-default: light-dark(var(--red-3), var(--red-dark-3));
-  --color-danger-surface-tinted: light-dark(var(--red-4), var(--red-dark-4));
-  --color-danger-surface-hover: light-dark(var(--red-5), var(--red-dark-5));
-  --color-danger-surface-active: light-dark(var(--red-6), var(--red-dark-6));
-  --color-danger-border-subtle: light-dark(var(--red-7), var(--red-dark-7));
-  --color-danger-border-default: light-dark(var(--red-8), var(--red-dark-8));
-  --color-danger-border-strong: light-dark(var(--red-9), var(--red-dark-9));
-  --color-danger-text-subtle: light-dark(var(--red-10), var(--red-dark-10));
-  --color-danger-text-default: light-dark(var(--red-11), var(--red-dark-11));
-  --color-danger-base-default: light-dark(var(--red-12), var(--red-dark-12));
-  --color-danger-base-hover: light-dark(var(--red-13), var(--red-dark-13));
-  --color-danger-base-active: light-dark(var(--red-14), var(--red-dark-14));
-  --color-danger-base-contrast-subtle: light-dark(var(--red-15), var(--red-dark-15));
-  --color-danger-base-contrast-default: light-dark(var(--red-16), var(--red-dark-16));
+  --ds-color-danger-background-default: light-dark(var(--ds-red-1), var(--ds-red-dark-1));
+  --ds-color-danger-background-tinted: light-dark(var(--ds-red-2), var(--ds-red-dark-2));
+  --ds-color-danger-surface-default: light-dark(var(--ds-red-3), var(--ds-red-dark-3));
+  --ds-color-danger-surface-tinted: light-dark(var(--ds-red-4), var(--ds-red-dark-4));
+  --ds-color-danger-surface-hover: light-dark(var(--ds-red-5), var(--ds-red-dark-5));
+  --ds-color-danger-surface-active: light-dark(var(--ds-red-6), var(--ds-red-dark-6));
+  --ds-color-danger-border-subtle: light-dark(var(--ds-red-7), var(--ds-red-dark-7));
+  --ds-color-danger-border-default: light-dark(var(--ds-red-8), var(--ds-red-dark-8));
+  --ds-color-danger-border-strong: light-dark(var(--ds-red-9), var(--ds-red-dark-9));
+  --ds-color-danger-text-subtle: light-dark(var(--ds-red-10), var(--ds-red-dark-10));
+  --ds-color-danger-text-default: light-dark(var(--ds-red-11), var(--ds-red-dark-11));
+  --ds-color-danger-base-default: light-dark(var(--ds-red-12), var(--ds-red-dark-12));
+  --ds-color-danger-base-hover: light-dark(var(--ds-red-13), var(--ds-red-dark-13));
+  --ds-color-danger-base-active: light-dark(var(--ds-red-14), var(--ds-red-dark-14));
+  --ds-color-danger-base-contrast-subtle: light-dark(var(--ds-red-15), var(--ds-red-dark-15));
+  --ds-color-danger-base-contrast-default: light-dark(var(--ds-red-16), var(--ds-red-dark-16));
 
-  /* Visited links. Unvisited links use --color-primary-text-default. */
-  --color-link-visited: light-dark(var(--violet), var(--violet-dark));
+  /* Visited links. Unvisited links use --ds-color-primary-text-default. */
+  --ds-color-link-visited: light-dark(var(--ds-violet), var(--ds-violet-dark));
 
   /* Focus ring: two-tone outline (inner, then outer) so it stays visible on light and dark fills. */
-  --color-focus-inner: light-dark(var(--gray-1), var(--gray-dark-1));
-  --color-focus-outer: light-dark(var(--gray-11), var(--gray-dark-11));
+  --ds-color-focus-inner: light-dark(var(--ds-gray-1), var(--ds-gray-dark-1));
+  --ds-color-focus-outer: light-dark(var(--ds-gray-11), var(--ds-gray-dark-11));
 
   /* ------------------------------------------------------------------
    * Typography
    * ------------------------------------------------------------------ */
 
   /* Font families. Same family in the default theme; a brand can give headings their own. */
-  --font-family-heading: var(--font-inter);
-  --font-family-body: var(--font-inter);
+  --ds-font-family-heading: var(--ds-font-inter);
+  --ds-font-family-body: var(--ds-font-inter);
 
   /* Font weights, by role */
-  --font-weight-regular: var(--font-weight-400);   /* body text */
-  --font-weight-medium: var(--font-weight-500);    /* headings, labels, buttons */
-  --font-weight-semibold: var(--font-weight-600);  /* strong emphasis */
+  --ds-font-weight-regular: var(--ds-font-weight-400);   /* body text */
+  --ds-font-weight-medium: var(--ds-font-weight-500);    /* headings, labels, buttons */
+  --ds-font-weight-semibold: var(--ds-font-weight-600);  /* strong emphasis */
 
-  /* Heading styles: --text-heading-{size}-{property}. 2xl is the largest (hero), 2xs the smallest.
+  /* Heading styles: --ds-text-heading-{size}-{property}. 2xl is the largest (hero), 2xs the smallest.
      Choose the size by visual weight, independent of the HTML heading level (h1–h6). */
-  --text-heading-2xl-font-size: var(--font-size-10);
-  --text-heading-2xl-line-height: var(--line-height-130);
-  --text-heading-2xl-font-weight: var(--font-weight-medium);
-  --text-heading-2xl-letter-spacing: var(--letter-spacing-1);
+  --ds-text-heading-2xl-font-size: var(--ds-font-size-10);
+  --ds-text-heading-2xl-line-height: var(--ds-line-height-130);
+  --ds-text-heading-2xl-font-weight: var(--ds-font-weight-medium);
+  --ds-text-heading-2xl-letter-spacing: var(--ds-letter-spacing-1);
 
-  --text-heading-xl-font-size: var(--font-size-9);
-  --text-heading-xl-line-height: var(--line-height-130);
-  --text-heading-xl-font-weight: var(--font-weight-medium);
-  --text-heading-xl-letter-spacing: var(--letter-spacing-1);
+  --ds-text-heading-xl-font-size: var(--ds-font-size-9);
+  --ds-text-heading-xl-line-height: var(--ds-line-height-130);
+  --ds-text-heading-xl-font-weight: var(--ds-font-weight-medium);
+  --ds-text-heading-xl-letter-spacing: var(--ds-letter-spacing-1);
 
-  --text-heading-lg-font-size: var(--font-size-8);
-  --text-heading-lg-line-height: var(--line-height-130);
-  --text-heading-lg-font-weight: var(--font-weight-medium);
-  --text-heading-lg-letter-spacing: var(--letter-spacing-2);
+  --ds-text-heading-lg-font-size: var(--ds-font-size-8);
+  --ds-text-heading-lg-line-height: var(--ds-line-height-130);
+  --ds-text-heading-lg-font-weight: var(--ds-font-weight-medium);
+  --ds-text-heading-lg-letter-spacing: var(--ds-letter-spacing-2);
 
-  --text-heading-md-font-size: var(--font-size-7);
-  --text-heading-md-line-height: var(--line-height-130);
-  --text-heading-md-font-weight: var(--font-weight-medium);
-  --text-heading-md-letter-spacing: var(--letter-spacing-3);
+  --ds-text-heading-md-font-size: var(--ds-font-size-7);
+  --ds-text-heading-md-line-height: var(--ds-line-height-130);
+  --ds-text-heading-md-font-weight: var(--ds-font-weight-medium);
+  --ds-text-heading-md-letter-spacing: var(--ds-letter-spacing-3);
 
-  --text-heading-sm-font-size: var(--font-size-6);
-  --text-heading-sm-line-height: var(--line-height-130);
-  --text-heading-sm-font-weight: var(--font-weight-medium);
-  --text-heading-sm-letter-spacing: var(--letter-spacing-5);
+  --ds-text-heading-sm-font-size: var(--ds-font-size-6);
+  --ds-text-heading-sm-line-height: var(--ds-line-height-130);
+  --ds-text-heading-sm-font-weight: var(--ds-font-weight-medium);
+  --ds-text-heading-sm-letter-spacing: var(--ds-letter-spacing-5);
 
-  --text-heading-xs-font-size: var(--font-size-5);
-  --text-heading-xs-line-height: var(--line-height-130);
-  --text-heading-xs-font-weight: var(--font-weight-medium);
-  --text-heading-xs-letter-spacing: var(--letter-spacing-6);
+  --ds-text-heading-xs-font-size: var(--ds-font-size-5);
+  --ds-text-heading-xs-line-height: var(--ds-line-height-130);
+  --ds-text-heading-xs-font-weight: var(--ds-font-weight-medium);
+  --ds-text-heading-xs-letter-spacing: var(--ds-letter-spacing-6);
 
-  --text-heading-2xs-font-size: var(--font-size-4);
-  --text-heading-2xs-line-height: var(--line-height-130);
-  --text-heading-2xs-font-weight: var(--font-weight-medium);
-  --text-heading-2xs-letter-spacing: var(--letter-spacing-6);
+  --ds-text-heading-2xs-font-size: var(--ds-font-size-4);
+  --ds-text-heading-2xs-line-height: var(--ds-line-height-130);
+  --ds-text-heading-2xs-font-weight: var(--ds-font-weight-medium);
+  --ds-text-heading-2xs-letter-spacing: var(--ds-letter-spacing-6);
 
-  /* Body styles: --text-body-{size}-{property}. md is the default body size. */
-  --text-body-xl-font-size: var(--font-size-6);
-  --text-body-xl-line-height: var(--line-height-150);
-  --text-body-xl-font-weight: var(--font-weight-regular);
-  --text-body-xl-letter-spacing: var(--letter-spacing-8);
+  /* Body styles: --ds-text-body-{size}-{property}. md is the default body size. */
+  --ds-text-body-xl-font-size: var(--ds-font-size-6);
+  --ds-text-body-xl-line-height: var(--ds-line-height-150);
+  --ds-text-body-xl-font-weight: var(--ds-font-weight-regular);
+  --ds-text-body-xl-letter-spacing: var(--ds-letter-spacing-8);
 
-  --text-body-lg-font-size: var(--font-size-5);
-  --text-body-lg-line-height: var(--line-height-150);
-  --text-body-lg-font-weight: var(--font-weight-regular);
-  --text-body-lg-letter-spacing: var(--letter-spacing-8);
+  --ds-text-body-lg-font-size: var(--ds-font-size-5);
+  --ds-text-body-lg-line-height: var(--ds-line-height-150);
+  --ds-text-body-lg-font-weight: var(--ds-font-weight-regular);
+  --ds-text-body-lg-letter-spacing: var(--ds-letter-spacing-8);
 
-  --text-body-md-font-size: var(--font-size-4);
-  --text-body-md-line-height: var(--line-height-150);
-  --text-body-md-font-weight: var(--font-weight-regular);
-  --text-body-md-letter-spacing: var(--letter-spacing-8);
+  --ds-text-body-md-font-size: var(--ds-font-size-4);
+  --ds-text-body-md-line-height: var(--ds-line-height-150);
+  --ds-text-body-md-font-weight: var(--ds-font-weight-regular);
+  --ds-text-body-md-letter-spacing: var(--ds-letter-spacing-8);
 
-  --text-body-sm-font-size: var(--font-size-3);
-  --text-body-sm-line-height: var(--line-height-150);
-  --text-body-sm-font-weight: var(--font-weight-regular);
-  --text-body-sm-letter-spacing: var(--letter-spacing-7);
+  --ds-text-body-sm-font-size: var(--ds-font-size-3);
+  --ds-text-body-sm-line-height: var(--ds-line-height-150);
+  --ds-text-body-sm-font-weight: var(--ds-font-weight-regular);
+  --ds-text-body-sm-letter-spacing: var(--ds-letter-spacing-7);
 
-  --text-body-xs-font-size: var(--font-size-2);
-  --text-body-xs-line-height: var(--line-height-150);
-  --text-body-xs-font-weight: var(--font-weight-regular);
-  --text-body-xs-letter-spacing: var(--letter-spacing-6);
+  --ds-text-body-xs-font-size: var(--ds-font-size-2);
+  --ds-text-body-xs-line-height: var(--ds-line-height-150);
+  --ds-text-body-xs-font-weight: var(--ds-font-weight-regular);
+  --ds-text-body-xs-letter-spacing: var(--ds-letter-spacing-6);
 
   /* Body line-height variants, usable with any body size:
      short = single-line UI text (buttons, labels, table cells); long = long-form reading. */
-  --text-body-short-line-height: var(--line-height-130);
-  --text-body-long-line-height: var(--line-height-170);
+  --ds-text-body-short-line-height: var(--ds-line-height-130);
+  --ds-text-body-long-line-height: var(--ds-line-height-170);
 
   /* ------------------------------------------------------------------
    * Shape
    * ------------------------------------------------------------------ */
 
   /* Border radius */
-  --radius-sm: var(--radius-1);        /* small inner details: checkbox, tag */
-  --radius-md: var(--radius-2);        /* controls: buttons, inputs */
-  --radius-lg: var(--radius-3);        /* containers: cards, dialogs */
-  --radius-xl: var(--radius-4);        /* large containers, hero panels */
-  --radius-full: var(--radius-max);    /* pills and circles: avatars, badges */
-  --radius-default: var(--radius-md);  /* when unsure; change this one value to re-round the brand */
+  --ds-radius-sm: var(--ds-radius-1);        /* small inner details: checkbox, tag */
+  --ds-radius-md: var(--ds-radius-2);        /* controls: buttons, inputs */
+  --ds-radius-lg: var(--ds-radius-3);        /* containers: cards, dialogs */
+  --ds-radius-xl: var(--ds-radius-4);        /* large containers, hero panels */
+  --ds-radius-full: var(--ds-radius-max);    /* pills and circles: avatars, badges */
+  --ds-radius-default: var(--ds-radius-md);  /* when unsure; change this one value to re-round the brand */
 
   /* Border width */
-  --border-width-default: var(--border-width-1);  /* all component borders */
-  --border-width-focus: var(--border-width-3);    /* focus ring */
+  --ds-border-width-default: var(--ds-border-width-1);  /* all component borders */
+  --ds-border-width-focus: var(--ds-border-width-3);    /* focus ring */
 
   /* Shadow / elevation, low to high */
-  --shadow-xs: var(--shadow-100);  /* barely raised: inputs, small cards */
-  --shadow-sm: var(--shadow-200);  /* cards */
-  --shadow-md: var(--shadow-300);  /* dropdowns, popovers */
-  --shadow-lg: var(--shadow-400);  /* sticky headers, floating panels */
-  --shadow-xl: var(--shadow-500);  /* dialogs, modals */
+  --ds-shadow-xs: var(--ds-shadow-100);  /* barely raised: inputs, small cards */
+  --ds-shadow-sm: var(--ds-shadow-200);  /* cards */
+  --ds-shadow-md: var(--ds-shadow-300);  /* dropdowns, popovers */
+  --ds-shadow-lg: var(--ds-shadow-400);  /* sticky headers, floating panels */
+  --ds-shadow-xl: var(--ds-shadow-500);  /* dialogs, modals */
 
   /* ------------------------------------------------------------------
    * State
    * ------------------------------------------------------------------ */
 
-  --opacity-disabled: var(--opacity-30);  /* disabled controls */
+  --ds-opacity-disabled: var(--ds-opacity-30);  /* disabled controls */
 }

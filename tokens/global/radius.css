@@ -10,9 +10,9 @@
  */
 
 :root {
-  --radius-1: 0.125rem;     /* 2px  (designsystemet: sm) */
-  --radius-2: 0.25rem;      /* 4px  (designsystemet: md, also default) */
-  --radius-3: 0.5rem;       /* 8px  (designsystemet: lg) */
-  --radius-4: 0.75rem;      /* 12px (designsystemet: xl) */
-  --radius-max: 9999px;     /* pill / circle (designsystemet: full) */
+  --ds-radius-1: 0.125rem;     /* 2px  (designsystemet: sm) */
+  --ds-radius-2: 0.25rem;      /* 4px  (designsystemet: md, also default) */
+  --ds-radius-3: 0.5rem;       /* 8px  (designsystemet: lg) */
+  --ds-radius-4: 0.75rem;      /* 12px (designsystemet: xl) */
+  --ds-radius-max: 9999px;     /* pill / circle (designsystemet: full) */
 }

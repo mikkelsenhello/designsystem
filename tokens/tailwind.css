@@ -1,0 +1,296 @@
+/*
+ * Tailwind v4 theme: maps Tailwind utilities onto the theme tokens (tokens/themes/*.css).
+ *
+ * Import after tailwindcss and the tokens:
+ *   @import "tailwindcss";
+ *   @import "designsystem/tokens/index.css";
+ *   @import "designsystem/tokens/tailwind.css";
+ *
+ * `--*: initial` removes every Tailwind default (palette, spacing multiplier, radii, shadows,
+ * font sizes...), so only the utilities defined here exist: `p-5`, `bg-red-500` or `shadow-2xl`
+ * simply don't compile. `inline` makes utilities reference the --ds-* tokens directly, so a theme
+ * scoped to a subtree (or a dark-mode switch) restyles them, and Tailwind emits no variables of its own.
+ *
+ * Colors are split per utility: background roles only exist as bg-*, text roles only as text-*,
+ * border roles only as border-*. A class like `bg-neutral-text-default` is not generated.
+ *
+ * Full list of legal classes: docs/tokens.md.
+ */
+
+@source "../src";
+
+@theme inline {
+  --*: initial;
+
+  /* Preflight defaults */
+  --default-font-family: var(--ds-font-family-body);
+  /* Tailwind's own transition defaults; without them `transition` would have 0s duration. */
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Breakpoints (Tailwind defaults; media queries can't read CSS variables, so these are literal) */
+  --breakpoint-sm: 40rem;   /* 640px */
+  --breakpoint-md: 48rem;   /* 768px */
+  --breakpoint-lg: 64rem;   /* 1024px */
+  --breakpoint-xl: 80rem;   /* 1280px */
+  --breakpoint-2xl: 96rem;  /* 1536px */
+
+  /* ------------------------------------------------------------------
+   * Color: utility = {bg|text|border}-{family}-{role}, same names as --ds-color-{family}-{role}
+   * ------------------------------------------------------------------ */
+
+  /* bg-* */
+  --background-color-neutral-background-default: var(--ds-color-neutral-background-default);
+  --background-color-neutral-background-tinted: var(--ds-color-neutral-background-tinted);
+  --background-color-neutral-surface-default: var(--ds-color-neutral-surface-default);
+  --background-color-neutral-surface-tinted: var(--ds-color-neutral-surface-tinted);
+  --background-color-neutral-surface-hover: var(--ds-color-neutral-surface-hover);
+  --background-color-neutral-surface-active: var(--ds-color-neutral-surface-active);
+  --background-color-neutral-base-default: var(--ds-color-neutral-base-default);
+  --background-color-neutral-base-hover: var(--ds-color-neutral-base-hover);
+  --background-color-neutral-base-active: var(--ds-color-neutral-base-active);
+  --background-color-primary-background-default: var(--ds-color-primary-background-default);
+  --background-color-primary-background-tinted: var(--ds-color-primary-background-tinted);
+  --background-color-primary-surface-default: var(--ds-color-primary-surface-default);
+  --background-color-primary-surface-tinted: var(--ds-color-primary-surface-tinted);
+  --background-color-primary-surface-hover: var(--ds-color-primary-surface-hover);
+  --background-color-primary-surface-active: var(--ds-color-primary-surface-active);
+  --background-color-primary-base-default: var(--ds-color-primary-base-default);
+  --background-color-primary-base-hover: var(--ds-color-primary-base-hover);
+  --background-color-primary-base-active: var(--ds-color-primary-base-active);
+  --background-color-info-background-default: var(--ds-color-info-background-default);
+  --background-color-info-background-tinted: var(--ds-color-info-background-tinted);
+  --background-color-info-surface-default: var(--ds-color-info-surface-default);
+  --background-color-info-surface-tinted: var(--ds-color-info-surface-tinted);
+  --background-color-info-surface-hover: var(--ds-color-info-surface-hover);
+  --background-color-info-surface-active: var(--ds-color-info-surface-active);
+  --background-color-info-base-default: var(--ds-color-info-base-default);
+  --background-color-info-base-hover: var(--ds-color-info-base-hover);
+  --background-color-info-base-active: var(--ds-color-info-base-active);
+  --background-color-success-background-default: var(--ds-color-success-background-default);
+  --background-color-success-background-tinted: var(--ds-color-success-background-tinted);
+  --background-color-success-surface-default: var(--ds-color-success-surface-default);
+  --background-color-success-surface-tinted: var(--ds-color-success-surface-tinted);
+  --background-color-success-surface-hover: var(--ds-color-success-surface-hover);
+  --background-color-success-surface-active: var(--ds-color-success-surface-active);
+  --background-color-success-base-default: var(--ds-color-success-base-default);
+  --background-color-success-base-hover: var(--ds-color-success-base-hover);
+  --background-color-success-base-active: var(--ds-color-success-base-active);
+  --background-color-warning-background-default: var(--ds-color-warning-background-default);
+  --background-color-warning-background-tinted: var(--ds-color-warning-background-tinted);
+  --background-color-warning-surface-default: var(--ds-color-warning-surface-default);
+  --background-color-warning-surface-tinted: var(--ds-color-warning-surface-tinted);
+  --background-color-warning-surface-hover: var(--ds-color-warning-surface-hover);
+  --background-color-warning-surface-active: var(--ds-color-warning-surface-active);
+  --background-color-warning-base-default: var(--ds-color-warning-base-default);
+  --background-color-warning-base-hover: var(--ds-color-warning-base-hover);
+  --background-color-warning-base-active: var(--ds-color-warning-base-active);
+  --background-color-danger-background-default: var(--ds-color-danger-background-default);
+  --background-color-danger-background-tinted: var(--ds-color-danger-background-tinted);
+  --background-color-danger-surface-default: var(--ds-color-danger-surface-default);
+  --background-color-danger-surface-tinted: var(--ds-color-danger-surface-tinted);
+  --background-color-danger-surface-hover: var(--ds-color-danger-surface-hover);
+  --background-color-danger-surface-active: var(--ds-color-danger-surface-active);
+  --background-color-danger-base-default: var(--ds-color-danger-base-default);
+  --background-color-danger-base-hover: var(--ds-color-danger-base-hover);
+  --background-color-danger-base-active: var(--ds-color-danger-base-active);
+
+  /* text-* */
+  --text-color-neutral-text-default: var(--ds-color-neutral-text-default);
+  --text-color-neutral-text-subtle: var(--ds-color-neutral-text-subtle);
+  --text-color-neutral-base-contrast-default: var(--ds-color-neutral-base-contrast-default);
+  --text-color-neutral-base-contrast-subtle: var(--ds-color-neutral-base-contrast-subtle);
+  --text-color-primary-text-default: var(--ds-color-primary-text-default);
+  --text-color-primary-text-subtle: var(--ds-color-primary-text-subtle);
+  --text-color-primary-base-contrast-default: var(--ds-color-primary-base-contrast-default);
+  --text-color-primary-base-contrast-subtle: var(--ds-color-primary-base-contrast-subtle);
+  --text-color-info-text-default: var(--ds-color-info-text-default);
+  --text-color-info-text-subtle: var(--ds-color-info-text-subtle);
+  --text-color-info-base-contrast-default: var(--ds-color-info-base-contrast-default);
+  --text-color-info-base-contrast-subtle: var(--ds-color-info-base-contrast-subtle);
+  --text-color-success-text-default: var(--ds-color-success-text-default);
+  --text-color-success-text-subtle: var(--ds-color-success-text-subtle);
+  --text-color-success-base-contrast-default: var(--ds-color-success-base-contrast-default);
+  --text-color-success-base-contrast-subtle: var(--ds-color-success-base-contrast-subtle);
+  --text-color-warning-text-default: var(--ds-color-warning-text-default);
+  --text-color-warning-text-subtle: var(--ds-color-warning-text-subtle);
+  --text-color-warning-base-contrast-default: var(--ds-color-warning-base-contrast-default);
+  --text-color-warning-base-contrast-subtle: var(--ds-color-warning-base-contrast-subtle);
+  --text-color-danger-text-default: var(--ds-color-danger-text-default);
+  --text-color-danger-text-subtle: var(--ds-color-danger-text-subtle);
+  --text-color-danger-base-contrast-default: var(--ds-color-danger-base-contrast-default);
+  --text-color-danger-base-contrast-subtle: var(--ds-color-danger-base-contrast-subtle);
+
+  /* border-* / divide-* */
+  --border-color-neutral-border-subtle: var(--ds-color-neutral-border-subtle);
+  --border-color-neutral-border-default: var(--ds-color-neutral-border-default);
+  --border-color-neutral-border-strong: var(--ds-color-neutral-border-strong);
+  --border-color-neutral-base-default: var(--ds-color-neutral-base-default);
+  --border-color-primary-border-subtle: var(--ds-color-primary-border-subtle);
+  --border-color-primary-border-default: var(--ds-color-primary-border-default);
+  --border-color-primary-border-strong: var(--ds-color-primary-border-strong);
+  --border-color-primary-base-default: var(--ds-color-primary-base-default);
+  --border-color-info-border-subtle: var(--ds-color-info-border-subtle);
+  --border-color-info-border-default: var(--ds-color-info-border-default);
+  --border-color-info-border-strong: var(--ds-color-info-border-strong);
+  --border-color-info-base-default: var(--ds-color-info-base-default);
+  --border-color-success-border-subtle: var(--ds-color-success-border-subtle);
+  --border-color-success-border-default: var(--ds-color-success-border-default);
+  --border-color-success-border-strong: var(--ds-color-success-border-strong);
+  --border-color-success-base-default: var(--ds-color-success-base-default);
+  --border-color-warning-border-subtle: var(--ds-color-warning-border-subtle);
+  --border-color-warning-border-default: var(--ds-color-warning-border-default);
+  --border-color-warning-border-strong: var(--ds-color-warning-border-strong);
+  --border-color-warning-base-default: var(--ds-color-warning-base-default);
+  --border-color-danger-border-subtle: var(--ds-color-danger-border-subtle);
+  --border-color-danger-border-default: var(--ds-color-danger-border-default);
+  --border-color-danger-border-strong: var(--ds-color-danger-border-strong);
+  --border-color-danger-base-default: var(--ds-color-danger-base-default);
+
+  --text-color-link-visited: var(--ds-color-link-visited);
+  --outline-color-focus-outer: var(--ds-color-focus-outer);
+  --ring-color-focus-inner: var(--ds-color-focus-inner);
+
+  /* ------------------------------------------------------------------
+   * Spacing: p-*, m-*, gap-*, w-*, h-*, size-*, inset-*, ... (N x 4px)
+   * ------------------------------------------------------------------ */
+  --spacing-0: var(--ds-space-0);
+  --spacing-1: var(--ds-space-1);
+  --spacing-2: var(--ds-space-2);
+  --spacing-3: var(--ds-space-3);
+  --spacing-4: var(--ds-space-4);
+  --spacing-5: var(--ds-space-5);
+  --spacing-6: var(--ds-space-6);
+  --spacing-7: var(--ds-space-7);
+  --spacing-8: var(--ds-space-8);
+  --spacing-9: var(--ds-space-9);
+  --spacing-10: var(--ds-space-10);
+  --spacing-11: var(--ds-space-11);
+  --spacing-12: var(--ds-space-12);
+  --spacing-13: var(--ds-space-13);
+  --spacing-14: var(--ds-space-14);
+  --spacing-15: var(--ds-space-15);
+  --spacing-18: var(--ds-space-18);
+  --spacing-22: var(--ds-space-22);
+  --spacing-26: var(--ds-space-26);
+  --spacing-30: var(--ds-space-30);
+
+  /* ------------------------------------------------------------------
+   * Typography
+   * ------------------------------------------------------------------ */
+
+  /* font-heading, font-body */
+  --font-heading: var(--ds-font-family-heading);
+  --font-body: var(--ds-font-family-body);
+
+  /* font-regular, font-medium, font-semibold */
+  --font-weight-regular: var(--ds-font-weight-regular);
+  --font-weight-medium: var(--ds-font-weight-medium);
+  --font-weight-semibold: var(--ds-font-weight-semibold);
+
+  /* leading-short, leading-long: override a body style's line height */
+  --leading-short: var(--ds-text-body-short-line-height);
+  --leading-long: var(--ds-text-body-long-line-height);
+
+  /* Text styles: one class sets size, line height, weight and letter spacing.
+     text-heading-{2xl|xl|lg|md|sm|xs|2xs}, text-body-{xl|lg|md|sm|xs} */
+  --text-heading-2xl: var(--ds-text-heading-2xl-font-size);
+  --text-heading-2xl--line-height: var(--ds-text-heading-2xl-line-height);
+  --text-heading-2xl--font-weight: var(--ds-text-heading-2xl-font-weight);
+  --text-heading-2xl--letter-spacing: var(--ds-text-heading-2xl-letter-spacing);
+
+  --text-heading-xl: var(--ds-text-heading-xl-font-size);
+  --text-heading-xl--line-height: var(--ds-text-heading-xl-line-height);
+  --text-heading-xl--font-weight: var(--ds-text-heading-xl-font-weight);
+  --text-heading-xl--letter-spacing: var(--ds-text-heading-xl-letter-spacing);
+
+  --text-heading-lg: var(--ds-text-heading-lg-font-size);
+  --text-heading-lg--line-height: var(--ds-text-heading-lg-line-height);
+  --text-heading-lg--font-weight: var(--ds-text-heading-lg-font-weight);
+  --text-heading-lg--letter-spacing: var(--ds-text-heading-lg-letter-spacing);
+
+  --text-heading-md: var(--ds-text-heading-md-font-size);
+  --text-heading-md--line-height: var(--ds-text-heading-md-line-height);
+  --text-heading-md--font-weight: var(--ds-text-heading-md-font-weight);
+  --text-heading-md--letter-spacing: var(--ds-text-heading-md-letter-spacing);
+
+  --text-heading-sm: var(--ds-text-heading-sm-font-size);
+  --text-heading-sm--line-height: var(--ds-text-heading-sm-line-height);
+  --text-heading-sm--font-weight: var(--ds-text-heading-sm-font-weight);
+  --text-heading-sm--letter-spacing: var(--ds-text-heading-sm-letter-spacing);
+
+  --text-heading-xs: var(--ds-text-heading-xs-font-size);
+  --text-heading-xs--line-height: var(--ds-text-heading-xs-line-height);
+  --text-heading-xs--font-weight: var(--ds-text-heading-xs-font-weight);
+  --text-heading-xs--letter-spacing: var(--ds-text-heading-xs-letter-spacing);
+
+  --text-heading-2xs: var(--ds-text-heading-2xs-font-size);
+  --text-heading-2xs--line-height: var(--ds-text-heading-2xs-line-height);
+  --text-heading-2xs--font-weight: var(--ds-text-heading-2xs-font-weight);
+  --text-heading-2xs--letter-spacing: var(--ds-text-heading-2xs-letter-spacing);
+
+  --text-body-xl: var(--ds-text-body-xl-font-size);
+  --text-body-xl--line-height: var(--ds-text-body-xl-line-height);
+  --text-body-xl--font-weight: var(--ds-text-body-xl-font-weight);
+  --text-body-xl--letter-spacing: var(--ds-text-body-xl-letter-spacing);
+
+  --text-body-lg: var(--ds-text-body-lg-font-size);
+  --text-body-lg--line-height: var(--ds-text-body-lg-line-height);
+  --text-body-lg--font-weight: var(--ds-text-body-lg-font-weight);
+  --text-body-lg--letter-spacing: var(--ds-text-body-lg-letter-spacing);
+
+  --text-body-md: var(--ds-text-body-md-font-size);
+  --text-body-md--line-height: var(--ds-text-body-md-line-height);
+  --text-body-md--font-weight: var(--ds-text-body-md-font-weight);
+  --text-body-md--letter-spacing: var(--ds-text-body-md-letter-spacing);
+
+  --text-body-sm: var(--ds-text-body-sm-font-size);
+  --text-body-sm--line-height: var(--ds-text-body-sm-line-height);
+  --text-body-sm--font-weight: var(--ds-text-body-sm-font-weight);
+  --text-body-sm--letter-spacing: var(--ds-text-body-sm-letter-spacing);
+
+  --text-body-xs: var(--ds-text-body-xs-font-size);
+  --text-body-xs--line-height: var(--ds-text-body-xs-line-height);
+  --text-body-xs--font-weight: var(--ds-text-body-xs-font-weight);
+  --text-body-xs--letter-spacing: var(--ds-text-body-xs-letter-spacing);
+
+  /* ------------------------------------------------------------------
+   * Shape
+   * ------------------------------------------------------------------ */
+
+  /* rounded-{sm|md|lg|xl|full|default} */
+  --radius-sm: var(--ds-radius-sm);
+  --radius-md: var(--ds-radius-md);
+  --radius-lg: var(--ds-radius-lg);
+  --radius-xl: var(--ds-radius-xl);
+  --radius-full: var(--ds-radius-full);
+  --radius-default: var(--ds-radius-default);
+
+  /* shadow-{xs|sm|md|lg|xl} */
+  --shadow-xs: var(--ds-shadow-xs);
+  --shadow-sm: var(--ds-shadow-sm);
+  --shadow-md: var(--ds-shadow-md);
+  --shadow-lg: var(--ds-shadow-lg);
+  --shadow-xl: var(--ds-shadow-xl);
+}
+
+/* Page defaults, so plain text and the page itself follow the theme and color scheme. */
+@layer base {
+  body {
+    background-color: var(--ds-color-neutral-background-default);
+    color: var(--ds-color-neutral-text-default);
+    font-size: var(--ds-text-body-md-font-size);
+    line-height: var(--ds-text-body-md-line-height);
+    letter-spacing: var(--ds-text-body-md-letter-spacing);
+  }
+}
+
+/* Utilities with no Tailwind theme namespace */
+@utility opacity-disabled {
+  opacity: var(--ds-opacity-disabled);
+}
+
+@utility border-width-default {
+  border-style: solid;
+  border-width: var(--ds-border-width-default);
+}

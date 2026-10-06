@@ -35,7 +35,7 @@ Designsystem/
 ├── scripts/
 │   └── check-ds.*                  # lint/enforcement script, see Phase 6
 ├── playground/                     # visual QA pages, one per component
-├── tailwind.config.*               # reads tokens/, not hardcoded values
+├── tokens/tailwind.css             # Tailwind v4 theme: reads tokens/, not hardcoded values
 └── PLAN.md                         # this file
 ```
 
@@ -48,7 +48,7 @@ tokens/themes/default.css  (meaning: --color-primary: var(--blue-60);)
         ↓ referenced by
 tokens/components/button.css (component meaning: --button-bg: var(--color-primary);)
         ↓ consumed by
-tailwind.config.*           (bg-primary → var(--color-primary))
+tokens/tailwind.css         (bg-primary → var(--color-primary))
         ↓ used in
 src/components/Button/Button.tsx  (className="bg-primary ...", never a raw hex or arbitrary value)
 ```
@@ -73,6 +73,8 @@ Build `tokens/themes/default.css`: give the global tokens meaning (`--color-prim
 Configure Tailwind so its theme (`colors`, `spacing`, `borderRadius`, etc.) points at the CSS variables from Phase 1, not Tailwind's own defaults. Add the escape-hatch rule in docs: "if a value you need isn't a token, stop and add one — don't reach for a raw Tailwind class."
 
 **Output:** `tailwind.config.ts` fully token-driven; a one-page `docs/tokens.md` listing every legal token (the **closed set**).
+
+**Decided (Phase 2 done):** Tailwind **v4**, which is configured in CSS, not `tailwind.config.ts`. The "preset" is `tokens/tailwind.css` (`@theme inline` with `--*: initial`, so Tailwind's defaults are gone and only token utilities compile). Consumers import `tailwindcss`, then `tokens/index.css`, then `tokens/tailwind.css`. Colors are split per utility (`bg-`/`text-`/`border-` each only get their own roles). **All tokens are prefixed `--ds-`** to avoid clashing with Tailwind's own variable names and with consuming apps. `npm run check:tokens` (`scripts/check-tokens.js`) verifies the layers resolve and that every theme defines the same names as `default.css`. Known gap for Phase 6: bare-number utilities (`border-2`, `opacity-50`, `z-10`, …) and arbitrary values still compile; the lint must catch them.
 
 ### Phase 3 — Component token layer
 For each component we're about to build, a small `tokens/components/<name>.css` mapping theme tokens → component-specific variables (e.g. `--button-bg-hover: color-mix(in srgb, var(--color-primary) 85%, black)`). Keeps component code itself free of any styling decisions — it only reads component tokens.
