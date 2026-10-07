@@ -51,7 +51,7 @@ export function Button({
         "disabled:cursor-not-allowed disabled:opacity-disabled",
         variantClasses[variant],
         sizeClasses[size],
-        fullWidth && "w-full",
+        fullWidth ? "w-full" : "w-fit",
         className,
       )}
       {...props}

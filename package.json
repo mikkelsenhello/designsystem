@@ -1,10 +1,33 @@
 {
   "name": "designsystem",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Rebrandable, token-driven design system (Tailwind v4 + CSS variables).",
   "license": "UNLICENSED",
+  "repository": "github:mikkelsenhello/designsystem",
   "type": "module",
+  "sideEffects": [
+    "*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./tokens/*.css": {
+      "style": "./tokens/*.css",
+      "default": "./tokens/*.css"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "tokens",
+    "scripts/check-ds.js",
+    "docs",
+    "NOTICE.md",
+    "README.md"
+  ],
   "bin": {
     "check-ds": "./scripts/check-ds.js"
   },
@@ -18,6 +41,7 @@
   },
   "peerDependencies": {
     "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {

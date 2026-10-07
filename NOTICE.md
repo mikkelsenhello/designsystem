@@ -10,7 +10,11 @@ The token values in `tokens/global/` (color scales, spacing scale, border-radius
 - Only the token values were taken, plus component sizing values (heights, paddings) and two icon paths (error, chevron in `src/internal/icons.tsx`) from `packages/css`; none of Designsystemet's component code is included.
 - Changes: values resolved to static CSS custom properties at the default ("md") size mode, renamed, and hex colors lowercased.
 
-License (MIT):
+## Tailwind CSS (Tailwind Labs)
+
+The layout widths in `tokens/global/container.css` and the breakpoints and default transition values in `tokens/tailwind.css` are Tailwind CSS v4 defaults, <https://github.com/tailwindlabs/tailwindcss>, MIT License, Copyright (c) Tailwind Labs, Inc.
+
+## Designsystemet license (MIT):
 
 ```
 Copyright Digitaliseringsdirektoratet (Digdir)

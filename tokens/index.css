@@ -1,24 +1,6 @@
 /*
- * All design tokens, in layer order: global raw values, component tokens, theme, color context.
- * To rebrand, swap themes/default.css for your own theme file (keep the other imports).
- * The theme comes after components so it can override component tokens.
+ * All design tokens with the default theme. To rebrand, import base.css and your own theme instead.
  */
 
-@import "./global/color.css";
-@import "./global/spacing.css";
-@import "./global/radius.css";
-@import "./global/shadow.css";
-@import "./global/typography.css";
-@import "./global/border.css";
-@import "./global/opacity.css";
-
-@import "./components/accordion.css";
-@import "./components/badge.css";
-@import "./components/button.css";
-@import "./components/card.css";
-@import "./components/checkbox.css";
-@import "./components/link.css";
-@import "./components/textfield.css";
-
+@import "./base.css";
 @import "./themes/default.css";
-@import "./color-context.css";

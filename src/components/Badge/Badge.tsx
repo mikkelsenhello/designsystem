@@ -21,7 +21,7 @@ export function Badge({ variant = "base", color = "primary", className, ...props
     <span
       data-color={color}
       className={cx(
-        "inline-flex min-h-badge-size min-w-badge-size items-center justify-center px-badge-padding-x",
+        "inline-flex w-fit min-h-badge-size min-w-badge-size items-center justify-center px-badge-padding-x",
         "rounded-badge text-body-xs leading-short whitespace-nowrap",
         variantClasses[variant],
         className,

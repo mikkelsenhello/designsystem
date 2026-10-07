@@ -46,6 +46,12 @@ Also: `text-link-visited`.
 
 Steps (×4px): `0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 18 22 26 30`. `p-4` = 16px. Other numbers (`p-16`, `p-17`) don't exist. Spacing is not themed.
 
+## Layout widths: `max-w-* w-*`
+
+`sm` 384, `md` 448, `lg` 512, `xl` 576, `2xl` 672, `3xl` 768, `4xl` 896, `5xl` 1024, `6xl` 1152, `7xl` 1280 (px), `prose` (65ch, comfortable reading width). Plus Tailwind's built-ins `w-full`, `w-fit`, `w-screen`. Not themed.
+
+**Unknown classes fail silently**: Tailwind doesn't warn about a class that doesn't exist, it just generates nothing. If a class from memory of "normal Tailwind" seems to do nothing, it's probably not in this list.
+
 ## Typography
 
 | Class | Sets |

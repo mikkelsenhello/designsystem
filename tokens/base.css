@@ -1,0 +1,26 @@
+/*
+ * Every token layer except the theme: global raw values, component tokens, color context.
+ * Import this, then a theme. tokens/index.css does that with the default theme; to rebrand:
+ *   @import "designsystem/tokens/base.css";
+ *   @import "./my-theme.css";
+ * The theme comes last so it can override component tokens.
+ */
+
+@import "./global/color.css";
+@import "./global/spacing.css";
+@import "./global/container.css";
+@import "./global/radius.css";
+@import "./global/shadow.css";
+@import "./global/typography.css";
+@import "./global/border.css";
+@import "./global/opacity.css";
+
+@import "./components/accordion.css";
+@import "./components/badge.css";
+@import "./components/button.css";
+@import "./components/card.css";
+@import "./components/checkbox.css";
+@import "./components/link.css";
+@import "./components/textfield.css";
+
+@import "./color-context.css";

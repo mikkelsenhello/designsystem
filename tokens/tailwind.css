@@ -197,6 +197,19 @@
   --spacing-26: var(--ds-space-26);
   --spacing-30: var(--ds-space-30);
 
+  /* Layout widths: max-w-{sm..7xl|prose}, w-*. Not themed. */
+  --container-sm: var(--ds-container-sm);
+  --container-md: var(--ds-container-md);
+  --container-lg: var(--ds-container-lg);
+  --container-xl: var(--ds-container-xl);
+  --container-2xl: var(--ds-container-2xl);
+  --container-3xl: var(--ds-container-3xl);
+  --container-4xl: var(--ds-container-4xl);
+  --container-5xl: var(--ds-container-5xl);
+  --container-6xl: var(--ds-container-6xl);
+  --container-7xl: var(--ds-container-7xl);
+  --container-prose: var(--ds-container-prose);
+
   /* ------------------------------------------------------------------
    * Typography
    * ------------------------------------------------------------------ */

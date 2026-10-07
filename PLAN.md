@@ -138,6 +138,8 @@ Once there are enough components, document the handful of full-page patterns ("H
 - Landing page's `package.json`: `"designsystem": "git+https://github.com/mikkelsenhello/designsystem.git#v0.1.0"`, pinned — bump the tag deliberately when ready, not automatically.
 - Document in this repo's own `CLAUDE.md` how a consuming project integrates it (install, Tailwind preset import, pointing the consumer's own CLAUDE.md at `docs/component-index.md`).
 
+**Progress:** `package.json` has `exports` (`.` → `src/index.ts`, `./tokens/*.css`), `files` (src, tokens, docs, lint script; no playground), `check-ds` bin, peer deps react/react-dom/tailwindcss, version `0.1.0`. Consumer setup documented in `README.md`. `tokens/base.css` = everything but the theme, so a rebrand is two imports. Verified by installing the packed package into a fresh Next.js 16 app: builds, type-checks, `npx check-ds` runs, components render styled in light and dark. That test found and fixed: Button/Badge stretching in flex columns (now `w-fit`), missing layout widths (added `tokens/global/container.css`, Tailwind's default scale), and that consumers must load Inter themselves (documented).
+
 ### Phase 10 — Vercel-specific notes
 - CSS-variable tokens add no runtime JS — fine for a marketing page's performance budget. Tailwind's purge/JIT works normally against a git-dependency package as long as its source files are included in what gets published (don't `.gitignore` `src/` in the design-system repo).
 - No monorepo config needed (Root Directory, Turborepo, etc.) since the repos are separate — Vercel just needs normal `npm`/`pnpm install` to succeed, which depends on the git-dependency access being set up (see Phase 9).

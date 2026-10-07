@@ -10,6 +10,8 @@ A rebrandable, reusable design system, consumed by separate projects (first the 
 - **Keep `docs/component-index.md` short** (under ~150 lines). It's the always-loaded index a consuming project's own CLAUDE.md points at before writing any UI — if it gets long, that's a sign to trim descriptions, not to let it grow.
 - **Repo is public, all-rights-reserved** (no OSS license file). designsystemet.no's token *values* are MIT-licensed and attributed in `NOTICE.md` — that attribution stays regardless of this repo's own license.
 - GitHub: `github.com/mikkelsenhello/designsystem`.
+- **Consumers install a pinned tag** (`#v0.1.0`). Setup steps live in `README.md` → "Using it in a project"; update them whenever `package.json` exports, `tokens/index.css`/`base.css`/`tailwind.css`, or required peer setup change. Anything a consumer must import has to be listed in `package.json` `files`.
+- **Before calling work done:** `npm run check` (token wiring + `check-ds` lint + types), and look at the change in the playground (`npm run playground`, light + dark side by side).
 
 ## Structure
 

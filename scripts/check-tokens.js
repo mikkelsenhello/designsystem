@@ -12,7 +12,8 @@ const cssIn = (dir) => readdirSync(join(root, dir)).filter((f) => f.endsWith(".c
 const defs = (css) => new Map([...css.matchAll(/(--ds-[\w-]+)\s*:\s*([^;]+);/g)].map((m) => [m[1], m[2]]));
 const refs = (value) => [...value.matchAll(/var\((--ds-[\w-]+)\)/g)].map((m) => m[1]);
 const merge = (files) => new Map(files.flatMap((f) => [...defs(read(f))]));
-const isSpace = (r) => r.startsWith("--ds-space-");
+// Spacing and layout widths are deliberately unthemed: any layer may use them directly.
+const isSpace = (r) => r.startsWith("--ds-space-") || r.startsWith("--ds-container-");
 
 const errors = [];
 const global = merge(cssIn("global").map((f) => `global/${f}`));

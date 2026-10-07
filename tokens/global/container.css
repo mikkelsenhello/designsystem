@@ -1,0 +1,18 @@
+/*
+ * Global layout widths (max-w-*, w-*): raw values only. Not themed, like spacing.
+ * Source: Tailwind CSS v4 default container scale (MIT); designsystemet defines no layout widths.
+ */
+
+:root {
+  --ds-container-sm: 24rem;     /* 384px */
+  --ds-container-md: 28rem;     /* 448px */
+  --ds-container-lg: 32rem;     /* 512px */
+  --ds-container-xl: 36rem;     /* 576px */
+  --ds-container-2xl: 42rem;    /* 672px */
+  --ds-container-3xl: 48rem;    /* 768px */
+  --ds-container-4xl: 56rem;    /* 896px */
+  --ds-container-5xl: 64rem;    /* 1024px */
+  --ds-container-6xl: 72rem;    /* 1152px */
+  --ds-container-7xl: 80rem;    /* 1280px */
+  --ds-container-prose: 65ch;   /* comfortable reading line length */
+}
