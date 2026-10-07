@@ -1,0 +1,10 @@
+/*
+ * Card component tokens. Colors come from the data-color context (Card's `color` prop, default neutral).
+ * Sizes follow designsystemet's card: 24px padding, lg radius, 12px between children.
+ */
+
+:root {
+  --ds-card-radius: var(--ds-radius-lg);
+  --ds-card-padding: var(--ds-space-6);   /* 24px */
+  --ds-card-gap: var(--ds-space-3);       /* 12px between children */
+}

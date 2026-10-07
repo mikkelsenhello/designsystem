@@ -293,6 +293,17 @@
    * e.g. --ds-button-padding-x-md -> px-button-padding-x-md. For use inside src/components only.
    * ------------------------------------------------------------------ */
 
+  /* Accordion */
+  --spacing-accordion-header-height: var(--ds-accordion-header-height);
+  --spacing-accordion-header-padding: var(--ds-accordion-header-padding);
+  --spacing-accordion-content-padding: var(--ds-accordion-content-padding);
+  --spacing-accordion-gap: var(--ds-accordion-gap);
+
+  /* Badge */
+  --radius-badge: var(--ds-badge-radius);
+  --spacing-badge-size: var(--ds-badge-size);
+  --spacing-badge-padding-x: var(--ds-badge-padding-x);
+
   /* Button */
   --radius-button: var(--ds-button-radius);
   --font-weight-button: var(--ds-button-font-weight);
@@ -304,6 +315,23 @@
   --spacing-button-padding-x-sm: var(--ds-button-padding-x-sm);
   --spacing-button-padding-x-md: var(--ds-button-padding-x-md);
   --spacing-button-padding-x-lg: var(--ds-button-padding-x-lg);
+
+  /* Card */
+  --radius-card: var(--ds-card-radius);
+  --spacing-card-padding: var(--ds-card-padding);
+  --spacing-card-gap: var(--ds-card-gap);
+
+  /* Checkbox (border width: utility border-width-checkbox below) */
+  --radius-checkbox: var(--ds-checkbox-radius);
+  --spacing-checkbox-size: var(--ds-checkbox-size);
+  --spacing-checkbox-gap: var(--ds-checkbox-gap);
+
+  /* Textfield */
+  --radius-textfield: var(--ds-textfield-radius);
+  --spacing-textfield-height: var(--ds-textfield-height);
+  --spacing-textfield-padding-x: var(--ds-textfield-padding-x);
+  --spacing-textfield-padding-y: var(--ds-textfield-padding-y);
+  --spacing-textfield-gap: var(--ds-textfield-gap);
 
   /* shadow-{xs|sm|md|lg|xl} */
   --shadow-xs: var(--ds-shadow-xs);
@@ -335,6 +363,41 @@
     box-shadow: 0 0 0 var(--ds-border-width-focus) var(--ds-color-focus-inner);
     outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
     outline-offset: var(--ds-border-width-focus);
+  }
+}
+
+/* Same ring drawn inside the element, for full-width rows where an outer ring would be clipped. */
+@utility focus-ring-inset {
+  &:focus-visible {
+    box-shadow: inset 0 0 0 calc(var(--ds-border-width-focus) * 2) var(--ds-color-focus-inner);
+    outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+    outline-offset: calc(var(--ds-border-width-focus) * -1);
+  }
+}
+
+@utility border-width-checkbox {
+  border-style: solid;
+  border-width: var(--ds-checkbox-border-width);
+}
+
+@utility border-width-textfield {
+  border-style: solid;
+  border-width: var(--ds-textfield-border-width);
+}
+
+/* Textfield hover: thicken the border to --ds-textfield-border-width-hover with an outline in the
+   border's color (danger when invalid). Skipped while focused or disabled. -0.1px avoids a hairline
+   gap between border and outline when zoomed (designsystemet's fix). */
+@utility textfield-hover {
+  @media (hover: hover) {
+    &:enabled:not(:focus-visible):hover {
+      outline: calc(var(--ds-textfield-border-width-hover) - var(--ds-textfield-border-width)) solid
+        var(--ds-color-neutral-border-default);
+      outline-offset: -0.1px;
+    }
+    &:enabled:not(:focus-visible)[aria-invalid="true"]:hover {
+      outline-color: var(--ds-color-danger-border-strong);
+    }
   }
 }
 

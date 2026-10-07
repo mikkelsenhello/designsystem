@@ -67,6 +67,7 @@ Pick the heading size by visual weight, independent of `h1`–`h6`.
 | `border-width-default` | themed border width (use with a `border-*` color) |
 | `opacity-disabled` | disabled controls |
 | `focus-ring` | keyboard focus ring (`:focus-visible`); put on every focusable element you build |
+| `focus-ring-inset` | same, drawn inside the element (full-width rows where an outer ring would be clipped) |
 
 Breakpoints: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536 (px).
 

@@ -85,7 +85,24 @@ For each component we're about to build, a small `tokens/components/<name>.css` 
 
 ### Phase 4 — Build components, in the order the landing page needs them
 
-**Progress:** Heading, Paragraph, Label, Button done (playground: `npm run playground`, each page shows light + dark side by side). Components ship as `.tsx` source, so a Next.js consumer needs `transpilePackages: ["designsystem"]` (Phase 9 docs). No `tailwind-merge`: it can't tell `text-heading-lg` (size) from `text-subtle` (color) and would drop one.
+**Progress:** first batch done: Heading, Paragraph, Label, Button, Textfield, Checkbox, Card, Badge, Accordion. Badge follows designsystemet's Badge (pill with count / one-word status); their text label is Tag (second batch). Textfield border thickness is tokenized (`--ds-textfield-border-width`, `--ds-textfield-border-width-hover`, defaulting to the theme's `--ds-border-width-default`), with hover thickening done as designsystemet does (outline in the border color). Pattern for brand-configurable values: component token defaults to a theme token, so a brand changes one theme value for everything or overrides the component token for one component. Accordion has no open/close animation yet (waiting for motion tokens, below).
+
+**Planned — motion tokens (not started):** duration and easing tokens (global raw values → theme meaning such as `--ds-motion-duration-*`, `--ds-motion-easing-*` → component tokens → Tailwind `duration-*` / `ease-*` / `animate-*`), plus `prefers-reduced-motion` handling. Once they exist: Accordion open/close, Button/Textfield state transitions, and replace the Tailwind default transition values currently hard-coded in `tokens/tailwind.css`.
+
+**Source (chosen by the user):** [jakubkrehel/make-interfaces-feel-better](https://github.com/jakubkrehel/make-interfaces-feel-better), `skills/make-interfaces-feel-better/animations.md` (MIT, add to `NOTICE.md` when values are used). Values it specifies:
+
+| Use | Value |
+|---|---|
+| High-frequency feedback (hover bg/color) | ≤150ms, e.g. 100ms, `ease-out`, opacity/color only |
+| Press feedback (Button) | `scale: 0.96` (never below 0.95), 150ms `ease-out`, transition so release reverses smoothly; `static` prop to opt out |
+| Enter (infrequent: hero, success, empty state) | 300–400ms `ease-out`, opacity 0→1 + translateY 12px→0 + blur 4px→0 |
+| Stagger between enter groups / title words | 100ms / 80ms |
+| Exit (softer than enter) | 150ms `ease-out`, translateY −12px, blur 4px; 200ms for full slide-out when spatial context matters |
+| Contextual icon swap | scale 0.25→1, opacity 0→1, blur 4px→0, 300ms `cubic-bezier(0.2, 0, 0, 1)` (CSS stand-in for spring, bounce 0) |
+
+Rules to carry into the token docs: CSS transitions (interruptible) for interactive state, keyframes only for one-shot sequences; never `transition: all`, list properties; motion is never the only feedback; reduced motion keeps the static cue and drops the movement; no entrance animations on high-frequency interactions.
+
+Sketch (to confirm before building): global raw values (`--ds-duration-100/150/200/300/400`, `--ds-easing-out`, `--ds-easing-emphasized: cubic-bezier(0.2, 0, 0, 1)`, scale/blur/distance values) → theme roles (`--ds-motion-duration-feedback`, `-press`, `-exit`, `-enter`, `-stagger`; `--ds-motion-easing-default`, `-icon`; `--ds-motion-press-scale`, `--ds-motion-enter-distance`, `--ds-motion-enter-blur`) → component tokens → Tailwind (`duration-*`, `ease-*`, `transition-*`). A brand tunes motion by changing theme roles; reduced motion sets durations to 0 and distances/scale to neutral. (playground: `npm run playground`, each page shows light + dark side by side). Components ship as `.tsx` source, so a Next.js consumer needs `transpilePackages: ["designsystem"]` (Phase 9 docs). No `tailwind-merge`: it can't tell `text-heading-lg` (size) from `text-subtle` (color) and would drop one.
 First batch (unblocks the newsletter landing page): **Heading, Paragraph, Label, Button, Textfield (email capture), Checkbox (consent), Card, Badge, Accordion (FAQ — not in designsystemet's list; built the same token-driven way as an extension)**. Each one:
 - Built with Tailwind utilities that only reference tokens (Radix primitive underneath for Accordion's expand/collapse behavior).
 - Colocated `README.md`: use for / **don't use for** / props / a wrong→right example.

@@ -1,0 +1,11 @@
+/*
+ * Accordion component tokens. Colors come from the data-color context (default neutral).
+ * Sizes follow designsystemet's details: 56px header, 16px header padding, 20px content inset.
+ */
+
+:root {
+  --ds-accordion-header-height: var(--ds-space-14);    /* 56px */
+  --ds-accordion-header-padding: var(--ds-space-4);    /* 16px */
+  --ds-accordion-content-padding: var(--ds-space-5);   /* 20px */
+  --ds-accordion-gap: var(--ds-space-2);               /* chevron to title */
+}

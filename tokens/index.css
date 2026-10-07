@@ -12,7 +12,12 @@
 @import "./global/border.css";
 @import "./global/opacity.css";
 
+@import "./components/accordion.css";
+@import "./components/badge.css";
 @import "./components/button.css";
+@import "./components/card.css";
+@import "./components/checkbox.css";
+@import "./components/textfield.css";
 
 @import "./themes/default.css";
 @import "./color-context.css";

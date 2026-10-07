@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata = { title: "Designsystem playground" };
 
-const pages = ["button", "heading", "paragraph", "label"];
+const pages = ["button", "heading", "paragraph", "label", "textfield", "checkbox", "card", "badge", "accordion"];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

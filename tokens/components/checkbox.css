@@ -1,0 +1,11 @@
+/*
+ * Checkbox component tokens. Checked color comes from the data-color context (Checkbox's `color` prop).
+ * Sizes follow designsystemet's checkbox: 24px box, border at least 2px.
+ */
+
+:root {
+  --ds-checkbox-size: var(--ds-space-6);                                                    /* 24px */
+  --ds-checkbox-radius: var(--ds-radius-sm);
+  --ds-checkbox-border-width: max(var(--ds-border-width-default), calc(var(--ds-space-1) / 2)); /* 2px */
+  --ds-checkbox-gap: var(--ds-space-2);                                                     /* box to label */
+}

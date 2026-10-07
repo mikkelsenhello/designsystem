@@ -7,7 +7,7 @@ This repository is all rights reserved, except for the third-party material list
 The token values in `tokens/global/` (color scales, spacing scale, border-radius scale, shadow scale, type scale, border widths and opacity), and the semantic structure of `tokens/themes/default.css` (color role names and their step mapping, text styles), are taken from **Designsystemet** by Digitaliseringsdirektoratet (Digdir), <https://designsystemet.no>.
 
 - Source: <https://github.com/digdir/designsystemet>, `design-tokens/` (package `@digdir/designsystemet` v1.23.0, commit `c11e60d`, retrieved 2026-10-06)
-- Only the token values were taken; none of Designsystemet's component code is included.
+- Only the token values were taken, plus component sizing values (heights, paddings) and two icon paths (error, chevron in `src/internal/icons.tsx`) from `packages/css`; none of Designsystemet's component code is included.
 - Changes: values resolved to static CSS custom properties at the default ("md") size mode, renamed, and hex colors lowercased.
 
 License (MIT):

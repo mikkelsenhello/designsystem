@@ -1,0 +1,10 @@
+/*
+ * Badge component tokens. Colors come from the data-color context (Badge's `color` prop).
+ * Sizes follow designsystemet's badge with a count: 24px min size, 6px horizontal padding, pill shape.
+ */
+
+:root {
+  --ds-badge-radius: var(--ds-radius-full);
+  --ds-badge-size: var(--ds-space-6);                          /* 24px min height / width */
+  --ds-badge-padding-x: calc(var(--ds-space-1) * 1.5);         /* 6px */
+}

@@ -1,0 +1,20 @@
+/*
+ * Textfield component tokens. Colors come from the neutral family (and danger when invalid).
+ * Sizes follow designsystemet's input: 48px tall, 8px / 12px padding, md radius.
+ *
+ * Border thickness: hover thickens the border to --ds-textfield-border-width-hover (total thickness),
+ * drawn as an outline in the border's color, as designsystemet does. Both default to the theme's
+ * border width, so changing --ds-border-width-default restyles every control; override these two
+ * to change only Textfield. Keep hover >= the base width.
+ */
+
+:root {
+  --ds-textfield-radius: var(--ds-radius-md);
+  --ds-textfield-height: var(--ds-space-12);      /* 48px */
+  --ds-textfield-padding-x: var(--ds-space-3);    /* 12px */
+  --ds-textfield-padding-y: var(--ds-space-2);    /* 8px */
+  --ds-textfield-gap: var(--ds-space-2);          /* between label, description, input, error */
+
+  --ds-textfield-border-width: var(--ds-border-width-default);                                  /* 1px */
+  --ds-textfield-border-width-hover: calc(var(--ds-textfield-border-width) + var(--ds-border-width-default)); /* 2px */
+}
