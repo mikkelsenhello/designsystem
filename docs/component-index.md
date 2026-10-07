@@ -13,6 +13,7 @@ All components: `import { Name } from "designsystem";`. Each has a README with p
 | **Textfield** | Single-line input with `label`, `description`, `error` (email, name …) | Multi-line text; placeholder-only fields |
 | **Button** | Actions: submit, confirm, cancel, open. `variant` primary/secondary/tertiary, `color` for danger etc. | Navigation to another page (use a link); clickable cards/rows |
 | **Heading** | All headings. `level` = h1–h6 (structure), `size` = 2xl–2xs (look) | Big non-heading text (Paragraph `size="xl"`); bold body text |
+| **Link** | Navigation: pages, `#sections`, external, `mailto:`. `asChild` wraps a router link (Next `<Link>`) | Actions that don't navigate (Button); raw `<a>` |
 | **Paragraph** | Body text, intros, help text. `size` xl–xs, `variant` short/long line height | Headings; form labels |
 | **Label** | Visible label of a form field (`htmlFor`) | Headings, bold text, tags/badges |
 

@@ -1,0 +1,10 @@
+/*
+ * Link component tokens. Color comes from the data-color context (Link's `color` prop, default primary).
+ * Underline values follow designsystemet's link (about 1px, 2px on hover, offset below the baseline).
+ */
+
+:root {
+  --ds-link-underline-thickness: 0.06em;
+  --ds-link-underline-thickness-hover: 0.12em;
+  --ds-link-underline-offset: 0.24em;
+}

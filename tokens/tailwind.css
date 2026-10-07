@@ -401,6 +401,19 @@
   }
 }
 
+/* Link underline, thicker on hover (Link component). */
+@utility link-underline {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: var(--ds-link-underline-thickness);
+  text-underline-offset: var(--ds-link-underline-offset);
+  @media (hover: hover) {
+    &:hover {
+      text-decoration-thickness: var(--ds-link-underline-thickness-hover);
+    }
+  }
+}
+
 @utility border-width-default {
   border-style: solid;
   border-width: var(--ds-border-width-default);

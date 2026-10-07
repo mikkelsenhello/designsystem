@@ -5,8 +5,13 @@
   "description": "Rebrandable, token-driven design system (Tailwind v4 + CSS variables).",
   "license": "UNLICENSED",
   "type": "module",
+  "bin": {
+    "check-ds": "./scripts/check-ds.js"
+  },
   "scripts": {
     "check:tokens": "node scripts/check-tokens.js",
+    "check:ds": "node scripts/check-ds.js src playground --allow-raw-elements src/components",
+    "check": "npm run check:tokens && npm run check:ds && npm run typecheck",
     "typecheck": "tsc --noEmit",
     "playground": "next dev playground",
     "playground:build": "next build playground"
@@ -28,6 +33,7 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "@radix-ui/react-accordion": "^1.2.21"
+    "@radix-ui/react-accordion": "^1.2.21",
+    "@radix-ui/react-slot": "^1.4.0"
   }
 }

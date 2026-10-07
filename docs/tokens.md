@@ -71,9 +71,20 @@ Pick the heading size by visual weight, independent of `h1`–`h6`.
 
 Breakpoints: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536 (px).
 
-## Not blocked by Tailwind (caught by the Phase 6 lint instead)
+## Enforced by `check-ds`
 
-Tailwind generates some classes from bare numbers regardless of the theme: `border-2`, `outline-3`, `ring-2`, `opacity-50`, `z-10`, `duration-200`, plus all arbitrary values `[...]`. Don't use them for styling; use the token classes above. (`z-*` for stacking order is fine until stacking tokens exist.)
+Tailwind still compiles some classes the theme can't block. `npx check-ds` (in this repo: `npm run check:ds`) fails on them:
+
+| Rule | Catches | Use instead |
+|---|---|---|
+| `raw-color` | `#1a56db`, `rgba(...)`, `oklch(...)` | color classes / `var(--ds-color-...)` |
+| `arbitrary-value` / `arbitrary-property` | `p-[13px]`, `bg-(--x)`, `[mask-type:...]` | a class above, or add a token |
+| `bare-number-utility` | `border-2`, `opacity-50`, `ring-2`, `outline-3`, `duration-200` | `border-width-default`, `opacity-disabled`, `focus-ring` |
+| `raw-element` | `<button>`, `<input>`, `<a>` outside the design system | Button, Textfield / Checkbox, Link |
+| `inline-style` | `style={{ ... }}` | classes |
+| `raw-length` | `24px`, `1.5rem` in CSS files | `var(--ds-space-*)` / tokens |
+
+Allowed: `z-*`, `grid-cols-*`, `rotate-*` and arbitrary *variants* like `data-[state=open]:`. Files inside any `tokens/` folder are skipped. A genuine exception gets a `ds-allow: <reason>` comment on the line or the line above, so the reason is visible in review.
 
 ## Component tokens (inside `src/components` only)
 

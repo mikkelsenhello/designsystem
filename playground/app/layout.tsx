@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
-import Link from "next/link";
+import NextLink from "next/link";
+import { Link } from "../../src";
 import "./globals.css";
 
 export const metadata = { title: "Designsystem playground" };
 
-const pages = ["button", "heading", "paragraph", "label", "textfield", "checkbox", "card", "badge", "accordion"];
+const pages = ["button", "heading", "paragraph", "label", "link", "textfield", "checkbox", "card", "badge", "accordion"];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -19,12 +20,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="font-body">
         <nav className="flex flex-wrap gap-4 border-b border-subtle px-8 py-4 text-body-sm">
-          <Link href="/" className="font-semibold">
-            Playground
+          <Link asChild color="neutral" className="font-semibold">
+            <NextLink href="/">Playground</NextLink>
           </Link>
           {pages.map((p) => (
-            <Link key={p} href={`/${p}`} className="text-primary-default underline">
-              {p}
+            <Link key={p} asChild>
+              <NextLink href={`/${p}`}>{p}</NextLink>
             </Link>
           ))}
         </nav>

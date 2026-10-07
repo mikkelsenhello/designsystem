@@ -122,6 +122,8 @@ Remaining designsystemet components get built **on demand**, same pattern, when 
 - a raw `<button>`, `<input>`, `<a>` outside `src/components/`
 Wired into a `check:ds` script consuming projects run before merging UI changes. This is what keeps the system from drifting once Claude (or anyone) is deep into a long session and the docs have scrolled out of view.
 
+**Done:** `scripts/check-ds.js`, grep-based, exposed as the `check-ds` bin so a consumer runs `npx check-ds` (defaults to `src`, `app`, `components`, `pages`). Rules: raw-color, arbitrary-value, arbitrary-property, bare-number-utility, raw-element, inline-style, raw-length (CSS). Escape hatch: `ds-allow: <reason>` comment. `tokens/` folders are skipped. Verified against a fixture of violations and false-positive traps. Banning raw `<a>` required a **Link** component (with `asChild` for router links), added alongside. `npm run check` runs tokens + lint + typecheck.
+
 ### Phase 7 — Prove the rebrand
 Create `tokens/themes/example-brand.css` with different color values, swap it in, confirm (visually, via `playground/`) that every component restyles correctly with no code changes. This is the test that validates Phases 0–3 actually achieved "rebrandable," not just "looks fine once."
 
