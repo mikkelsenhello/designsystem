@@ -1,14 +1,21 @@
 /*
  * Chip component tokens. Colors come from the data-color context (Chip's `color` prop, default primary):
- * unselected = tinted surface, selected = solid base fill.
- * Sizes follow designsystemet's chip: 36px tall pill, 16px side padding.
+ * unselected = tinted surface with a subtle border, selected/removable = solid base fill.
+ * Sizes follow designsystemet's chip: 32px tall, 12px side padding, 20px input/icon inset evenly
+ * from the edge, radio/button chips pill-shaped, checkbox chips with md corners.
  */
 
 :root {
-  --ds-chip-radius: var(--ds-radius-full);
-  --ds-chip-height: var(--ds-space-9);        /* 36px */
-  --ds-chip-padding-x: var(--ds-space-4);     /* 16px */
-  --ds-chip-gap: var(--ds-space-1);           /* check icon to text */
-  --ds-chip-icon-size: var(--ds-space-5);     /* 20px */
-  --ds-chip-group-gap: var(--ds-space-2);     /* between chips, and legend to chips */
+  --ds-chip-height: var(--ds-space-8);                    /* 32px */
+  --ds-chip-padding-x: var(--ds-space-3);                 /* 12px */
+  --ds-chip-radius: var(--ds-radius-full);                /* radio, button, removable */
+  --ds-chip-radius-checkbox: var(--ds-radius-md);         /* checkbox chips: square-ish, like the box inside */
+  --ds-chip-border-width: var(--ds-border-width-default);
+  --ds-chip-input-size: var(--ds-space-5);                /* 20px: the box/circle inside, and the remove × */
+  --ds-chip-input-radius: var(--ds-radius-sm);
+  --ds-chip-input-border-width: max(var(--ds-border-width-default), calc(var(--ds-space-1) / 2)); /* 2px */
+  --ds-chip-radio-dot-size: calc(var(--ds-chip-input-size) * 0.375);                              /* 7.5px */
+  /* Space around the input/×, so it sits evenly inside the chip: (32 - 20) / 2 - border = 5px */
+  --ds-chip-input-inset: calc((var(--ds-chip-height) - var(--ds-chip-input-size)) / 2 - var(--ds-chip-border-width));
+  --ds-chip-group-gap: var(--ds-space-2);                 /* between chips, and legend to chips */
 }

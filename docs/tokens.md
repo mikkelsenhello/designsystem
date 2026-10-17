@@ -31,6 +31,7 @@ Each role only exists on the utility it's meant for (`bg-subtle` or `text-surfac
 | | `base-default`, `base-hover`, `base-active` | Solid fills: primary button, filled badge |
 | `text-*` | `default`, `subtle` | Main and secondary text |
 | | `base-contrast-default`, `base-contrast-subtle` | Text/icons on a `base` fill |
+| | `base-default` | Mark in the `base` color on a light fill (checked chip's check mark) |
 | `border-*`, `divide-*` | `subtle` | Dividers, decorative |
 | | `default` | Interactive controls (3:1 contrast) |
 | | `strong` | Extra emphasis |

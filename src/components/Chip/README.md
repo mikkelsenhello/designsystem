@@ -1,10 +1,10 @@
 # Chip
 
 ```tsx
-import { ChipCheckbox, ChipGroup, ChipRadio } from "designsystem";
+import { ChipButton, ChipCheckbox, ChipGroup, ChipRadio, ChipRemovable } from "designsystem";
 ```
 
-**Use for:** filters and other quick choices among a few short options, where every option should be visible at once: "Student / Familie / Pensjonist", "I dag / Helg". `ChipCheckbox` = any number on (multi-choice), `ChipRadio` = exactly one on (single choice). Wrap them in a `ChipGroup`, which gives the set its visible name.
+**Use for:** filters and other quick choices among a few short options, where every option should be visible at once: "Student / Familie / Pensjonist", "I dag / Helg". `ChipCheckbox` = any number on (multi-choice), `ChipRadio` = exactly one on (single choice). Wrap them in a `ChipGroup`, which gives the set its visible name. `ChipRemovable` = an active filter shown as a solid chip with a ×, pressing it removes that value. `ChipButton` = a small chip-styled action that doesn't toggle (a suggested search).
 
 **Don't use for:** form questions the user answers and submits (use Checkbox; a single-choice form question needs Radio, not built yet); actions (Button); navigation between pages or tabs (Link; tabs not built yet); status or category labels that aren't clickable (Badge; Tag not built yet); long lists of options (needs a select/dropdown, not built yet). Don't hand-build toggle pills from Buttons with `aria-pressed` or styled `<span>`s.
 
@@ -25,9 +25,19 @@ Other `<fieldset>` props pass through; `className` is for layout.
 | Prop | Values | Default | |
 |---|---|---|---|
 | `children` | ReactNode | required | The chip's text. One or two words. |
-| `color` | `primary` \| `neutral` \| … | group's, else `primary` | Unselected = tinted surface, selected = solid fill with a check mark. |
+| `color` | `primary` \| `neutral` \| … | group's, else `primary` | Unselected = tinted surface with a subtle border and an outlined box/circle; selected = solid fill, the box/circle turns light with a mark in the chip's color. |
 
-All native `<input>` props pass through to the (visually hidden) input: `value`, `checked` + `onChange` (controlled), `defaultChecked`, `disabled`, `name`, `ref`. `className` goes on the chip, for layout only.
+Looks like designsystemet's chip: checkbox chips have slightly rounded corners, radio chips are pills, so the shape tells multi from single choice. Long text is cut off with an ellipsis.
+
+All native `<input>` props pass through to the input: `value`, `checked` + `onChange` (controlled), `defaultChecked`, `disabled`, `name`, `ref`. `className` goes on the chip, for layout only.
+
+**ChipButton / ChipRemovable**: `<button type="button">`; all native button props pass through (`onClick`, `disabled`, `ref`).
+
+| Prop | Values | Default | |
+|---|---|---|---|
+| `children` | ReactNode | required | The chip's text. |
+| `color` | `primary` \| `neutral` \| … | group's, else `primary` | |
+| `removeLabel` (ChipRemovable) | string | `"Trykk for å fjerne"` | Read after the text by screen readers, so they know pressing removes it. |
 
 ## Example
 
@@ -56,4 +66,11 @@ All native `<input>` props pass through to the (visually hidden) input: `value`,
 </ChipGroup>
 ```
 
-A "clear filters" action is a `Button variant="tertiary"` next to the groups. Tokens: `tokens/components/chip.css` (radius, height, padding, gaps). Built on native checkbox/radio inputs, so keyboard (Tab, Space, arrow keys between radios) and form submission work as usual.
+```tsx
+// Right: active filters the user can remove one by one
+{selected.map((g) => (
+  <ChipRemovable key={g} onClick={() => toggle(g)}>{g}</ChipRemovable>
+))}
+```
+
+A "clear filters" action is a `Button variant="tertiary"` next to the groups. Tokens: `tokens/components/chip.css` (height, padding, radii, input size and inset, gaps). Built on native checkbox/radio inputs, so keyboard (Tab, Space, arrow keys between radios) and form submission work as usual.

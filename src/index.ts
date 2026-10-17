@@ -5,8 +5,14 @@ export type { BadgeProps, BadgeVariant } from "./components/Badge/Badge";
 export { Card } from "./components/Card/Card";
 export type { CardProps, CardVariant } from "./components/Card/Card";
 export { Checkbox } from "./components/Checkbox/Checkbox";
-export { ChipCheckbox, ChipGroup, ChipRadio } from "./components/Chip/Chip";
-export type { ChipCheckboxProps, ChipGroupProps, ChipRadioProps } from "./components/Chip/Chip";
+export { ChipButton, ChipCheckbox, ChipGroup, ChipRadio, ChipRemovable } from "./components/Chip/Chip";
+export type {
+  ChipButtonProps,
+  ChipCheckboxProps,
+  ChipGroupProps,
+  ChipRadioProps,
+  ChipRemovableProps,
+} from "./components/Chip/Chip";
 export type { CheckboxProps } from "./components/Checkbox/Checkbox";
 export { Textfield } from "./components/Textfield/Textfield";
 export type { TextfieldProps } from "./components/Textfield/Textfield";

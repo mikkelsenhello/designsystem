@@ -112,31 +112,38 @@
   /* text-{role}  (current data-color context) */
   --text-color-default: var(--ds-color-text-default);
   --text-color-subtle: var(--ds-color-text-subtle);
+  --text-color-base-default: var(--ds-color-base-default);
   --text-color-base-contrast-default: var(--ds-color-base-contrast-default);
   --text-color-base-contrast-subtle: var(--ds-color-base-contrast-subtle);
   /* text-{family}-{role}  (fixed family) */
   --text-color-neutral-default: var(--ds-color-neutral-text-default);
   --text-color-neutral-subtle: var(--ds-color-neutral-text-subtle);
+  --text-color-neutral-base-default: var(--ds-color-neutral-base-default);
   --text-color-neutral-base-contrast-default: var(--ds-color-neutral-base-contrast-default);
   --text-color-neutral-base-contrast-subtle: var(--ds-color-neutral-base-contrast-subtle);
   --text-color-primary-default: var(--ds-color-primary-text-default);
   --text-color-primary-subtle: var(--ds-color-primary-text-subtle);
+  --text-color-primary-base-default: var(--ds-color-primary-base-default);
   --text-color-primary-base-contrast-default: var(--ds-color-primary-base-contrast-default);
   --text-color-primary-base-contrast-subtle: var(--ds-color-primary-base-contrast-subtle);
   --text-color-info-default: var(--ds-color-info-text-default);
   --text-color-info-subtle: var(--ds-color-info-text-subtle);
+  --text-color-info-base-default: var(--ds-color-info-base-default);
   --text-color-info-base-contrast-default: var(--ds-color-info-base-contrast-default);
   --text-color-info-base-contrast-subtle: var(--ds-color-info-base-contrast-subtle);
   --text-color-success-default: var(--ds-color-success-text-default);
   --text-color-success-subtle: var(--ds-color-success-text-subtle);
+  --text-color-success-base-default: var(--ds-color-success-base-default);
   --text-color-success-base-contrast-default: var(--ds-color-success-base-contrast-default);
   --text-color-success-base-contrast-subtle: var(--ds-color-success-base-contrast-subtle);
   --text-color-warning-default: var(--ds-color-warning-text-default);
   --text-color-warning-subtle: var(--ds-color-warning-text-subtle);
+  --text-color-warning-base-default: var(--ds-color-warning-base-default);
   --text-color-warning-base-contrast-default: var(--ds-color-warning-base-contrast-default);
   --text-color-warning-base-contrast-subtle: var(--ds-color-warning-base-contrast-subtle);
   --text-color-danger-default: var(--ds-color-danger-text-default);
   --text-color-danger-subtle: var(--ds-color-danger-text-subtle);
+  --text-color-danger-base-default: var(--ds-color-danger-base-default);
   --text-color-danger-base-contrast-default: var(--ds-color-danger-base-contrast-default);
   --text-color-danger-base-contrast-subtle: var(--ds-color-danger-base-contrast-subtle);
 
@@ -341,10 +348,13 @@
 
   /* Chip */
   --radius-chip: var(--ds-chip-radius);
+  --radius-chip-checkbox: var(--ds-chip-radius-checkbox);
+  --radius-chip-input: var(--ds-chip-input-radius);
   --spacing-chip-height: var(--ds-chip-height);
   --spacing-chip-padding-x: var(--ds-chip-padding-x);
-  --spacing-chip-gap: var(--ds-chip-gap);
-  --spacing-chip-icon-size: var(--ds-chip-icon-size);
+  --spacing-chip-input-size: var(--ds-chip-input-size);
+  --spacing-chip-input-inset: var(--ds-chip-input-inset);
+  --spacing-chip-radio-dot-size: var(--ds-chip-radio-dot-size);
   --spacing-chip-group-gap: var(--ds-chip-group-gap);
 
   /* Textfield */
@@ -447,6 +457,16 @@
 @utility border-width-checkbox {
   border-style: solid;
   border-width: var(--ds-checkbox-border-width);
+}
+
+@utility border-width-chip {
+  border-style: solid;
+  border-width: var(--ds-chip-border-width);
+}
+
+@utility border-width-chip-input {
+  border-style: solid;
+  border-width: var(--ds-chip-input-border-width);
 }
 
 @utility border-width-textfield {

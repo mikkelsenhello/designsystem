@@ -10,7 +10,7 @@ All components: `import { Name } from "designsystem";`. Each has a README with p
 | **Badge** | Small pill with a count or one-word status ("3", "New") | Longer labels/categories; anything clickable |
 | **Card** | Boxed group of related content; `color` recolors everything inside | Page-wide bands (use `bg-background-tinted`); clickable navigation cards |
 | **Checkbox** | Consent / multi-select option with `label`, `description`, `error` | Instant-effect settings (Switch); single choice (Radio); filters (Chip) |
-| **ChipGroup** + **ChipCheckbox** / **ChipRadio** | Filters / quick choices among a few short, always-visible options. Checkbox = multi, Radio = one | Submitted form questions (Checkbox); actions (Button); long option lists |
+| **ChipGroup** + **ChipCheckbox** / **ChipRadio** | Filters / quick choices among a few short, always-visible options. Checkbox = multi, Radio = one. **ChipRemovable** = an active filter to remove, **ChipButton** = small suggestion action | Submitted form questions (Checkbox); main actions (Button); long option lists |
 | **Textfield** | Single-line input with `label`, `description`, `error` (email, name …) | Multi-line text; placeholder-only fields |
 | **Button** | Actions: submit, confirm, cancel, open. `variant` primary/secondary/tertiary, `color` for danger etc. | Navigation to another page (use a link); clickable cards/rows |
 | **Heading** | All headings. `level` = h1–h6 (structure), `size` = 2xl–2xs (look) | Big non-heading text (Paragraph `size="xl"`); bold body text |

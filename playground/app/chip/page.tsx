@@ -1,4 +1,4 @@
-import { ChipCheckbox, ChipGroup, ChipRadio, Heading } from "../../../src";
+import { ChipButton, ChipCheckbox, ChipGroup, ChipRadio, ChipRemovable, Heading } from "../../../src";
 import { Preview } from "../Preview";
 
 export default function ChipPage() {
@@ -28,6 +28,12 @@ export default function ChipPage() {
           <ChipRadio value="helg">Helg</ChipRadio>
         </ChipGroup>
       </Preview>
+      <Preview title="ChipRemovable (active filters) and ChipButton">
+        <ChipRemovable>Konsert</ChipRemovable>
+        <ChipRemovable>Gratis</ChipRemovable>
+        <ChipButton>Forslag: jazz</ChipButton>
+        <ChipButton disabled>Deaktivert</ChipButton>
+      </Preview>
       <Preview title='color="neutral", disabled'>
         <ChipGroup legend="Type" color="neutral">
           <ChipCheckbox defaultChecked>Konsert</ChipCheckbox>
@@ -36,6 +42,11 @@ export default function ChipPage() {
           <ChipCheckbox disabled defaultChecked>
             Låst
           </ChipCheckbox>
+        </ChipGroup>
+        <ChipGroup legend="Sted" color="neutral">
+          <ChipRadio defaultChecked>Sentrum</ChipRadio>
+          <ChipRadio>Utenfor</ChipRadio>
+          <ChipRadio disabled>Stengt</ChipRadio>
         </ChipGroup>
       </Preview>
     </>
