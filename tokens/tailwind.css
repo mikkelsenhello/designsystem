@@ -23,8 +23,11 @@
 @import "./utilities/breadcrumbs.css";
 @import "./utilities/divider.css";
 @import "./utilities/error-summary.css";
+@import "./utilities/input.css";
 @import "./utilities/list.css";
+@import "./utilities/search.css";
 @import "./utilities/spinner.css";
+@import "./utilities/switch.css";
 @import "./utilities/table.css";
 @import "./utilities/tag.css";
 
@@ -405,6 +408,9 @@
   --spacing-tag-height: var(--ds-tag-height);
   --spacing-tag-padding-x: var(--ds-tag-padding-x);
 
+  /* Switch */
+  --spacing-switch-gap: var(--ds-switch-gap);
+
   /* Textfield */
   --spacing-textfield-multiline-min-height: var(--ds-textfield-multiline-min-height);
   --radius-textfield: var(--ds-textfield-radius);
@@ -528,12 +534,12 @@
    gap between border and outline when zoomed (designsystemet's fix). */
 @utility textfield-hover {
   @media (hover: hover) {
-    &:enabled:not(:focus-visible):hover {
+    &:enabled:not(:focus-visible, [readonly], [aria-readonly="true"]):hover {
       outline: calc(var(--ds-textfield-border-width-hover) - var(--ds-textfield-border-width)) solid
         var(--ds-color-neutral-border-default);
       outline-offset: -0.1px;
     }
-    &:enabled:not(:focus-visible)[aria-invalid="true"]:hover {
+    &:enabled:not(:focus-visible, [readonly], [aria-readonly="true"])[aria-invalid="true"]:hover {
       outline-color: var(--ds-color-danger-border-strong);
     }
   }

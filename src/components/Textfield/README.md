@@ -17,6 +17,8 @@ import { Textfield } from "designsystem";
 | `error` | ReactNode | | Error text under the input; sets `aria-invalid` and a red border. Omit when valid. |
 | `type` | any text-like input type | `text` | `email`, `tel`, `url`, `search`, `password`, `number` … Not with `multiline`. |
 | `multiline` | boolean | `false` | A `<textarea>` (designsystemet's Textfield `multiline`). At least 72px tall; grows with its content unless `rows` is set; resizable vertically. |
+| `prefix` / `suffix` | ReactNode | | Text joined to the input's start/end ("https://", "kr"). Hidden from screen readers: say it in the label too. |
+| `readOnly` | boolean | `false` | Shown and submitted, can't be edited: tinted, lock icon on the label. |
 | `counter` | number, or `{ limit, under?, over? }` | | Character counter under the field: "%d tegn igjen", over the limit "%d tegn for mye" in danger and the field invalid. A soft limit, like designsystemet: add `maxLength` for a hard stop. Announced to screen readers shortly after typing pauses. |
 
 All native `<input>` (or, with `multiline`, `<textarea>`: `rows`, `maxLength` …) props pass through (`name`, `value`, `onChange`, `required`, `autoComplete`, `disabled`, `ref`, …) to the input itself. `className` goes on the wrapper, for layout.

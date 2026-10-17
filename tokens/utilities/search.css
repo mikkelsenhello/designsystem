@@ -1,0 +1,82 @@
+/*
+ * Search (designsystemet's suggestion.css, search part). A grid with the input and an optional search button
+ * joined to its end. The magnifying glass is drawn over the input's start (pointer-events none); the clear
+ * button sits inside the input's end, hidden while the input is empty or read-only. Icon paths from
+ * designsystemet (MIT, see NOTICE.md).
+ */
+@utility search {
+  align-items: center;
+  box-sizing: border-box;
+  grid-template: "input submit" auto / 1fr auto;
+
+  &:not([hidden]) {
+    display: grid;
+  }
+
+  & > input {
+    grid-area: input;
+    padding-inline-end: calc(var(--ds-search-clear-size) + var(--ds-search-clear-gap));
+    padding-inline-start: calc(var(--ds-search-icon-spacing) + var(--ds-search-icon-size) + var(--ds-search-clear-gap));
+  }
+  & > input::-webkit-search-cancel-button {
+    display: none;
+  }
+  &::after {
+    background: currentcolor;
+    content: "";
+    forced-color-adjust: none;
+    grid-area: input;
+    height: var(--ds-search-icon-size);
+    margin-inline-start: var(--ds-search-icon-spacing);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10.5 3.25a7.25 7.25 0 1 0 4.57 12.88l5.41 5.41a.75.75 0 1 0 1.06-1.06l-5.41-5.41A7.25 7.25 0 0 0 10.5 3.25M4.75 10.5a5.75 5.75 0 1 1 11.5 0 5.75 5.75 0 0 1-11.5 0'/%3E%3C/svg%3E")
+      center / contain no-repeat;
+    pointer-events: none;
+    width: var(--ds-search-icon-size);
+  }
+
+  & > [data-search-clear] {
+    align-self: center;
+    background: transparent;
+    border: 0;
+    border-radius: var(--ds-search-clear-radius);
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    grid-area: input;
+    height: var(--ds-search-clear-size);
+    justify-self: end;
+    margin-inline-end: var(--ds-search-clear-gap);
+    padding: var(--ds-search-clear-padding);
+    position: relative;
+    scale: var(--ds-search-clear-scale);
+    width: var(--ds-search-clear-size);
+
+    & > svg {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+    &:hover {
+      background: var(--ds-color-neutral-surface-hover);
+    }
+    &:active {
+      background: var(--ds-color-neutral-surface-active);
+    }
+  }
+  & > input:is(:read-only, :disabled) ~ [data-search-clear] {
+    display: none;
+  }
+
+  & > [data-search-button] {
+    border-end-start-radius: 0;
+    border-start-start-radius: 0;
+    grid-area: submit;
+    &:not(:focus-visible) {
+      border-inline-start: 0;
+    }
+  }
+  &:has(> [data-search-button]) > input {
+    border-end-end-radius: 0;
+    border-start-end-radius: 0;
+  }
+}

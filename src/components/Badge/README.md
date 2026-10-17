@@ -6,7 +6,7 @@ import { Badge } from "designsystem";
 
 **Use for:** a small pill with a count or a one-word status: "3", "New", "Free", "Beta".
 
-**Don't use for:** longer labels or categories (a Tag component is planned); anything clickable (use Button); status messages that need a sentence (use an Alert, not built yet). Don't hand-build a `rounded-full px-2 text-xs` pill.
+**Don't use for:** longer labels or categories (Tag); anything clickable (use Button); status messages that need a sentence (Alert). Don't hand-build a `rounded-full px-2 text-xs` pill.
 
 ## Props
 

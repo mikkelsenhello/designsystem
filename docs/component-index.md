@@ -11,7 +11,10 @@ All components: `import { Name } from "designsystem";`. Each has a README with p
 | **Card** | Boxed group of related content; `color` recolors everything inside | Page-wide bands (use `bg-background-tinted`); clickable navigation cards |
 | **Checkbox** | Consent / multi-select option with `label`, `description`, `error` | Instant-effect settings (Switch); single choice (Radio); filters (Chip) |
 | **ChipGroup** + **ChipCheckbox** / **ChipRadio** | Filters / quick choices among a few short, always-visible options. Checkbox = multi, Radio = one. **ChipRemovable** = an active filter to remove, **ChipButton** = small suggestion action | Submitted form questions (Checkbox); main actions (Button); long option lists |
-| **Textfield** | Text input with `label`, `description`, `error` (email, name …). `multiline` = textarea, `counter={300}` = character counter | Placeholder-only fields; editing on a preview (InlineEditable) |
+| **Textfield** | Text input with `label`, `description`, `error` (email, name …). `multiline` = textarea, `counter={300}`, `prefix`/`suffix` ("kr"), `readOnly` | Placeholder-only fields; editing on a preview (InlineEditable) |
+| **Select** (+ Option / Optgroup) | One choice from a long list (7+), with `label`/`error` like Textfield | 2–6 visible options (RadioGroup); type-to-search (Suggestion) |
+| **Switch** | On/off setting that applies right away | Submitted choices and consent (Checkbox) |
+| **Search** (+ Input / Clear / Button) | Search or live-filter a list; wrap in `<form role="search">` | Ordinary text fields (Textfield) |
 | **RadioGroup** + **Radio** | One submitted choice among a few visible options, with `legend` and group `error` | View switches (ToggleGroup); filters (ChipRadio); many options |
 | **Fieldset** | Group of related fields under a `legend` | A single choice (RadioGroup); visual boxes (Card) |
 | **ToggleGroup** + **ToggleGroupItem** | Switch a view/mode right away, 2–4 options ("I annonsen" / "Som skjema") | Submitted form questions (RadioGroup); page navigation |

@@ -32,6 +32,14 @@ export default function TextfieldPage() {
           <Textfield label="Single-line with counter" counter={{ limit: 20, under: "%d characters left", over: "%d too many" }} />
         </div>
       </Preview>
+      <Preview title="prefix / suffix, readOnly">
+        <div className="flex w-full max-w-md flex-col gap-6">
+          <Textfield label="Nettside (https://)" prefix="https://" defaultValue="hvaskjer.no" />
+          <Textfield label="Pris i kroner" suffix="kr" inputMode="numeric" defaultValue="1500" />
+          <Textfield label="Beløp" prefix="NOK" suffix="per uke" defaultValue="500" />
+          <Textfield label="Ordrenummer" readOnly defaultValue="HS-2026-0042" />
+        </div>
+      </Preview>
     </>
   );
 }

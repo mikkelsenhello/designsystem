@@ -3,6 +3,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 import type { ChangeEvent, ComponentPropsWithRef, ReactNode } from "react";
 import { FieldError } from "../../internal/FieldError";
+import { LockIcon } from "../../internal/icons";
+import { inputClasses } from "../../internal/inputClasses";
 import { cx } from "../../utils/cx";
 import { Label } from "../Label/Label";
 
@@ -24,10 +26,14 @@ type SharedProps = {
   error?: ReactNode;
   /** Character counter under the field: a limit, or { limit, under, over } to change its texts. */
   counter?: number | TextfieldCounter;
+  /** Text joined to the input's start, e.g. "https://". Hidden from screen readers: say it in the label too. */
+  prefix?: ReactNode;
+  /** Text joined to the input's end, e.g. "kr" or "per uke". Hidden from screen readers: say it in the label too. */
+  suffix?: ReactNode;
 };
 
-type InputProps = SharedProps & Omit<ComponentPropsWithRef<"input">, "size"> & { multiline?: false };
-type TextareaProps = SharedProps & ComponentPropsWithRef<"textarea"> & {
+type InputProps = SharedProps & Omit<ComponentPropsWithRef<"input">, "size" | "prefix"> & { multiline?: false };
+type TextareaProps = SharedProps & Omit<ComponentPropsWithRef<"textarea">, "prefix"> & {
   /** Multi-line text (a <textarea>). Grows with its content unless `rows` is set. */
   multiline: true;
 };
@@ -39,7 +45,7 @@ export type TextfieldProps = InputProps | TextareaProps;
 const ANNOUNCE_DELAY = 800;
 
 export function Textfield(allProps: TextfieldProps) {
-  const { label, description, error, counter, id, className, ...props } = allProps;
+  const { label, description, error, counter, prefix, suffix, id, className, ...props } = allProps;
   const autoId = useId();
   const inputId = id ?? autoId;
   const descriptionId = description ? `${inputId}-description` : undefined;
@@ -74,13 +80,7 @@ export function Textfield(allProps: TextfieldProps) {
     "aria-invalid": invalid ? true : props["aria-invalid"],
     "aria-describedby": describedBy,
   };
-  const fieldClasses = cx(
-    "w-full px-textfield-padding-x py-textfield-padding-y",
-    "rounded-textfield border-width-textfield border-neutral-default",
-    "bg-neutral-surface-default text-neutral-default text-body-md placeholder:text-neutral-subtle",
-    "focus-ring textfield-hover transition-colors aria-invalid:border-danger-strong",
-    "disabled:cursor-not-allowed disabled:opacity-disabled",
-  );
+  const fieldClasses = inputClasses;
 
   function track(event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     typing.current = true;
@@ -123,13 +123,32 @@ export function Textfield(allProps: TextfieldProps) {
 
   return (
     <div className={cx("flex flex-col gap-textfield-gap", className)}>
-      <Label htmlFor={inputId}>{label}</Label>
+      <Label htmlFor={inputId}>
+        {props.readOnly && <LockIcon className="me-1 inline-block h-lh w-6 align-bottom" />}
+        {label}
+      </Label>
       {description && (
         <p id={descriptionId} className="text-body-md">
           {description}
         </p>
       )}
-      {field}
+      {prefix != null || suffix != null ? (
+        <div className="textfield-affixes">
+          {prefix != null && (
+            <span data-affix="" aria-hidden="true">
+              {prefix}
+            </span>
+          )}
+          {field}
+          {suffix != null && (
+            <span data-affix="" aria-hidden="true">
+              {suffix}
+            </span>
+          )}
+        </div>
+      ) : (
+        field
+      )}
       {limits &&
         (over ? (
           <FieldError id={counterId!}>{counterText}</FieldError>

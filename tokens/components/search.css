@@ -1,0 +1,15 @@
+/*
+ * Search component tokens. designsystemet's suggestion.css (search part): a magnifying glass 12px in from
+ * the input's start, a 36px clear button (drawn at 75%) 8px in from the end, and the search button joined
+ * to the input's end.
+ */
+
+:root {
+  --ds-search-icon-size: var(--ds-space-6);       /* 24px */
+  --ds-search-icon-spacing: var(--ds-space-3);    /* 12px */
+  --ds-search-clear-size: var(--ds-space-9);      /* 36px */
+  --ds-search-clear-gap: var(--ds-space-2);       /* 8px */
+  --ds-search-clear-padding: var(--ds-space-1);   /* 4px */
+  --ds-search-clear-radius: var(--ds-radius-md);
+  --ds-search-clear-scale: 0.75;
+}

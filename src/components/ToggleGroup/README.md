@@ -8,7 +8,7 @@ After designsystemet's ToggleGroup: Button-sized items in one outlined bar, exac
 
 **Use for:** switching how something is shown, right away: 2–4 short options ("I annonsen" / "Som skjema", "Dag / Uke / Måned").
 
-**Don't use for:** a form question that gets submitted (RadioGroup); filters (ChipRadio); navigating between pages (Link); tabs with their own panels (Tabs, not built yet); a row of Buttons with a hand-made "active" style.
+**Don't use for:** a form question that gets submitted (RadioGroup); filters (ChipRadio); navigating between pages (Link); tabs with their own panels (Tabs); a row of Buttons with a hand-made "active" style.
 
 ## ToggleGroup props
 

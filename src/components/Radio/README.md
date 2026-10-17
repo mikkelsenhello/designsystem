@@ -8,7 +8,7 @@ After designsystemet's Radio inside a Fieldset, with their `useRadioGroup` (shar
 
 **Use for:** one required choice among 2–6 options that are all shown, in a form ("Hva vil du annonsere?").
 
-**Don't use for:** switching a view or mode right away (ToggleGroup); filters (ChipRadio); several choices (Checkbox); many options (a select, not built yet); a single on/off (Checkbox or Switch).
+**Don't use for:** switching a view or mode right away (ToggleGroup); filters (ChipRadio); several choices (Checkbox); many options (Select); a single on/off (Checkbox or Switch).
 
 ## RadioGroup props
 

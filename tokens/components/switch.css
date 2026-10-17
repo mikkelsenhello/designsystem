@@ -1,0 +1,15 @@
+/*
+ * Switch component tokens. designsystemet's input.css (role="switch"): a 48 x 24px pill with a 2px border,
+ * the knob inset 2px, sliding at expand speed. Unchecked: neutral surface and border, knob in neutral text;
+ * checked: the context's base fill with the knob in base-contrast. Same border and gap as Checkbox.
+ */
+
+:root {
+  --ds-switch-height: var(--ds-space-6);                         /* 24px */
+  --ds-switch-width: calc(var(--ds-switch-height) * 2);          /* 48px */
+  --ds-switch-border-width: var(--ds-checkbox-border-width);     /* 2px */
+  --ds-switch-padding: calc(var(--ds-space-1) / 2);              /* 2px around the knob */
+  --ds-switch-gap: var(--ds-checkbox-gap);                       /* switch to label */
+  --ds-switch-hover-width: var(--ds-border-width-default);       /* extra ring on hover */
+  --ds-switch-duration: var(--ds-motion-duration-expand);        /* knob slide; instant for reduced motion */
+}

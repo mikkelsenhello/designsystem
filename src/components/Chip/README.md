@@ -6,7 +6,7 @@ import { ChipButton, ChipCheckbox, ChipGroup, ChipRadio, ChipRemovable } from "d
 
 **Use for:** filters and other quick choices among a few short options, where every option should be visible at once: "Student / Familie / Pensjonist", "I dag / Helg". `ChipCheckbox` = any number on (multi-choice), `ChipRadio` = exactly one on (single choice). Wrap them in a `ChipGroup`, which gives the set its visible name. `ChipRemovable` = an active filter shown as a solid chip with a ×, pressing it removes that value. `ChipButton` = a small chip-styled action that doesn't toggle (a suggested search).
 
-**Don't use for:** form questions the user answers and submits (use Checkbox; a single-choice form question needs Radio, not built yet); actions (Button); navigation between pages or tabs (Link; tabs not built yet); status or category labels that aren't clickable (Badge; Tag not built yet); long lists of options (needs a select/dropdown, not built yet). Don't hand-build toggle pills from Buttons with `aria-pressed` or styled `<span>`s.
+**Don't use for:** form questions the user answers and submits (use Checkbox; a single-choice form question needs RadioGroup); actions (Button); navigation between pages or tabs (Link, Tabs); status or category labels that aren't clickable (Tag); long lists of options (Select). Don't hand-build toggle pills from Buttons with `aria-pressed` or styled `<span>`s.
 
 ## Props
 

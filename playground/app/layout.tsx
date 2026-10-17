@@ -7,7 +7,7 @@ import "playground-theme";
 export const metadata = { title: "Designsystem playground" };
 
 const pages = [
-  "button", "heading", "paragraph", "label", "link", "list", "textfield", "checkbox", "radio", "chip", "toggle-group",
+  "button", "heading", "paragraph", "label", "link", "list", "textfield", "select", "search", "checkbox", "radio", "switch", "chip", "toggle-group",
   "file-upload", "inline-editable", "validation-message", "error-summary", "skeleton", "spinner", "card", "badge", "tag",
   "alert", "avatar", "accordion", "divider", "table", "breadcrumbs", "pagination", "skip-link", "motion",
 ];

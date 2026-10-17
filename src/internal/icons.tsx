@@ -108,3 +108,22 @@ export function ChevronLeftIcon(props: IconProps) {
     </svg>
   );
 }
+
+export function LockIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M12 2.25A4.75 4.75 0 0 0 7.25 7v2.25H7A1.75 1.75 0 0 0 5.25 11v9c0 .41.34.75.75.75h12a.75.75 0 0 0 .75-.75v-9A1.75 1.75 0 0 0 17 9.25h-.25V7A4.75 4.75 0 0 0 12 2.25m3.25 7V7a3.25 3.25 0 0 0-6.5 0v2.25zM12 13a1.5 1.5 0 0 0-.75 2.8V17a.75.75 0 0 0 1.5 0v-1.2A1.5 1.5 0 0 0 12 13"
+      />
+    </svg>
+  );
+}
+
+export function MagnifyingGlassIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" {...props}>
+      <path d="M10.5 3.25a7.25 7.25 0 1 0 4.57 12.88l5.41 5.41a.75.75 0 1 0 1.06-1.06l-5.41-5.41A7.25 7.25 0 0 0 10.5 3.25M4.75 10.5a5.75 5.75 0 1 1 11.5 0 5.75 5.75 0 0 1-11.5 0" />
+    </svg>
+  );
+}

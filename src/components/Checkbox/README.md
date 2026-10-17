@@ -6,7 +6,7 @@ import { Checkbox } from "designsystem";
 
 **Use for:** a yes/no choice the user confirms by submitting, e.g. consent ("I agree to receive emails"), or picking several options from a list.
 
-**Don't use for:** a setting that takes effect immediately (needs a Switch; not built yet); choosing exactly one option (needs Radio); a raw `<input type="checkbox">` with its own styling.
+**Don't use for:** a setting that takes effect immediately (Switch); choosing exactly one option (RadioGroup); a raw `<input type="checkbox">` with its own styling.
 
 ## Props
 

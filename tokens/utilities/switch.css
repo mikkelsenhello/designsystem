@@ -1,0 +1,54 @@
+/*
+ * Switch (designsystemet's input.css, role="switch"): a native checkbox drawn as a pill; the knob is a
+ * radial gradient in currentcolor that slides from left to right when checked. Hover adds a ring outside
+ * the border (base color when checked), only on hover-capable devices, also when hovering its label (.group).
+ */
+@utility switch {
+  appearance: none;
+  background-color: var(--ds-color-neutral-surface-default);
+  background-image: radial-gradient(circle closest-side, currentcolor 95%, transparent 100%);
+  background-origin: content-box;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: calc(var(--ds-switch-height) - var(--ds-switch-padding) * 2) 100%;
+  border: var(--ds-switch-border-width) solid var(--ds-color-neutral-border-default);
+  border-radius: var(--ds-radius-full);
+  box-sizing: border-box;
+  color: var(--ds-color-neutral-text-default);
+  cursor: pointer;
+  flex-shrink: 0;
+  height: var(--ds-switch-height);
+  margin: 0;
+  padding: var(--ds-switch-padding) 0;
+  print-color-adjust: exact;
+  transition: background-position var(--ds-switch-duration) var(--ds-motion-easing-default);
+  width: var(--ds-switch-width);
+
+  &:checked {
+    background-color: var(--ds-color-base-default);
+    background-position: right;
+    border-color: var(--ds-color-base-default);
+    color: var(--ds-color-base-contrast-default);
+  }
+  &:disabled {
+    cursor: not-allowed;
+    opacity: var(--ds-opacity-disabled);
+  }
+  &[readonly] {
+    background-color: var(--ds-color-neutral-surface-tinted);
+    border-color: var(--ds-color-neutral-border-subtle);
+    color: var(--ds-color-neutral-text-default);
+    cursor: default;
+  }
+  @media (hover: hover) {
+    &:enabled:not(:focus-visible, [readonly]):hover,
+    :where(.group):hover &:enabled:not(:focus-visible, [readonly]) {
+      outline: var(--ds-switch-hover-width) solid var(--ds-color-neutral-border-default);
+      outline-offset: -0.1px;
+    }
+    &:enabled:not(:focus-visible, [readonly]):checked:hover,
+    :where(.group):hover &:enabled:not(:focus-visible, [readonly]):checked {
+      outline-color: var(--ds-color-base-default);
+    }
+  }
+}
