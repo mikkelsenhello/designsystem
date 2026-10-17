@@ -38,7 +38,7 @@ export function Checkbox({ label, description, error, color = "primary", id, cla
             className={cx(
               "peer size-checkbox-size cursor-pointer appearance-none rounded-checkbox",
               "border-width-checkbox border-neutral-default bg-neutral-surface-default",
-              "checked:border-base-default checked:bg-base-default",
+              "checked:border-base-default checked:bg-base-default transition-colors",
               "focus-ring enabled:not-checked:not-aria-invalid:hover:border-neutral-strong aria-invalid:border-danger-strong",
               "disabled:cursor-not-allowed disabled:opacity-disabled",
             )}

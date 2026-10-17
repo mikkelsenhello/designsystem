@@ -8,8 +8,8 @@
  *
  * `--*: initial` removes every Tailwind default (palette, spacing multiplier, radii, shadows,
  * font sizes...), so only the utilities defined here exist: `p-5`, `bg-red-500` or `shadow-2xl`
- * simply don't compile. `inline` makes utilities reference the --ds-* tokens directly, so a theme
- * scoped to a subtree (or a dark-mode switch) restyles them, and Tailwind emits no variables of its own.
+ * simply don't compile. `inline` makes utilities reference the --ds-* tokens directly, so a dark-mode switch
+ * or a data-color context restyles them, and Tailwind emits no variables of its own.
  *
  * Colors are split per utility: background roles only exist as bg-*, text roles only as text-*,
  * border roles only as border-*. A class like `bg-neutral-text-default` is not generated.
@@ -24,9 +24,9 @@
 
   /* Preflight defaults */
   --default-font-family: var(--ds-font-family-body);
-  /* Tailwind's own transition defaults; without them `transition` would have 0s duration. */
-  --default-transition-duration: 150ms;
-  --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /* transition, transition-colors, ...: default to hover-feedback speed (motion tokens in the theme). */
+  --default-transition-duration: var(--ds-motion-duration-feedback);
+  --default-transition-timing-function: var(--ds-motion-easing-default);
 
   /* Breakpoints (Tailwind defaults; media queries can't read CSS variables, so these are literal) */
   --breakpoint-sm: 40rem;   /* 640px */
@@ -346,6 +346,45 @@
   --spacing-textfield-padding-y: var(--ds-textfield-padding-y);
   --spacing-textfield-gap: var(--ds-textfield-gap);
 
+  /* ------------------------------------------------------------------
+   * Motion. Durations: duration-{feedback|press|expand|enter|exit} (utilities at the end of this file).
+   * ------------------------------------------------------------------ */
+
+  /* ease-default, ease-emphasized */
+  --ease-default: var(--ds-motion-easing-default);
+  --ease-emphasized: var(--ds-motion-easing-emphasized);
+
+  /* animate-enter: fade in, rise and sharpen. For infrequent entrances (hero, success message), never
+     for things that appear on every interaction. Stagger groups with delay-stagger-{1..}. */
+  --animate-enter: ds-enter var(--ds-motion-duration-enter) var(--ds-motion-easing-default) both;
+  @keyframes ds-enter {
+    from {
+      opacity: 0;
+      translate: 0 var(--ds-motion-enter-distance);
+      filter: blur(var(--ds-motion-enter-blur));
+    }
+  }
+
+  /* Accordion open/close (Radix measures the content height). */
+  --animate-accordion-open: ds-accordion-open var(--ds-accordion-duration) var(--ds-motion-easing-default);
+  --animate-accordion-close: ds-accordion-close var(--ds-accordion-duration) var(--ds-motion-easing-default);
+  @keyframes ds-accordion-open {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes ds-accordion-close {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
   /* shadow-{xs|sm|md|lg|xl} */
   --shadow-xs: var(--ds-shadow-xs);
   --shadow-sm: var(--ds-shadow-sm);
@@ -430,4 +469,43 @@
 @utility border-width-default {
   border-style: solid;
   border-width: var(--ds-border-width-default);
+}
+
+/* Motion durations (Tailwind has no theme namespace for these). Pair with transition-colors etc. */
+@utility duration-feedback {
+  transition-duration: var(--ds-motion-duration-feedback);
+}
+@utility duration-press {
+  transition-duration: var(--ds-motion-duration-press);
+}
+@utility duration-expand {
+  transition-duration: var(--ds-motion-duration-expand);
+}
+@utility duration-enter {
+  transition-duration: var(--ds-motion-duration-enter);
+}
+@utility duration-exit {
+  transition-duration: var(--ds-motion-duration-exit);
+}
+
+/* delay-stagger-N: start an animate-enter group N stagger steps late. */
+@utility delay-stagger-* {
+  animation-delay: calc(var(--ds-motion-stagger) * --value(integer));
+}
+
+/* Button press feedback: colors at hover-feedback speed, scale at press speed (interruptible,
+   so a quick release reverses smoothly). */
+@utility transition-press {
+  transition-property: color, background-color, border-color, scale;
+  transition-duration: var(--ds-motion-duration-feedback), var(--ds-motion-duration-feedback),
+    var(--ds-motion-duration-feedback), var(--ds-motion-duration-press);
+  transition-timing-function: var(--ds-motion-easing-default);
+}
+@utility scale-button-press {
+  scale: var(--ds-button-press-scale);
+}
+
+/* Accordion chevron turn, same speed as the content. */
+@utility duration-accordion {
+  transition-duration: var(--ds-accordion-duration);
 }

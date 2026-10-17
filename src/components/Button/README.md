@@ -17,6 +17,7 @@ import { Button } from "designsystem";
 | `color` | `primary` \| `neutral` \| `danger` \| `success` \| `warning` \| `info` | `primary` | Use `danger` for destructive actions, `neutral` for actions that shouldn't draw the eye. |
 | `fullWidth` | boolean | `false` | Stretch to the container. |
 | `type` | `button` \| `submit` \| `reset` | `button` | Set `submit` in forms. |
+| `static` | boolean | `false` | Turns off the shrink-on-press feedback (e.g. a button that opens something large or moves). |
 
 All native `<button>` props (`onClick`, `disabled`, `aria-*`, `ref`, …) pass through. `className` is for layout only (margin, grid placement), not restyling.
 
@@ -31,4 +32,4 @@ All native `<button>` props (`onClick`, `disabled`, `aria-*`, `ref`, …) pass t
 <Button variant="secondary" color="danger" onClick={unsubscribe}>Unsubscribe</Button>
 ```
 
-Tokens: `tokens/components/button.css` (radius, heights, padding). Colors come from the theme family set by `color`.
+Tokens: `tokens/components/button.css` (radius, heights, padding, press scale). Hover and press are animated with the theme's motion tokens. Colors come from the theme family set by `color`.

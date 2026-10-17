@@ -37,6 +37,7 @@
     "check": "npm run check:tokens && npm run check:ds && npm run typecheck",
     "typecheck": "tsc --noEmit",
     "playground": "next dev playground",
+    "playground:brand": "next dev playground",
     "playground:build": "next build playground"
   },
   "peerDependencies": {

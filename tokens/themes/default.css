@@ -283,4 +283,25 @@
    * ------------------------------------------------------------------ */
 
   --ds-opacity-disabled: var(--ds-opacity-30);  /* disabled controls */
+
+  /* ------------------------------------------------------------------
+   * Motion. Pick the duration by how often the user sees it: the more often, the shorter.
+   * Interactive state uses transitions (interruptible); keyframes only for one-shot sequences.
+   * Never transition `all`; motion is never the only feedback. tokens/reduced-motion.css
+   * neutralizes movement for users who ask for reduced motion.
+   * ------------------------------------------------------------------ */
+
+  --ds-motion-duration-feedback: var(--ds-duration-100);  /* hover color/background: high-frequency, keep it near-instant */
+  --ds-motion-duration-press: var(--ds-duration-150);     /* press feedback (Button scale) */
+  --ds-motion-duration-expand: var(--ds-duration-200);    /* opening/closing in place: Accordion */
+  --ds-motion-duration-enter: var(--ds-duration-300);     /* infrequent entrances: hero, success message, empty state */
+  --ds-motion-duration-exit: var(--ds-duration-150);      /* exits are softer and shorter than entrances */
+  --ds-motion-stagger: var(--ds-duration-100);            /* delay between groups entering one after another */
+
+  --ds-motion-easing-default: var(--ds-easing-out);       /* almost everything */
+  --ds-motion-easing-emphasized: var(--ds-easing-emphasized); /* larger moves that should settle softly */
+
+  --ds-motion-press-scale: var(--ds-scale-96);            /* pressed size; never below 0.95 */
+  --ds-motion-enter-distance: var(--ds-space-3);          /* entrances rise this far (12px) */
+  --ds-motion-enter-blur: var(--ds-blur-4);               /* and sharpen from this blur */
 }

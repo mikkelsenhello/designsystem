@@ -10,6 +10,7 @@
   --ds-button-font-weight: var(--ds-font-weight-medium);
   --ds-button-gap: var(--ds-space-2);
   --ds-button-padding-y: var(--ds-space-2);
+  --ds-button-press-scale: var(--ds-motion-press-scale);  /* size while pressed; `static` Buttons skip it */
 
   --ds-button-height-sm: var(--ds-space-10);      /* 40px */
   --ds-button-height-md: var(--ds-space-12);      /* 48px */

@@ -1,6 +1,7 @@
-/* Same setup a consuming app uses (see docs/tokens.md). */
+/* Same setup a consuming app uses (see docs/tokens.md), except the theme: layout.tsx imports it
+   separately so `npm run playground:brand` can swap it (next.config.ts). */
 @import "tailwindcss";
-@import "../../tokens/index.css";
+@import "../../tokens/base.css";
 @import "../../tokens/tailwind.css";
 
 @source "..";

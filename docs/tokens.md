@@ -68,12 +68,29 @@ Pick the heading size by visual weight, independent of `h1`–`h6`.
 
 | Class | Values |
 |---|---|
-| `rounded-*` | `sm` (2px), `md` (4px), `lg` (8px), `xl` (12px), `full`, `default` (= md; brand-wide) |
+| `rounded-*` | `sm` (2px), `md` (4px), `lg` (8px), `xl` (12px), `full`, `default` (= md; brand-wide, what buttons and inputs use) |
 | `shadow-*` | `xs`, `sm`, `md`, `lg`, `xl` (low → high elevation) |
 | `border-width-default` | themed border width (use with a `border-*` color) |
 | `opacity-disabled` | disabled controls |
 | `focus-ring` | keyboard focus ring (`:focus-visible`); put on every focusable element you build |
 | `focus-ring-inset` | same, drawn inside the element (full-width rows where an outer ring would be clipped) |
+
+## Motion
+
+Only animate with these. Pick by how often the user sees it: the more often, the shorter and subtler.
+
+| Class | Use |
+|---|---|
+| `transition-colors`, `transition-opacity`, `transition-transform`, `transition` | what animates; default duration/easing = hover feedback (100ms, ease-out) |
+| `duration-feedback` | 100ms: hover color/background |
+| `duration-press` | 150ms: press feedback |
+| `duration-expand` | 200ms: opening/closing in place |
+| `duration-enter` / `duration-exit` | 300ms / 150ms: things appearing / leaving |
+| `ease-default`, `ease-emphasized` | easing: almost everything / larger moves that should settle softly |
+| `animate-enter` | one-shot entrance: fade in, rise 12px, sharpen from blur. For infrequent moments (hero, success message), never on things that appear on every click |
+| `delay-stagger-{1,2,…}` | start an `animate-enter` group 1, 2, … steps (100ms) late |
+
+Rules: transitions (interruptible) for interactive state, `animate-*` only for one-shot sequences. Never `transition-all` (`check-ds` catches it). Motion is never the only feedback. Reduced motion is handled in the tokens (`tokens/reduced-motion.css`): movement drops out, fades stay, so nothing extra is needed per element.
 
 Breakpoints: `sm` 640, `md` 768, `lg` 1024, `xl` 1280, `2xl` 1536 (px).
 
@@ -85,7 +102,8 @@ Tailwind still compiles some classes the theme can't block. `npx check-ds` (in t
 |---|---|---|
 | `raw-color` | `#1a56db`, `rgba(...)`, `oklch(...)` | color classes / `var(--ds-color-...)` |
 | `arbitrary-value` / `arbitrary-property` | `p-[13px]`, `bg-(--x)`, `[mask-type:...]` | a class above, or add a token |
-| `bare-number-utility` | `border-2`, `opacity-50`, `ring-2`, `outline-3`, `duration-200` | `border-width-default`, `opacity-disabled`, `focus-ring` |
+| `bare-number-utility` | `border-2`, `opacity-50`, `ring-2`, `outline-3`, `duration-200` | `border-width-default`, `opacity-disabled`, `focus-ring`, `duration-feedback` |
+| `transition-all` | `transition-all` | `transition-colors`, `transition-transform`, … |
 | `raw-element` | `<button>`, `<input>`, `<a>` outside the design system | Button, Textfield / Checkbox, Link |
 | `inline-style` | `style={{ ... }}` | classes |
 | `raw-length` | `24px`, `1.5rem` in CSS files | `var(--ds-space-*)` / tokens |
@@ -100,4 +118,4 @@ Per-component values a brand may want to tune live in `tokens/components/<name>.
 
 `tokens/global/*.css` (raw `--ds-*` values) → `tokens/themes/default.css` (meaning: `--ds-color-{family}-{role}`, `--ds-text-*`, `--ds-radius-*` …) → `tokens/components/*.css` and `tokens/color-context.css` → `tokens/tailwind.css` (utilities).
 
-A new theme defines every name in `default.css` (keep its `:root, [data-color-scheme]` selector) and may also override component tokens (e.g. `--ds-button-radius: var(--ds-radius-full)` for pill buttons). `npm run check:tokens` verifies it.
+A new theme defines every name in `default.css` (keep its `:root, [data-color-scheme]` selector) and may also override component tokens (e.g. `--ds-button-radius: var(--ds-radius-full)` for pill buttons). `npm run check:tokens` verifies it. Worked example: `tokens/themes/example-brand.css`. A theme applies to the whole page, not to one section: component tokens are resolved once at `:root`.

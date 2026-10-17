@@ -1,0 +1,19 @@
+/*
+ * Reduced motion: when the OS asks for less motion, drop movement but keep the static cue.
+ * Colors and opacity still change (fades are not movement); scaling, sliding, blurring and
+ * expanding happen instantly.
+ *
+ * Structural, not brand: themes don't redefine this file. !important makes it win over any theme,
+ * whatever order the files are imported in.
+ */
+
+@media (prefers-reduced-motion: reduce) {
+  :root,
+  [data-color-scheme] {
+    --ds-motion-duration-press: 0ms !important;
+    --ds-motion-duration-expand: 0ms !important;
+    --ds-motion-press-scale: 1 !important;
+    --ds-motion-enter-distance: 0px !important;
+    --ds-motion-enter-blur: 0px !important;
+  }
+}

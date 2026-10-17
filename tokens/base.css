@@ -1,5 +1,5 @@
 /*
- * Every token layer except the theme: global raw values, component tokens, color context.
+ * Every token layer except the theme: global raw values, component tokens, color context, reduced motion.
  * Import this, then a theme. tokens/index.css does that with the default theme; to rebrand:
  *   @import "designsystem/tokens/base.css";
  *   @import "./my-theme.css";
@@ -14,6 +14,7 @@
 @import "./global/typography.css";
 @import "./global/border.css";
 @import "./global/opacity.css";
+@import "./global/motion.css";
 
 @import "./components/accordion.css";
 @import "./components/badge.css";
@@ -24,3 +25,4 @@
 @import "./components/textfield.css";
 
 @import "./color-context.css";
+@import "./reduced-motion.css";

@@ -45,4 +45,4 @@ import { Accordion, AccordionItem } from "designsystem";
 </Accordion>
 ```
 
-Built on `@radix-ui/react-accordion`. Tokens: `tokens/components/accordion.css` (header height, padding, content padding).
+Built on `@radix-ui/react-accordion`. Tokens: `tokens/components/accordion.css` (header height, padding, content padding, open/close duration). Opening and closing animate with the theme's motion tokens (instant with reduced motion).

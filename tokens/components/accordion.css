@@ -8,4 +8,5 @@
   --ds-accordion-header-padding: var(--ds-space-4);    /* 16px */
   --ds-accordion-content-padding: var(--ds-space-5);   /* 20px */
   --ds-accordion-gap: var(--ds-space-2);               /* chevron to title */
+  --ds-accordion-duration: var(--ds-motion-duration-expand);  /* open/close and chevron turn */
 }

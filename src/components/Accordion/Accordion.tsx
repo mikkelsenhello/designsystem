@@ -53,18 +53,24 @@ export function AccordionItem({ value, title, children, headingLevel = 3 }: Acco
               "group flex w-full cursor-pointer items-start gap-accordion-gap text-left",
               "min-h-accordion-header-height p-accordion-header-padding",
               "bg-surface-default text-default text-body-md",
-              "hover:bg-surface-tinted aria-expanded:bg-surface-tinted focus-ring-inset",
+              "transition-colors hover:bg-surface-tinted aria-expanded:bg-surface-tinted focus-ring-inset",
             )}
           >
             <span className="flex h-lh shrink-0 items-center">
-              <ChevronDownIcon className="size-6 group-aria-expanded:rotate-180" />
+              <ChevronDownIcon className="size-6 transition-transform duration-accordion group-aria-expanded:rotate-180" />
             </span>
             <span>{title}</span>
           </RadixAccordion.Trigger>
         </Heading>
       </RadixAccordion.Header>
-      <RadixAccordion.Content className="bg-surface-default p-accordion-content-padding text-default text-body-md">
-        {children}
+      <RadixAccordion.Content
+        className={cx(
+          "overflow-hidden bg-surface-default text-default text-body-md",
+          "data-[state=open]:animate-accordion-open data-[state=closed]:animate-accordion-close",
+        )}
+      >
+        {/* Padding on an inner element, so the height animation can reach 0. */}
+        <div className="p-accordion-content-padding">{children}</div>
       </RadixAccordion.Content>
     </RadixAccordion.Item>
   );

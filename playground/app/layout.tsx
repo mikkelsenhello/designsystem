@@ -2,10 +2,11 @@ import type { ReactNode } from "react";
 import NextLink from "next/link";
 import { Link } from "../../src";
 import "./globals.css";
+import "playground-theme";
 
 export const metadata = { title: "Designsystem playground" };
 
-const pages = ["button", "heading", "paragraph", "label", "link", "textfield", "checkbox", "card", "badge", "accordion"];
+const pages = ["button", "heading", "paragraph", "label", "link", "textfield", "checkbox", "card", "badge", "accordion", "motion"];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -23,6 +24,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Link asChild color="neutral" className="font-semibold">
             <NextLink href="/">Playground</NextLink>
           </Link>
+          <span className="text-subtle">theme: {process.env.PLAYGROUND_THEME}</span>
           {pages.map((p) => (
             <Link key={p} asChild>
               <NextLink href={`/${p}`}>{p}</NextLink>

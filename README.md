@@ -89,14 +89,15 @@ Copy `tokens/themes/default.css` into your project (inside a `tokens/` folder, w
 @import "designsystem/tokens/tailwind.css";
 ```
 
-A theme can also override component tokens, e.g. `--ds-button-radius: var(--ds-radius-full)` for pill buttons.
+A theme can also override component tokens, e.g. `--ds-button-radius: var(--ds-radius-full)` for pill buttons. [tokens/themes/example-brand.css](tokens/themes/example-brand.css) is a complete second theme to start from (purple, serif headings, rounder, pill buttons). A theme restyles the whole page; scoping a second theme to one section isn't supported.
 
 ## Working on the design system itself
 
 ```bash
 npm install
-npm run playground   # http://localhost:3000, every component in light + dark
-npm run check        # token wiring + lint + types
+npm run playground         # http://localhost:3000, every component in light + dark
+npm run playground:brand   # same, with tokens/themes/example-brand.css (rebrand check)
+npm run check              # token wiring + lint + types
 ```
 
 All rights reserved. Token values derived from designsystemet.no (MIT); see `NOTICE.md`.

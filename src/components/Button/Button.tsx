@@ -14,6 +14,8 @@ export type ButtonProps = ComponentPropsWithRef<"button"> & {
   color?: ColorFamily;
   /** Stretch to the container's width. */
   fullWidth?: boolean;
+  /** Turn off the shrink-on-press feedback, e.g. for a button that moves or opens something large. */
+  static?: boolean;
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -36,6 +38,7 @@ export function Button({
   size = "md",
   color = "primary",
   fullWidth = false,
+  static: isStatic = false,
   type = "button",
   className,
   ...props
@@ -47,7 +50,8 @@ export function Button({
       className={cx(
         "inline-flex shrink-0 items-center justify-center gap-button-gap py-button-padding-y",
         "rounded-button border-width-default font-button leading-short",
-        "cursor-pointer select-none focus-ring",
+        "cursor-pointer select-none focus-ring transition-press",
+        !isStatic && "enabled:active:scale-button-press",
         "disabled:cursor-not-allowed disabled:opacity-disabled",
         variantClasses[variant],
         sizeClasses[size],

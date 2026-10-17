@@ -40,7 +40,7 @@ export function Textfield({ label, description, error, id, className, ...props }
           "w-full min-h-textfield-height px-textfield-padding-x py-textfield-padding-y",
           "rounded-textfield border-width-textfield border-neutral-default",
           "bg-neutral-surface-default text-neutral-default text-body-md placeholder:text-neutral-subtle",
-          "focus-ring textfield-hover aria-invalid:border-danger-strong",
+          "focus-ring textfield-hover transition-colors aria-invalid:border-danger-strong",
           "disabled:cursor-not-allowed disabled:opacity-disabled",
         )}
       />

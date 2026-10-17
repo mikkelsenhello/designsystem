@@ -1,0 +1,22 @@
+/*
+ * Global motion scale: raw values only, no meaning.
+ * Source: jakubkrehel/make-interfaces-feel-better, skills/make-interfaces-feel-better/animations.md
+ * (MIT, see NOTICE.md). Which value is "hover feedback" or "enter" is meaning: that's the theme layer.
+ */
+
+:root {
+  /* Durations */
+  --ds-duration-100: 100ms;
+  --ds-duration-150: 150ms;
+  --ds-duration-200: 200ms;
+  --ds-duration-300: 300ms;
+  --ds-duration-400: 400ms;
+
+  /* Easing curves */
+  --ds-easing-out: cubic-bezier(0, 0, 0.58, 1);         /* CSS ease-out */
+  --ds-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);   /* fast start, long settle; CSS stand-in for a spring */
+
+  /* Transform and filter amounts */
+  --ds-scale-96: 0.96;
+  --ds-blur-4: 4px;
+}

@@ -58,7 +58,13 @@ const rules = [
         String.raw`${C}(?:border(?:-[xytblrse])?|divide-[xy]|outline|outline-offset|ring|ring-offset|opacity|duration|delay|stroke|decoration|underline-offset)-\d+(?:\.\d+)?(?=$|[\s"'\x60}])`,
       ),
     ],
-    hint: "number classes ignore the theme; use border-width-default, opacity-disabled, focus-ring, ...",
+    hint: "number classes ignore the theme; use border-width-default, opacity-disabled, focus-ring, duration-feedback, ...",
+  },
+  {
+    id: "transition-all",
+    files: (ext) => CODE.has(ext),
+    re: [new RegExp(String.raw`${C}transition-all(?=$|[\s"'\x60}])`)],
+    hint: "name what animates: transition-colors, transition-opacity, transition-transform (or plain transition)",
   },
   {
     id: "raw-element",
@@ -88,7 +94,7 @@ function isInside(file, dir) {
 function walk(path, out) {
   if (!existsSync(path)) return out;
   if (statSync(path).isDirectory()) {
-    for (const name of readdirSync(path)) if (!SKIP_DIRS.has(name)) walk(join(path, name), out);
+    for (const name of readdirSync(path)) if (!SKIP_DIRS.has(name) && !name.startsWith(".next")) walk(join(path, name), out);
   } else out.push(path);
   return out;
 }

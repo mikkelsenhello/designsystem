@@ -12,6 +12,9 @@
 :root {
   /* Font family. designsystemet ships "Inter" alone; generic fallback added. */
   --ds-font-inter: Inter, sans-serif;
+  /* Font stacks that need no web font (used by themes/example-brand.css). */
+  --ds-font-serif: Georgia, "Times New Roman", serif;
+  --ds-font-system: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* Font weights (designsystemet: regular / medium / semibold) */
   --ds-font-weight-400: 400;

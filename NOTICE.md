@@ -12,7 +12,11 @@ The token values in `tokens/global/` (color scales, spacing scale, border-radius
 
 ## Tailwind CSS (Tailwind Labs)
 
-The layout widths in `tokens/global/container.css` and the breakpoints and default transition values in `tokens/tailwind.css` are Tailwind CSS v4 defaults, <https://github.com/tailwindlabs/tailwindcss>, MIT License, Copyright (c) Tailwind Labs, Inc.
+The layout widths in `tokens/global/container.css` and the breakpoints in `tokens/tailwind.css` are Tailwind CSS v4 defaults, <https://github.com/tailwindlabs/tailwindcss>, MIT License, Copyright (c) Tailwind Labs, Inc.
+
+## make-interfaces-feel-better (Jakub Krehel)
+
+The motion values in `tokens/global/motion.css` and the motion roles in the themes (durations, easing, press scale, enter distance and blur) and the motion rules in `docs/tokens.md` follow `skills/make-interfaces-feel-better/animations.md` from <https://github.com/jakubkrehel/make-interfaces-feel-better>, MIT License, Copyright (c) Jakub Krehel. Only values and guidance were taken, no code.
 
 ## Designsystemet license (MIT):
 

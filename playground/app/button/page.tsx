@@ -31,6 +31,10 @@ export default function ButtonPage() {
           Large secondary
         </Button>
       </Preview>
+      <Preview title="press feedback (hold the mouse down) vs. static">
+        <Button>Shrinks while pressed</Button>
+        <Button static>static</Button>
+      </Preview>
       <Preview title="fullWidth">
         <Button fullWidth>Subscribe</Button>
       </Preview>
