@@ -371,39 +371,6 @@
   /* InlineEditable (hover/placeholder: utility inline-edit below) */
   --radius-inline-edit: var(--ds-inline-edit-radius);
 
-  /* NewsletterAd: fixed e-mail template values, never themed (tokens/components/newsletter-ad.css) */
-  --background-color-newsletter-ad: var(--ds-newsletter-ad-background);
-  --border-color-newsletter-ad: var(--ds-newsletter-ad-border);
-  --border-color-newsletter-ad-muted: var(--ds-newsletter-ad-muted);
-  --text-color-newsletter-ad: var(--ds-newsletter-ad-text);
-  --text-color-newsletter-ad-muted: var(--ds-newsletter-ad-muted);
-  --text-color-newsletter-ad-accent: var(--ds-newsletter-ad-accent);
-  --font-newsletter-ad: var(--ds-newsletter-ad-font-family);
-  --font-weight-newsletter-ad-title: var(--ds-newsletter-ad-title-weight);
-  --font-weight-newsletter-ad-code: var(--ds-newsletter-ad-code-weight);
-  --tracking-newsletter-ad-code: var(--ds-newsletter-ad-code-tracking);
-  --text-newsletter-ad-label: var(--ds-newsletter-ad-label-size);
-  --text-newsletter-ad-label--line-height: var(--ds-newsletter-ad-line-height);
-  --text-newsletter-ad-label--font-weight: var(--ds-newsletter-ad-label-weight);
-  --text-newsletter-ad-label--letter-spacing: var(--ds-newsletter-ad-label-tracking);
-  --text-newsletter-ad-body: var(--ds-newsletter-ad-body-size);
-  --text-newsletter-ad-body--line-height: var(--ds-newsletter-ad-line-height);
-  --text-newsletter-ad-offer: var(--ds-newsletter-ad-offer-size);
-  --text-newsletter-ad-offer--line-height: var(--ds-newsletter-ad-line-height);
-  --text-newsletter-ad-advertiser: var(--ds-newsletter-ad-advertiser-size);
-  --text-newsletter-ad-advertiser--line-height: var(--ds-newsletter-ad-line-height);
-  --radius-newsletter-ad: var(--ds-newsletter-ad-radius);
-  --radius-newsletter-ad-image: var(--ds-newsletter-ad-image-radius);
-  --radius-newsletter-ad-offer: var(--ds-newsletter-ad-offer-radius);
-  --spacing-newsletter-ad-padding: var(--ds-newsletter-ad-padding);
-  --spacing-newsletter-ad-label-gap: var(--ds-newsletter-ad-label-gap);
-  --spacing-newsletter-ad-image-gap: var(--ds-newsletter-ad-image-gap);
-  --spacing-newsletter-ad-body-gap: var(--ds-newsletter-ad-body-gap);
-  --spacing-newsletter-ad-offer-gap: var(--ds-newsletter-ad-offer-gap);
-  --spacing-newsletter-ad-offer-padding-x: var(--ds-newsletter-ad-offer-padding-x);
-  --spacing-newsletter-ad-offer-padding-y: var(--ds-newsletter-ad-offer-padding-y);
-  --spacing-newsletter-ad-advertiser-gap: var(--ds-newsletter-ad-advertiser-gap);
-
   /* Radio (border, checked dot, hover ring: utilities below) */
   --spacing-radio-size: var(--ds-radio-size);
   --spacing-radio-gap: var(--ds-radio-gap);
@@ -650,15 +617,6 @@
       background-color: color-mix(in srgb, currentcolor var(--ds-inline-edit-hover-tint), transparent);
     }
   }
-}
-
-@utility border-width-newsletter-ad {
-  border-style: solid;
-  border-width: var(--ds-newsletter-ad-border-width);
-}
-@utility border-width-newsletter-ad-offer {
-  border-style: dashed;
-  border-width: var(--ds-newsletter-ad-offer-border-width);
 }
 
 /* Link underline, thicker on hover (Link component). */

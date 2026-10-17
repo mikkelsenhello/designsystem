@@ -20,19 +20,6 @@ export { FileUpload } from "./components/FileUpload/FileUpload";
 export type { FileUploadProps } from "./components/FileUpload/FileUpload";
 export { InlineEditable } from "./components/InlineEditable/InlineEditable";
 export type { InlineEditableProps } from "./components/InlineEditable/InlineEditable";
-export {
-  NewsletterAd,
-  NewsletterAdAdvertiser,
-  NewsletterAdBody,
-  NewsletterAdCode,
-  NewsletterAdImage,
-  NewsletterAdLabel,
-  NewsletterAdMeta,
-  NewsletterAdOffer,
-  NewsletterAdText,
-  NewsletterAdTitle,
-} from "./components/NewsletterAd/NewsletterAd";
-export type { NewsletterAdProps, NewsletterAdTitleProps } from "./components/NewsletterAd/NewsletterAd";
 export { Radio, RadioGroup } from "./components/Radio/Radio";
 export type { RadioGroupProps, RadioProps } from "./components/Radio/Radio";
 export { Skeleton } from "./components/Skeleton/Skeleton";

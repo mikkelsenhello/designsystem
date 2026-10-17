@@ -118,8 +118,6 @@ Allowed: `z-*`, `grid-cols-*`, `rotate-*` and arbitrary *variants* like `data-[s
 
 Per-component values a brand may want to tune live in `tokens/components/<name>.css` (`--ds-button-radius`, …). Their class is the token name without `--ds-`: `rounded-button`, `px-button-padding-x-md`, `min-h-button-height-md`. Don't use these outside the component they belong to.
 
-One exception to "colors come from the theme": `tokens/components/newsletter-ad.css` holds the e-mail template's fixed colors and sizes (`bg-newsletter-ad`, `text-newsletter-ad-accent`, …), never themed or dark. Use them only through the NewsletterAd components.
-
 ## Token layers (for theme authors)
 
 `tokens/global/*.css` (raw `--ds-*` values) → `tokens/themes/default.css` (meaning: `--ds-color-{family}-{role}`, `--ds-text-*`, `--ds-radius-*` …) → `tokens/components/*.css` and `tokens/color-context.css` → `tokens/tailwind.css` (utilities).

@@ -33,10 +33,10 @@ Other `<span>` props pass through (`onBlur`, `aria-required`, `className` for la
 <input className="font-bold underline text-…" value={title} onChange={…} />
 <strong contentEditable onInput={(e) => setTitle(e.currentTarget.innerHTML)} />
 
-// Right: the title slot of the ad defines the look, InlineEditable only makes it editable
-<NewsletterAdTitle>
+// Right: the heading defines the look, InlineEditable only makes it editable
+<Heading level={2} size="lg">
   <InlineEditable aria-label="Tittel" placeholder="Tittel" value={title} onChange={setTitle} maxLength={80} />
-</NewsletterAdTitle>
+</Heading>
 ```
 
 Tokens: `tokens/components/inline-edit.css` (radius, hover tint, placeholder fade).

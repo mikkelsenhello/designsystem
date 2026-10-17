@@ -14,7 +14,7 @@ Requires React 19, Tailwind CSS 4.3+. Examples assume Next.js (App Router).
 **1. Install, pinned to a tag** (bump the tag deliberately; never point at a branch):
 
 ```bash
-npm install "git+https://github.com/mikkelsenhello/designsystem.git#v0.3.0"
+npm install "git+https://github.com/mikkelsenhello/designsystem.git#v0.4.0"
 ```
 
 **2. Let Next.js compile it.** Components ship as TypeScript source:
@@ -90,6 +90,19 @@ Copy `tokens/themes/default.css` into your project (inside a `tokens/` folder, w
 ```
 
 A theme can also override component tokens, e.g. `--ds-button-radius: var(--ds-radius-full)` for pill buttons. [tokens/themes/example-brand.css](tokens/themes/example-brand.css) is a complete second theme to start from (purple, serif headings, rounder, pill buttons). A theme restyles the whole page; scoping a second theme to one section isn't supported.
+
+## Site-specific components
+
+A component only one site will ever use (its values come from outside the system, e.g. an e-mail template) doesn't go in this package. It lives in the site as a *local component*, built by the design system session to the same rules:
+
+- `src/components/<Name>/` with a `README.md` like the ones here, listed in the site's `docs/local-components.md`.
+- `src/tokens/<name>.css`: the raw values as site-prefixed variables (`--hs-<name>-*`, never `--ds-*`), plus an `@theme inline` block (and `@utility` if needed) that turns them into classes. `check-ds` skips `tokens/` folders.
+- Imported after the design system's Tailwind file, so its classes exist while Tailwind's defaults stay off:
+
+```css
+@import "designsystem/tokens/tailwind.css";
+@import "../tokens/newsletter-ad.css";
+```
 
 ## Working on the design system itself
 

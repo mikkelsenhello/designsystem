@@ -18,7 +18,6 @@ All components: `import { Name } from "designsystem";`. Each has a README with p
 | **FileUpload** | Pick one file/image: click or drop, image preview, remove, `name` submits it | Several files; a hidden input behind a Button |
 | **InlineEditable** | Type straight onto a preview; inherits the surrounding typography | Normal forms (Textfield); rich text |
 | **Skeleton** | Decorative grey placeholder: `rectangle` / `circle` / `text`, `static` = no pulse | Loading messages people must hear |
-| **NewsletterAd** + parts | The e-mail ad box (fixed template colors, always light) for previews/editors | Ads on the site itself (Card); anything themed |
 | **Button** | Actions: submit, confirm, cancel, open. `variant` primary/secondary/tertiary, `color` for danger etc. | Navigation to another page (use a link); clickable cards/rows |
 | **Heading** | All headings. `level` = h1–h6 (structure), `size` = 2xl–2xs (look) | Big non-heading text (Paragraph `size="xl"`); bold body text |
 | **Link** | Navigation: pages, `#sections`, external, `mailto:`. `asChild` wraps a router link (Next `<Link>`) | Actions that don't navigate (Button); raw `<a>` |
