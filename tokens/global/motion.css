@@ -11,6 +11,7 @@
   --ds-duration-200: 200ms;
   --ds-duration-300: 300ms;
   --ds-duration-400: 400ms;
+  --ds-duration-800: 800ms;   /* designsystemet's skeleton pulse */
 
   /* Easing curves */
   --ds-easing-out: cubic-bezier(0, 0, 0.58, 1);         /* CSS ease-out */

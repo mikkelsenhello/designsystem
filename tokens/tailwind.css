@@ -357,7 +357,70 @@
   --spacing-chip-radio-dot-size: var(--ds-chip-radio-dot-size);
   --spacing-chip-group-gap: var(--ds-chip-group-gap);
 
+  /* Fieldset, RadioGroup */
+  --spacing-fieldset-gap: var(--ds-fieldset-gap);
+
+  /* FileUpload (border: utility border-width-file-upload below) */
+  --radius-file-upload: var(--ds-file-upload-radius);
+  --spacing-file-upload-padding-x: var(--ds-file-upload-padding-x);
+  --spacing-file-upload-padding-y: var(--ds-file-upload-padding-y);
+  --spacing-file-upload-icon-size: var(--ds-file-upload-icon-size);
+  --spacing-file-upload-icon-gap: var(--ds-file-upload-icon-gap);
+  --spacing-file-upload-remove-inset: var(--ds-file-upload-remove-inset);
+
+  /* InlineEditable (hover/placeholder: utility inline-edit below) */
+  --radius-inline-edit: var(--ds-inline-edit-radius);
+
+  /* NewsletterAd: fixed e-mail template values, never themed (tokens/components/newsletter-ad.css) */
+  --background-color-newsletter-ad: var(--ds-newsletter-ad-background);
+  --border-color-newsletter-ad: var(--ds-newsletter-ad-border);
+  --border-color-newsletter-ad-muted: var(--ds-newsletter-ad-muted);
+  --text-color-newsletter-ad: var(--ds-newsletter-ad-text);
+  --text-color-newsletter-ad-muted: var(--ds-newsletter-ad-muted);
+  --text-color-newsletter-ad-accent: var(--ds-newsletter-ad-accent);
+  --font-newsletter-ad: var(--ds-newsletter-ad-font-family);
+  --font-weight-newsletter-ad-title: var(--ds-newsletter-ad-title-weight);
+  --font-weight-newsletter-ad-code: var(--ds-newsletter-ad-code-weight);
+  --tracking-newsletter-ad-code: var(--ds-newsletter-ad-code-tracking);
+  --text-newsletter-ad-label: var(--ds-newsletter-ad-label-size);
+  --text-newsletter-ad-label--line-height: var(--ds-newsletter-ad-line-height);
+  --text-newsletter-ad-label--font-weight: var(--ds-newsletter-ad-label-weight);
+  --text-newsletter-ad-label--letter-spacing: var(--ds-newsletter-ad-label-tracking);
+  --text-newsletter-ad-body: var(--ds-newsletter-ad-body-size);
+  --text-newsletter-ad-body--line-height: var(--ds-newsletter-ad-line-height);
+  --text-newsletter-ad-offer: var(--ds-newsletter-ad-offer-size);
+  --text-newsletter-ad-offer--line-height: var(--ds-newsletter-ad-line-height);
+  --text-newsletter-ad-advertiser: var(--ds-newsletter-ad-advertiser-size);
+  --text-newsletter-ad-advertiser--line-height: var(--ds-newsletter-ad-line-height);
+  --radius-newsletter-ad: var(--ds-newsletter-ad-radius);
+  --radius-newsletter-ad-image: var(--ds-newsletter-ad-image-radius);
+  --radius-newsletter-ad-offer: var(--ds-newsletter-ad-offer-radius);
+  --spacing-newsletter-ad-padding: var(--ds-newsletter-ad-padding);
+  --spacing-newsletter-ad-label-gap: var(--ds-newsletter-ad-label-gap);
+  --spacing-newsletter-ad-image-gap: var(--ds-newsletter-ad-image-gap);
+  --spacing-newsletter-ad-body-gap: var(--ds-newsletter-ad-body-gap);
+  --spacing-newsletter-ad-offer-gap: var(--ds-newsletter-ad-offer-gap);
+  --spacing-newsletter-ad-offer-padding-x: var(--ds-newsletter-ad-offer-padding-x);
+  --spacing-newsletter-ad-offer-padding-y: var(--ds-newsletter-ad-offer-padding-y);
+  --spacing-newsletter-ad-advertiser-gap: var(--ds-newsletter-ad-advertiser-gap);
+
+  /* Radio (border, checked dot, hover ring: utilities below) */
+  --spacing-radio-size: var(--ds-radio-size);
+  --spacing-radio-gap: var(--ds-radio-gap);
+
+  /* Skeleton (pulse: utility skeleton-pulse below) */
+  --radius-skeleton: var(--ds-skeleton-radius);
+  --spacing-skeleton-height: var(--ds-skeleton-height);
+
+  /* ToggleGroup (outline: utility toggle-group-outline below) */
+  --radius-toggle-group: var(--ds-toggle-group-radius);
+  --spacing-toggle-group-height-sm: var(--ds-toggle-group-height-sm);
+  --spacing-toggle-group-height-md: var(--ds-toggle-group-height-md);
+  --spacing-toggle-group-padding-x-sm: var(--ds-toggle-group-padding-x-sm);
+  --spacing-toggle-group-padding-x-md: var(--ds-toggle-group-padding-x-md);
+
   /* Textfield */
+  --spacing-textfield-multiline-min-height: var(--ds-textfield-multiline-min-height);
   --radius-textfield: var(--ds-textfield-radius);
   --spacing-textfield-height: var(--ds-textfield-height);
   --spacing-textfield-padding-x: var(--ds-textfield-padding-x);
@@ -488,6 +551,114 @@
       outline-color: var(--ds-color-danger-border-strong);
     }
   }
+}
+
+@utility border-width-radio {
+  border-style: solid;
+  border-width: var(--ds-radio-border-width);
+}
+
+/* Checked radio: a dot in the text color (set to the contrast color) on the base fill, as designsystemet draws it. */
+@utility radio-dot {
+  &:checked {
+    background-image: radial-gradient(
+      circle closest-side,
+      currentcolor var(--ds-radio-dot-size),
+      transparent calc(var(--ds-radio-dot-size) + 5%)
+    );
+  }
+}
+
+/* Radio hover: an extra ring outside the border (base color when checked, danger when invalid). Applied
+   when hovering the radio or anything in its .group (the label), only on hover-capable devices. */
+@utility radio-hover {
+  @media (hover: hover) {
+    &:enabled:not(:focus-visible):hover,
+    :where(.group):hover &:enabled:not(:focus-visible) {
+      outline: var(--ds-radio-hover-width) solid var(--ds-color-neutral-border-default);
+      outline-offset: -0.1px;
+    }
+    &:enabled:not(:focus-visible):checked:hover,
+    :where(.group):hover &:enabled:not(:focus-visible):checked {
+      outline-color: var(--ds-color-base-default);
+    }
+    &:enabled:not(:focus-visible)[aria-invalid="true"]:hover,
+    :where(.group):hover &:enabled:not(:focus-visible)[aria-invalid="true"] {
+      outline-color: var(--ds-color-danger-text-subtle);
+    }
+  }
+}
+
+/* ToggleGroup frame: a 1px outline drawn inside the box, so the selected item (isolate) can cover it. */
+@utility toggle-group-outline {
+  outline: var(--ds-toggle-group-border-width) solid var(--ds-color-border-default);
+  outline-offset: calc(var(--ds-toggle-group-border-width) * -1);
+}
+@utility toggle-group-outline-subtle {
+  outline: var(--ds-toggle-group-border-width) solid var(--ds-color-border-subtle);
+  outline-offset: calc(var(--ds-toggle-group-border-width) * -1);
+}
+
+/* Focus ring inside a wrapper (label) whose input has keyboard focus, for items that sit flush together. */
+@utility focus-ring-within-inset {
+  &:has(:focus-visible) {
+    box-shadow: inset 0 0 0 calc(var(--ds-border-width-focus) * 2) var(--ds-color-focus-inner);
+    outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+    outline-offset: calc(var(--ds-border-width-focus) * -1);
+  }
+}
+
+/* FileUpload's native input: invisible but covering the area, so clicks and drops land on it. */
+@utility file-upload-input {
+  opacity: 0;
+  cursor: inherit;
+}
+
+@utility border-width-file-upload {
+  border-style: dashed;
+  border-width: var(--ds-file-upload-border-width);
+}
+
+/* Skeleton pulse: fades the fill and back, animating background (not opacity) like designsystemet,
+   so accessibility checkers see the transparent text as intentional. */
+@utility skeleton-pulse {
+  animation: ds-skeleton-pulse var(--ds-skeleton-duration) linear infinite alternate;
+}
+@utility skeleton-text {
+  font-size: var(--ds-skeleton-text-scale);
+  letter-spacing: var(--ds-skeleton-text-tracking);
+}
+@keyframes ds-skeleton-pulse {
+  from {
+    background-color: var(--ds-color-neutral-surface-tinted);
+  }
+  to {
+    background-color: color-mix(in srgb, var(--ds-color-neutral-surface-tinted), transparent var(--ds-skeleton-pulse-fade));
+  }
+}
+
+/* Inline editable text: hover tint and focus surface mixed from the inherited text color, and a faded
+   placeholder (data-placeholder) while empty (data-empty). */
+@utility inline-edit {
+  &[data-empty]::before {
+    content: attr(data-placeholder);
+    color: color-mix(in srgb, currentcolor, transparent var(--ds-inline-edit-placeholder-fade));
+    pointer-events: none;
+  }
+  @media (hover: hover) {
+    &:hover {
+      background-color: color-mix(in srgb, currentcolor var(--ds-inline-edit-hover-tint), transparent);
+    }
+  }
+}
+
+@utility border-width-newsletter-ad {
+  border-style: solid;
+  border-width: var(--ds-newsletter-ad-border-width);
+}
+@utility border-width-newsletter-ad-offer {
+  border-style: dashed;
+  border-width: var(--ds-newsletter-ad-offer-border-width);
 }
 
 /* Link underline, thicker on hover (Link component). */

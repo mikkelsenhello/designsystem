@@ -1,0 +1,14 @@
+/*
+ * Radio component tokens. Checked color comes from the data-color context (Radio's `color`, default primary).
+ * Sizes follow designsystemet's input.css toggle inputs: 24px circle, border at least 2px, the checked
+ * dot drawn in the contrast color at 45% of the circle. Same size and gap as Checkbox.
+ */
+
+:root {
+  --ds-radio-size: var(--ds-checkbox-size);                  /* 24px */
+  --ds-radio-border-width: var(--ds-checkbox-border-width);  /* 2px */
+  --ds-radio-gap: var(--ds-checkbox-gap);                    /* circle to label */
+  --ds-radio-dot-size: 45%;                                  /* checked dot, of the circle */
+  /* Hover: an extra ring outside the border, like designsystemet (outline 1px). */
+  --ds-radio-hover-width: var(--ds-border-width-default);
+}

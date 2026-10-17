@@ -14,7 +14,7 @@ Requires React 19, Tailwind CSS 4.3+. Examples assume Next.js (App Router).
 **1. Install, pinned to a tag** (bump the tag deliberately; never point at a branch):
 
 ```bash
-npm install "git+https://github.com/mikkelsenhello/designsystem.git#v0.2.0"
+npm install "git+https://github.com/mikkelsenhello/designsystem.git#v0.3.0"
 ```
 
 **2. Let Next.js compile it.** Components ship as TypeScript source:

@@ -76,6 +76,7 @@ Pick the heading size by visual weight, independent of `h1`–`h6`.
 | `focus-ring` | keyboard focus ring (`:focus-visible`); put on every focusable element you build |
 | `focus-ring-within` | same ring on a wrapper whose inner control has keyboard focus (a label around a hidden input) |
 | `focus-ring-inset` | same, drawn inside the element (full-width rows where an outer ring would be clipped) |
+| `focus-ring-within-inset` | inside ring on a wrapper whose control has keyboard focus (items flush in a bar) |
 
 ## Motion
 
@@ -88,6 +89,7 @@ Only animate with these. Pick by how often the user sees it: the more often, the
 | `duration-press` | 150ms: press feedback |
 | `duration-expand` | 200ms: opening/closing in place |
 | `duration-enter` / `duration-exit` | 300ms / 150ms: things appearing / leaving |
+| (Skeleton only) `--ds-motion-duration-pulse` | 800ms each way: loading pulse; halved in speed for reduced motion |
 | `ease-default`, `ease-emphasized` | easing: almost everything / larger moves that should settle softly |
 | `animate-enter` | one-shot entrance: fade in, rise 12px, sharpen from blur. For infrequent moments (hero, success message), never on things that appear on every click |
 | `delay-stagger-{1,2,…}` | start an `animate-enter` group 1, 2, … steps (100ms) late |
@@ -115,6 +117,8 @@ Allowed: `z-*`, `grid-cols-*`, `rotate-*` and arbitrary *variants* like `data-[s
 ## Component tokens (inside `src/components` only)
 
 Per-component values a brand may want to tune live in `tokens/components/<name>.css` (`--ds-button-radius`, …). Their class is the token name without `--ds-`: `rounded-button`, `px-button-padding-x-md`, `min-h-button-height-md`. Don't use these outside the component they belong to.
+
+One exception to "colors come from the theme": `tokens/components/newsletter-ad.css` holds the e-mail template's fixed colors and sizes (`bg-newsletter-ad`, `text-newsletter-ad-accent`, …), never themed or dark. Use them only through the NewsletterAd components.
 
 ## Token layers (for theme authors)
 

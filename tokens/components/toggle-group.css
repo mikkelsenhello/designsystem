@@ -1,0 +1,14 @@
+/*
+ * ToggleGroup component tokens. designsystemet's toggle-group.css: a row of Button-sized items inside a
+ * 1px outline, items flush (no spacing), corners following --ds-radius-default like Button.
+ * Selected item = primary Button look, others = tertiary (variant secondary: see the component).
+ */
+
+:root {
+  --ds-toggle-group-radius: var(--ds-radius-default);
+  --ds-toggle-group-border-width: var(--ds-border-width-default);
+  --ds-toggle-group-height-sm: var(--ds-button-height-sm);       /* 40px */
+  --ds-toggle-group-height-md: var(--ds-button-height-md);       /* 48px */
+  --ds-toggle-group-padding-x-sm: var(--ds-button-padding-x-sm); /* 12px */
+  --ds-toggle-group-padding-x-md: var(--ds-button-padding-x-md); /* 16px */
+}

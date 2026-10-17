@@ -1,0 +1,8 @@
+/*
+ * Fieldset component tokens (also RadioGroup). designsystemet's fieldset.css: 16px between the legend's
+ * block and each field. A description directly under the legend gets no extra gap.
+ */
+
+:root {
+  --ds-fieldset-gap: var(--ds-space-4);   /* 16px */
+}

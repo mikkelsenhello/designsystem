@@ -15,5 +15,7 @@
     --ds-motion-press-scale: 1 !important;
     --ds-motion-enter-distance: 0px !important;
     --ds-motion-enter-blur: 0px !important;
+    /* Loading pulse keeps going (it is a fade), but at half speed, as designsystemet does. */
+    --ds-motion-duration-pulse: calc(var(--ds-duration-800) * 2) !important;
   }
 }

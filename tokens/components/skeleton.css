@@ -1,0 +1,15 @@
+/*
+ * Skeleton component tokens. Follows designsystemet's skeleton.css: neutral tinted fill, lg corners
+ * (circle and text are fully round), 1.3em tall by default so it matches a line of the text it stands in for,
+ * and a pulse that fades the fill to 40% and back. The fill color is fixed neutral (bg-neutral-surface-tinted).
+ */
+
+:root {
+  --ds-skeleton-radius: var(--ds-radius-lg);
+  --ds-skeleton-height: 1.3em;                                   /* one line of the surrounding text */
+  --ds-skeleton-duration: var(--ds-motion-duration-pulse);       /* 800ms each way; doubled for reduced motion */
+  --ds-skeleton-pulse-fade: 60%;                                 /* how much of the fill the pulse fades out */
+  /* text variant: smaller glyphs with wider spacing, so the line is as long as real text but with gaps between lines */
+  --ds-skeleton-text-scale: 0.8em;
+  --ds-skeleton-text-tracking: 0.1em;
+}

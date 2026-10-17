@@ -1,0 +1,15 @@
+/*
+ * FileUpload component tokens. designsystemet's file-upload.css: 2px dashed border in the context's
+ * border-default, md corners, 28px / 24px padding, a 32px upload icon 8px above the text,
+ * surface-default fill turning surface-tinted on hover.
+ */
+
+:root {
+  --ds-file-upload-radius: var(--ds-radius-md);
+  --ds-file-upload-border-width: max(var(--ds-border-width-default), calc(var(--ds-space-1) / 2)); /* 2px */
+  --ds-file-upload-padding-x: var(--ds-space-6);    /* 24px */
+  --ds-file-upload-padding-y: var(--ds-space-7);    /* 28px */
+  --ds-file-upload-icon-size: var(--ds-space-8);    /* 32px */
+  --ds-file-upload-icon-gap: var(--ds-space-2);     /* 8px */
+  --ds-file-upload-remove-inset: var(--ds-space-2); /* remove button, from the image's corner */
+}

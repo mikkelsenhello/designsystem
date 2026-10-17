@@ -4,9 +4,9 @@
 import { Textfield } from "designsystem";
 ```
 
-**Use for:** single-line text input with a visible label: email, name, search terms, numbers.
+**Use for:** text input with a visible label: email, name, search terms, numbers; with `multiline`, longer text (a description, a message), optionally with a character `counter`.
 
-**Don't use for:** multi-line text (needs a Textarea; not built yet); choosing from options (Checkbox, or a future Select/Radio); a raw `<input>` with its own border/padding classes, or a field with only a placeholder and no label.
+**Don't use for:** editing text directly on a preview (InlineEditable); choosing from options (Checkbox, or a future Select/Radio); a raw `<input>` with its own border/padding classes, or a field with only a placeholder and no label.
 
 ## Props
 
@@ -15,9 +15,11 @@ import { Textfield } from "designsystem";
 | `label` | ReactNode | required | Visible label, linked to the input. |
 | `description` | ReactNode | | Help text between label and input. |
 | `error` | ReactNode | | Error text under the input; sets `aria-invalid` and a red border. Omit when valid. |
-| `type` | any text-like input type | `text` | `email`, `tel`, `url`, `search`, `password`, `number` … |
+| `type` | any text-like input type | `text` | `email`, `tel`, `url`, `search`, `password`, `number` … Not with `multiline`. |
+| `multiline` | boolean | `false` | A `<textarea>` (designsystemet's Textfield `multiline`). At least 72px tall; grows with its content unless `rows` is set; resizable vertically. |
+| `counter` | number, or `{ limit, under?, over? }` | | Character counter under the field: "%d tegn igjen", over the limit "%d tegn for mye" in danger and the field invalid. A soft limit, like designsystemet: add `maxLength` for a hard stop. Announced to screen readers shortly after typing pauses. |
 
-All native `<input>` props pass through (`name`, `value`, `onChange`, `required`, `autoComplete`, `disabled`, `ref`, …) to the input itself. `className` goes on the wrapper, for layout.
+All native `<input>` (or, with `multiline`, `<textarea>`: `rows`, `maxLength` …) props pass through (`name`, `value`, `onChange`, `required`, `autoComplete`, `disabled`, `ref`, …) to the input itself. `className` goes on the wrapper, for layout.
 
 ## Example
 
@@ -35,6 +37,9 @@ All native `<input>` props pass through (`name`, `value`, `onChange`, `required`
   required
   error={emailError}
 />
+
+// Multi-line with a counter
+<Textfield multiline rows={5} label="Beskrivelse" name="description" counter={300} />
 ```
 
 Tokens: `tokens/components/textfield.css` (radius, height, padding, gap, border thickness). Border thickness: `--ds-textfield-border-width` (resting) and `--ds-textfield-border-width-hover` (total on hover). Both follow the theme's `--ds-border-width-default` unless a theme overrides them.

@@ -24,6 +24,14 @@ export default function TextfieldPage() {
           <Textfield label="Disabled" defaultValue="Can't edit this" disabled />
         </div>
       </Preview>
+      <Preview title="multiline: grows with content; rows=4 + counter 300; over the limit">
+        <div className="flex w-full flex-col gap-6">
+          <Textfield multiline label="Kommentar" description="Grows as you type (no rows)." />
+          <Textfield multiline rows={4} label="Beskrivelse" counter={300} defaultValue="Lær å dreie din egen kopp." />
+          <Textfield multiline label="For lang" counter={10} defaultValue="Dette er altfor langt" />
+          <Textfield label="Single-line with counter" counter={{ limit: 20, under: "%d characters left", over: "%d too many" }} />
+        </div>
+      </Preview>
     </>
   );
 }

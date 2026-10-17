@@ -11,7 +11,14 @@ All components: `import { Name } from "designsystem";`. Each has a README with p
 | **Card** | Boxed group of related content; `color` recolors everything inside | Page-wide bands (use `bg-background-tinted`); clickable navigation cards |
 | **Checkbox** | Consent / multi-select option with `label`, `description`, `error` | Instant-effect settings (Switch); single choice (Radio); filters (Chip) |
 | **ChipGroup** + **ChipCheckbox** / **ChipRadio** | Filters / quick choices among a few short, always-visible options. Checkbox = multi, Radio = one. **ChipRemovable** = an active filter to remove, **ChipButton** = small suggestion action | Submitted form questions (Checkbox); main actions (Button); long option lists |
-| **Textfield** | Single-line input with `label`, `description`, `error` (email, name …) | Multi-line text; placeholder-only fields |
+| **Textfield** | Text input with `label`, `description`, `error` (email, name …). `multiline` = textarea, `counter={300}` = character counter | Placeholder-only fields; editing on a preview (InlineEditable) |
+| **RadioGroup** + **Radio** | One submitted choice among a few visible options, with `legend` and group `error` | View switches (ToggleGroup); filters (ChipRadio); many options |
+| **Fieldset** | Group of related fields under a `legend` | A single choice (RadioGroup); visual boxes (Card) |
+| **ToggleGroup** + **ToggleGroupItem** | Switch a view/mode right away, 2–4 options ("I annonsen" / "Som skjema") | Submitted form questions (RadioGroup); page navigation |
+| **FileUpload** | Pick one file/image: click or drop, image preview, remove, `name` submits it | Several files; a hidden input behind a Button |
+| **InlineEditable** | Type straight onto a preview; inherits the surrounding typography | Normal forms (Textfield); rich text |
+| **Skeleton** | Decorative grey placeholder: `rectangle` / `circle` / `text`, `static` = no pulse | Loading messages people must hear |
+| **NewsletterAd** + parts | The e-mail ad box (fixed template colors, always light) for previews/editors | Ads on the site itself (Card); anything themed |
 | **Button** | Actions: submit, confirm, cancel, open. `variant` primary/secondary/tertiary, `color` for danger etc. | Navigation to another page (use a link); clickable cards/rows |
 | **Heading** | All headings. `level` = h1–h6 (structure), `size` = 2xl–2xs (look) | Big non-heading text (Paragraph `size="xl"`); bold body text |
 | **Link** | Navigation: pages, `#sections`, external, `mailto:`. `asChild` wraps a router link (Next `<Link>`) | Actions that don't navigate (Button); raw `<a>` |

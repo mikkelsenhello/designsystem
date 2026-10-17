@@ -1,0 +1,12 @@
+/*
+ * InlineEditable component tokens (extension: designsystemet has no inline editor).
+ * The text inherits font, size, weight and color from where it sits, so it looks like the final text.
+ * Hover and placeholder are mixed from that inherited color (currentcolor), so they work on any
+ * background, including the always-light NewsletterAd.
+ */
+
+:root {
+  --ds-inline-edit-radius: var(--ds-radius-sm);
+  --ds-inline-edit-hover-tint: 10%;        /* hover surface: this much of the text color */
+  --ds-inline-edit-placeholder-fade: 45%;  /* placeholder: text color faded this much (designsystemet's input uses 30%) */
+}
