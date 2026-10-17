@@ -339,6 +339,14 @@
   --spacing-checkbox-size: var(--ds-checkbox-size);
   --spacing-checkbox-gap: var(--ds-checkbox-gap);
 
+  /* Chip */
+  --radius-chip: var(--ds-chip-radius);
+  --spacing-chip-height: var(--ds-chip-height);
+  --spacing-chip-padding-x: var(--ds-chip-padding-x);
+  --spacing-chip-gap: var(--ds-chip-gap);
+  --spacing-chip-icon-size: var(--ds-chip-icon-size);
+  --spacing-chip-group-gap: var(--ds-chip-group-gap);
+
   /* Textfield */
   --radius-textfield: var(--ds-textfield-radius);
   --spacing-textfield-height: var(--ds-textfield-height);
@@ -412,6 +420,15 @@
 /* Keyboard focus ring (designsystemet's two-tone style): inner ring + outer outline, visible on any fill. */
 @utility focus-ring {
   &:focus-visible {
+    box-shadow: 0 0 0 var(--ds-border-width-focus) var(--ds-color-focus-inner);
+    outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+    outline-offset: var(--ds-border-width-focus);
+  }
+}
+
+/* Same ring on a wrapper when the control inside it has keyboard focus (e.g. Chip: a label around a hidden input). */
+@utility focus-ring-within {
+  &:has(:focus-visible) {
     box-shadow: 0 0 0 var(--ds-border-width-focus) var(--ds-color-focus-inner);
     outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
     outline-offset: var(--ds-border-width-focus);

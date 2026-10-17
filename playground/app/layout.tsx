@@ -6,7 +6,7 @@ import "playground-theme";
 
 export const metadata = { title: "Designsystem playground" };
 
-const pages = ["button", "heading", "paragraph", "label", "link", "textfield", "checkbox", "card", "badge", "accordion", "motion"];
+const pages = ["button", "heading", "paragraph", "label", "link", "textfield", "checkbox", "chip", "card", "badge", "accordion", "motion"];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

@@ -110,6 +110,8 @@ First batch (unblocks the newsletter landing page): **Heading, Paragraph, Label,
 - Colocated `README.md`: use for / **don't use for** / props / a wrong→right example.
 - Added to `playground/` for visual check.
 
+**On demand (v0.2.0): Chip** (`ChipGroup`, `ChipCheckbox`, `ChipRadio`) for the Hva skjer event filters, after designsystemet's Chip.Checkbox / Chip.Radio: native inputs visually hidden inside a pill `<label>` (no Radix needed), state styled with `has-checked:` / `has-enabled:`, focus ring via the new `focus-ring-within` utility. `ChipGroup` is a fieldset + legend that passes `name` (generated if omitted) and `color` to its chips through context. Not built: Chip.Removable / Chip.Button (no need yet); a select/dropdown, if a filter ever has too many options for chips.
+
 Second batch, when "Husk og gjør" becomes a consumer: List, Tag, Dialog, Toast, Switch, Dropdown — same pattern. This is also the point the "reusable across unrelated apps" goal gets tested for real: does the landing page's theme and the todo app's theme both work off the same component code with only the theme-token file differing?
 
 Remaining designsystemet components get built **on demand**, same pattern, when a consuming app first needs them — not speculatively.
@@ -151,4 +153,4 @@ Once there are enough components, document the handful of full-page patterns ("H
 
 ## Immediate next step
 
-Phase 0: fetch designsystemet.no's actual token values (color scale, spacing scale, radius, shadow, type scale) and write them into `tokens/global/*.css`. This has no dependencies and unblocks everything else. Shortly after, Phase 9's `git init` + remote should happen early (not at the end) since the landing page will need to pull from this repo soon — say go and I'll start with the token extraction.
+Phases 0–7 and 9 are done; v0.2.0 adds the second theme, motion tokens and Chip. Next work is driven by the consumers: the Hva skjer site (`C:\Users\onkel\Documents\Prosjekter\Hva skjer\Nettside`) asks for missing components/tokens as its pages get built (/arrangementer, /arkiv, /annonsor). Likely next asks: Tag (event categories), a select/dropdown, form pieces for the ad booking. Build each on demand, tag a release, tell the user the install line. Phase 8 (composition recipes) once a few full pages exist to learn from.

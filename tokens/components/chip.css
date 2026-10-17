@@ -1,0 +1,14 @@
+/*
+ * Chip component tokens. Colors come from the data-color context (Chip's `color` prop, default primary):
+ * unselected = tinted surface, selected = solid base fill.
+ * Sizes follow designsystemet's chip: 36px tall pill, 16px side padding.
+ */
+
+:root {
+  --ds-chip-radius: var(--ds-radius-full);
+  --ds-chip-height: var(--ds-space-9);        /* 36px */
+  --ds-chip-padding-x: var(--ds-space-4);     /* 16px */
+  --ds-chip-gap: var(--ds-space-1);           /* check icon to text */
+  --ds-chip-icon-size: var(--ds-space-5);     /* 20px */
+  --ds-chip-group-gap: var(--ds-space-2);     /* between chips, and legend to chips */
+}
