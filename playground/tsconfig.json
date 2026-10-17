@@ -29,7 +29,9 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next-buildcheck/types/**/*.ts",
+    ".next-buildcheck/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

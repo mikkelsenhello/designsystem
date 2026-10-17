@@ -1,6 +1,6 @@
 # Design system requests
 
-Orders from consuming projects (Hva skjer Nettside) for missing components or tokens, written here when no design system session is running. One entry per order: what, why (which page), variants/props. The design system session marks it done with the release tag.
+Orders from consuming projects (Hva skjer Nettside), written here when no design system session is running. Optional: Nettside normally builds what it needs itself and logs it in its own `docs/local-components.md`, which the design system session harvests. Order here only when you'd rather have it done properly in the design system first. One entry per order: what, why (which page), variants/props. The design system session marks it done with the release tag.
 
 ## Open
 
