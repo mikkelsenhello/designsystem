@@ -17,6 +17,17 @@
  * Full list of legal classes: docs/tokens.md.
  */
 
+/* Component utilities ported from designsystemet's CSS, where nested selectors are needed (one file each). */
+@import "./utilities/alert.css";
+@import "./utilities/avatar.css";
+@import "./utilities/breadcrumbs.css";
+@import "./utilities/divider.css";
+@import "./utilities/error-summary.css";
+@import "./utilities/list.css";
+@import "./utilities/spinner.css";
+@import "./utilities/table.css";
+@import "./utilities/tag.css";
+
 @source "../src";
 
 @theme inline {
@@ -385,6 +396,14 @@
   --spacing-toggle-group-height-md: var(--ds-toggle-group-height-md);
   --spacing-toggle-group-padding-x-sm: var(--ds-toggle-group-padding-x-sm);
   --spacing-toggle-group-padding-x-md: var(--ds-toggle-group-padding-x-md);
+
+  /* Pagination */
+  --spacing-pagination-gap: var(--ds-pagination-gap);
+
+  /* Tag (border: utility border-width-tag) */
+  --radius-tag: var(--ds-tag-radius);
+  --spacing-tag-height: var(--ds-tag-height);
+  --spacing-tag-padding-x: var(--ds-tag-padding-x);
 
   /* Textfield */
   --spacing-textfield-multiline-min-height: var(--ds-textfield-multiline-min-height);

@@ -1,0 +1,9 @@
+/*
+ * Divider component tokens. designsystemet's divider.css: a 1px line in neutral border-subtle (fixed, not
+ * the data-color context), half a line of space above and below.
+ */
+
+:root {
+  --ds-divider-border-width: var(--ds-border-width-default);
+  --ds-divider-spacing: 0.5em;   /* margin above and below, relative to the surrounding text */
+}

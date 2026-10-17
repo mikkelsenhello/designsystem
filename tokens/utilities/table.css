@@ -1,0 +1,172 @@
+/*
+ * Table (designsystemet's table.css). Options are data attributes set by the Table component:
+ * data-border (frame with rounded corners), data-zebra (striped rows), data-hover (row hover, only on
+ * hover-capable fine pointers), data-sticky-header. A header cell with aria-sort holds a full-size
+ * button with a sort icon (icon paths from designsystemet, MIT, see NOTICE.md).
+ * border-collapse: separate, so the frame can have rounded corners.
+ */
+@utility table-ds {
+  --_table-padding: var(--ds-table-padding-y) var(--ds-table-padding-x);
+  --_table-radius-inner: max(0px, var(--ds-table-radius) - var(--ds-table-border-width));
+
+  border-collapse: separate;
+  border-spacing: 0;
+  box-sizing: border-box;
+  break-inside: avoid;
+  color: var(--ds-color-text-default);
+  vertical-align: middle;
+  width: 100%;
+
+  & > :is(thead, tbody, tfoot) {
+    vertical-align: inherit;
+  }
+  & > :is(tbody, thead, tfoot) > tr > :is(th, td) {
+    background: transparent;
+    border-bottom: var(--ds-table-border-width) solid var(--ds-color-border-subtle);
+    padding: var(--_table-padding);
+    text-align: inherit;
+  }
+
+  /* Pass rounded corners down to the corner cells. */
+  & > :is(thead, tbody, tfoot) > tr:first-child {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    & > :first-child {
+      border-top-left-radius: inherit;
+    }
+    & > :last-child {
+      border-top-right-radius: inherit;
+    }
+  }
+  & > :is(thead, tbody, tfoot) > tr:last-child {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    & > :first-child {
+      border-bottom-left-radius: inherit;
+    }
+    & > :last-child {
+      border-bottom-right-radius: inherit;
+    }
+  }
+
+  & th {
+    font-weight: var(--ds-font-weight-semibold);
+  }
+  & > thead > tr:last-child > :is(th, td) {
+    border-bottom: var(--ds-table-divider-width) solid var(--ds-color-border-subtle);
+  }
+  & > tbody:has(+ tfoot) > tr:last-child > :is(th, td) {
+    border-bottom: none;
+  }
+  & > tfoot > tr:first-child > :is(th, td) {
+    border-top: var(--ds-table-divider-width) solid var(--ds-color-border-subtle);
+  }
+  & > tfoot > tr:last-child > :is(th, td) {
+    border-bottom: none;
+  }
+
+  /* Caption styled as designsystemet's default heading: 130% of the text, heading md weight and spacing. */
+  & > caption {
+    font-family: var(--ds-font-family-heading);
+    font-size: round(down, 1.3em, 1px);
+    font-weight: var(--ds-text-heading-md-font-weight);
+    letter-spacing: var(--ds-text-heading-md-letter-spacing);
+    line-height: var(--ds-text-heading-md-line-height);
+    margin-bottom: var(--ds-table-caption-gap);
+    text-align: inherit;
+  }
+
+  /* Sorting */
+  & > thead > tr > [aria-sort] {
+    cursor: pointer;
+    padding: 0;
+
+    & > button {
+      background: none;
+      border: 0;
+      border-radius: inherit;
+      box-sizing: border-box;
+      color: inherit;
+      cursor: pointer;
+      display: block;
+      font: inherit;
+      padding: var(--_table-padding);
+      text-align: inherit;
+      width: 100%;
+
+      &:focus-visible {
+        box-shadow: 0 0 0 var(--ds-border-width-focus) var(--ds-color-focus-inner);
+        outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+        outline-offset: var(--ds-border-width-focus);
+        position: relative;
+      }
+
+      &::after {
+        background: currentcolor;
+        content: "";
+        display: inline-block;
+        flex-shrink: 0;
+        forced-color-adjust: none;
+        height: var(--ds-table-sort-icon-size);
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12.53 4.47a.75.75 0 0 0-1.06 0l-3.5 3.5a.75.75 0 0 0 1.06 1.06L12 6.06l2.97 2.97a.75.75 0 1 0 1.06-1.06zm-3.5 10.5a.75.75 0 0 0-1.06 1.06l3.5 3.5a.75.75 0 0 0 1.06 0l3.5-3.5a.75.75 0 1 0-1.06-1.06L12 17.94z'/%3E%3C/svg%3E")
+          center / contain no-repeat;
+        vertical-align: middle;
+        width: var(--ds-table-sort-icon-size);
+      }
+    }
+    &[aria-sort="ascending"] > button::after {
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M11.47 7.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 1 1-1.06 1.06L12 9.56l-4.97 4.97a.75.75 0 0 1-1.06-1.06z'/%3E%3C/svg%3E");
+    }
+    &[aria-sort="descending"] > button::after {
+      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06'/%3E%3C/svg%3E");
+    }
+    &:not([aria-sort="none"]) {
+      background: var(--ds-color-surface-tinted);
+    }
+  }
+
+  /* Options */
+  &[data-border] {
+    border: var(--ds-table-border-width) solid var(--ds-color-border-subtle);
+    border-radius: var(--ds-table-radius);
+
+    & > tbody:last-of-type > tr:last-child > :is(th, td) {
+      border-bottom: none;
+    }
+    & > thead:first-of-type,
+    &:not(:has(thead)) > tbody:first-of-type {
+      border-top-left-radius: var(--_table-radius-inner);
+      border-top-right-radius: var(--_table-radius-inner);
+    }
+    & > tfoot:last-of-type,
+    &:not(:has(tfoot)) > tbody:last-of-type {
+      border-bottom-left-radius: var(--_table-radius-inner);
+      border-bottom-right-radius: var(--_table-radius-inner);
+    }
+  }
+  &[data-sticky-header] {
+    position: relative;
+
+    & > thead > tr > :is(th, td) {
+      background: var(--ds-color-surface-default);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+  }
+  &[data-zebra] > tbody > tr > :is(th, td) {
+    border-block: 0;
+  }
+  &[data-zebra] > :is(thead, tbody) > tr:nth-child(even) > :is(th, td) {
+    background: var(--ds-color-surface-tinted);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &[data-hover] > tbody > tr:hover > :is(th, td) {
+      background: var(--ds-color-surface-hover);
+    }
+    & > thead > tr > [aria-sort]:hover {
+      background: var(--ds-color-surface-hover);
+    }
+  }
+}

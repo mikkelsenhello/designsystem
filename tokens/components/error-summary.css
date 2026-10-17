@@ -1,0 +1,11 @@
+/*
+ * ErrorSummary component tokens. designsystemet's error-summary.css: danger surface-tinted box with md
+ * corners and 28px padding, heading in danger text-default at 110% of the body size, 8px above the list.
+ */
+
+:root {
+  --ds-error-summary-radius: var(--ds-radius-md);
+  --ds-error-summary-padding: var(--ds-space-7);       /* 28px */
+  --ds-error-summary-heading-gap: var(--ds-space-2);   /* 8px */
+  --ds-error-summary-heading-scale: 1.1em;             /* of the body text */
+}

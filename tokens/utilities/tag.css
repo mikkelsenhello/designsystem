@@ -1,0 +1,5 @@
+/* Tag border (designsystemet's tag.css): transparent by default, the context's border-subtle when outlined. */
+@utility border-width-tag {
+  border-style: solid;
+  border-width: var(--ds-tag-border-width);
+}

@@ -1,0 +1,26 @@
+/*
+ * ErrorSummary (designsystemet's error-summary.css): danger-tinted box, heading in danger text-default
+ * slightly larger than the body, links in neutral text so they read as a list of fields to fix.
+ */
+@utility error-summary {
+  background: var(--ds-color-danger-surface-tinted);
+  border-radius: var(--ds-error-summary-radius);
+  box-sizing: border-box;
+  padding: var(--ds-error-summary-padding);
+
+  &:not([hidden]) {
+    display: block;
+  }
+
+  & :is(h1, h2, h3, h4, h5, h6) {
+    color: var(--ds-color-danger-text-default);
+    font-size: round(down, var(--ds-error-summary-heading-scale), 1px);
+    margin-bottom: var(--ds-error-summary-heading-gap);
+  }
+  & a {
+    color: var(--ds-color-neutral-text-default);
+  }
+  & li:last-of-type {
+    margin-bottom: 0;
+  }
+}

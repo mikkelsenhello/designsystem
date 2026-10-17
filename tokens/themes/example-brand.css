@@ -285,6 +285,7 @@
   --ds-motion-duration-enter: var(--ds-duration-300);     /* infrequent entrances: hero, success message, empty state */
   --ds-motion-duration-exit: var(--ds-duration-150);      /* exits are softer and shorter than entrances */
   --ds-motion-duration-pulse: var(--ds-duration-800);     /* one half of a loading pulse (Skeleton), repeated back and forth */
+  --ds-motion-duration-spin: var(--ds-duration-2000);      /* one turn of a loading spinner (Spinner); 3x slower for reduced motion */
   --ds-motion-stagger: var(--ds-duration-100);            /* delay between groups entering one after another */
 
   --ds-motion-easing-default: var(--ds-easing-out);       /* almost everything */

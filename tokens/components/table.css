@@ -1,0 +1,15 @@
+/*
+ * Table component tokens. designsystemet's table.css: 8px / 12px cell padding, 1px row lines in the
+ * context's border-subtle, a 2px line under the header and over the footer, md corners when bordered,
+ * a 24px sort icon.
+ */
+
+:root {
+  --ds-table-radius: var(--ds-radius-md);
+  --ds-table-border-width: var(--ds-border-width-default);
+  --ds-table-divider-width: calc(var(--ds-border-width-default) * 2);   /* 2px under the header */
+  --ds-table-padding-y: var(--ds-space-2);       /* 8px */
+  --ds-table-padding-x: var(--ds-space-3);       /* 12px */
+  --ds-table-sort-icon-size: var(--ds-space-6);  /* 24px */
+  --ds-table-caption-gap: var(--ds-space-1);     /* caption to table */
+}

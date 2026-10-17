@@ -1,0 +1,70 @@
+/*
+ * Breadcrumbs (designsystemet's breadcrumbs.css). A chevron between list items; a link placed directly in
+ * Breadcrumbs (outside the list) is a back link with a chevron pointing back. Narrow screens show only the
+ * back link, wide screens only the list (when both are there). 650px is designsystemet's breakpoint
+ * (media queries can't read tokens). Chevron path from designsystemet (MIT, see NOTICE.md).
+ */
+@utility breadcrumbs {
+  --_breadcrumbs-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9.47 5.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 0 1 0 1.06l-5.5 5.5a.75.75 0 1 1-1.06-1.06L14.44 12 9.47 7.03a.75.75 0 0 1 0-1.06'/%3E%3C/svg%3E");
+
+  color: var(--ds-color-text-subtle);
+
+  &:not([hidden]) {
+    display: block;
+  }
+
+  & > :is(ol, ul) {
+    flex-wrap: wrap;
+    gap: var(--ds-breadcrumbs-gap) 0;
+    list-style-type: "";
+    margin: 0;
+    padding: 0;
+
+    &:not([hidden]) {
+      display: flex;
+    }
+  }
+
+  & li:where(:not(:last-child))::after,
+  & > :not(ol, ul)::before {
+    background: currentcolor;
+    content: "";
+    display: inline-block;
+    flex-shrink: 0;
+    forced-color-adjust: none;
+    height: var(--ds-breadcrumbs-icon-size);
+    margin-inline: var(--ds-breadcrumbs-gap);
+    mask: var(--_breadcrumbs-icon) center / contain no-repeat;
+    print-color-adjust: exact;
+    vertical-align: middle;
+    width: var(--ds-breadcrumbs-icon-size);
+  }
+
+  /* The current page (last item) is not underlined. */
+  & li:last-child a {
+    text-decoration: none;
+  }
+
+  & > :not(ol, ul)::before {
+    margin: 0;
+    rotate: 180deg;
+  }
+
+  :dir(rtl) & li:where(:not(:last-child))::after {
+    rotate: 180deg;
+  }
+  :dir(rtl) & > :not(ol, ul)::before {
+    rotate: 0deg;
+  }
+
+  @media (width < 650px) {
+    & > :is(ol, ul):not(:only-child) {
+      display: none;
+    }
+  }
+  @media (width >= 650px) {
+    & > :not(ol, ul):not(:only-child) {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+/*
+ * Spinner component tokens. designsystemet's spinner.css: a ring in the context's surface-tinted with an
+ * arc in border-default, 44px tall by default (md), one turn per 2s (6s for reduced motion: it is not
+ * decorative, so it slows down instead of stopping).
+ */
+
+:root {
+  --ds-spinner-size-2xs: var(--ds-space-3);   /* 12px */
+  --ds-spinner-size-xs: var(--ds-space-5);    /* 20px */
+  --ds-spinner-size-sm: var(--ds-space-8);    /* 32px */
+  --ds-spinner-size-md: var(--ds-space-11);   /* 44px */
+  --ds-spinner-size-lg: var(--ds-space-15);   /* 60px */
+  --ds-spinner-size-xl: var(--ds-space-22);   /* 88px */
+  --ds-spinner-duration: var(--ds-motion-duration-spin);
+}

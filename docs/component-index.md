@@ -18,7 +18,19 @@ All components: `import { Name } from "designsystem";`. Each has a README with p
 | **FileUpload** | Pick one file/image: click or drop, image preview, remove, `name` submits it | Several files; a hidden input behind a Button |
 | **InlineEditable** | Type straight onto a preview; inherits the surrounding typography | Normal forms (Textfield); rich text |
 | **Skeleton** | Decorative grey placeholder: `rectangle` / `circle` / `text`, `static` = no pulse | Loading messages people must hear |
-| **Button** | Actions: submit, confirm, cancel, open. `variant` primary/secondary/tertiary, `color` for danger etc. | Navigation to another page (use a link); clickable cards/rows |
+| **Alert** | Important message about the page or a task: info / success / warning / danger, icon included | One field's error (field `error`); form error list (ErrorSummary) |
+| **ErrorSummary** (+ Heading / List / Item / Link) | After a failed submit: every error, each linking to its field; takes focus | A single field's error; general failures (Alert) |
+| **ValidationMessage** | Message with icon under a field you compose yourself (`color` danger/success/warning/info) | The design system's own fields (use their `error`) |
+| **Spinner** | Wait of unknown length (`aria-label` = what loads). In buttons: Button `loading` | Content placeholders (Skeleton) |
+| **Tag** | Category or status in words ("Konsert", "Utsolgt"); `asChild` on a link | Counts (Badge); toggled filters (Chip) |
+| **Avatar**, **AvatarStack** | A person's/organisation's picture, initials or icon; overlapping group with `+5` | Logos and product images (`<img>`) |
+| **Table** (+ Head / Body / Foot / Row / Cell / HeaderCell) | Rows × columns of data; `border`, `zebra`, `hover`, sortable headers | Layout; lists of cards |
+| **ListUnordered** / **ListOrdered** + **ListItem** | Bullet / numbered lists in text (preflight removes plain list bullets) | Menus and card grids; FAQ (Accordion) |
+| **Divider** | Visual line between blocks in one section | Page sections (spacing + headings); frames (Card) |
+| **Breadcrumbs** (+ List / Item / Link) | Where a deep page sits (Forside › Arkiv › Uke 42); back link on mobile | Main navigation; process steps |
+| **Pagination** | Pages of a long list: `href` for links (`linkAs={NextLink}`), `onChange` for buttons | "Load more"; switching views |
+| **SkipLink** | First in `<body>`: "Hopp til hovedinnhold" for keyboard users | Visible in-page links |
+| **Button** | Actions: submit, confirm, cancel, open. `variant` primary/secondary/tertiary, `color`, `icon` (square), `loading`, `asChild` (link with button look) | Navigation to another page (use a link); clickable cards/rows |
 | **Heading** | All headings. `level` = h1–h6 (structure), `size` = 2xl–2xs (look) | Big non-heading text (Paragraph `size="xl"`); bold body text |
 | **Link** | Navigation: pages, `#sections`, external, `mailto:`. `asChild` wraps a router link (Next `<Link>`) | Actions that don't navigate (Button); raw `<a>` |
 | **Paragraph** | Body text, intros, help text. `size` xl–xs, `variant` short/long line height | Headings; form labels |

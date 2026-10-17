@@ -1,0 +1,10 @@
+/*
+ * List component tokens. designsystemet's list.css: 24px indent, 12px between items, 8px between items of
+ * a nested list.
+ */
+
+:root {
+  --ds-list-indent: var(--ds-space-6);       /* 24px */
+  --ds-list-gap: var(--ds-space-3);          /* 12px */
+  --ds-list-gap-nested: var(--ds-space-2);   /* 8px */
+}

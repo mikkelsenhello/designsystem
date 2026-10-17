@@ -1,0 +1,8 @@
+/*
+ * Pagination component tokens. designsystemet's pagination.css: Button-sized items 8px apart; the current
+ * page is a primary Button, the others tertiary.
+ */
+
+:root {
+  --ds-pagination-gap: var(--ds-space-2);   /* 8px */
+}

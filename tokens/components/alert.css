@@ -1,0 +1,13 @@
+/*
+ * Alert component tokens. designsystemet's alert.css: md corners, 1px border in the context's
+ * border-default on surface-tinted, 24px padding, a 24px icon 8px before the text, aligned to the first
+ * line (of the heading, when the alert starts with one).
+ */
+
+:root {
+  --ds-alert-radius: var(--ds-radius-md);
+  --ds-alert-border-width: var(--ds-border-width-default);
+  --ds-alert-padding: var(--ds-space-6);     /* 24px */
+  --ds-alert-icon-size: var(--ds-space-6);   /* 24px */
+  --ds-alert-gap: var(--ds-space-2);         /* icon to text */
+}

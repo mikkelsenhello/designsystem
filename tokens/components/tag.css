@@ -1,0 +1,11 @@
+/*
+ * Tag component tokens. designsystemet's tag.css: 32px min height, 8px side padding, sm corners, a 1px
+ * border that is transparent (default) or the context's border-subtle (outline). Fill: surface-tinted.
+ */
+
+:root {
+  --ds-tag-height: var(--ds-space-8);      /* 32px */
+  --ds-tag-padding-x: var(--ds-space-2);   /* 8px */
+  --ds-tag-radius: var(--ds-radius-sm);
+  --ds-tag-border-width: var(--ds-border-width-default);
+}

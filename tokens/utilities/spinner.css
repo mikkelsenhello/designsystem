@@ -1,0 +1,65 @@
+/*
+ * Spinner (designsystemet's spinner.css): the svg turns while the arc grows and shrinks. Size from
+ * data-size (Spinner always sets one); without it the svg takes its size from other classes (Button's
+ * loading spinner). The turn slows down for reduced motion via --ds-motion-duration-spin.
+ */
+@utility spinner {
+  animation: ds-spinner-rotate var(--ds-spinner-duration) linear infinite;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  &[data-size="2xs"] {
+    height: var(--ds-spinner-size-2xs);
+    width: var(--ds-spinner-size-2xs);
+  }
+  &[data-size="xs"] {
+    height: var(--ds-spinner-size-xs);
+    width: var(--ds-spinner-size-xs);
+  }
+  &[data-size="sm"] {
+    height: var(--ds-spinner-size-sm);
+    width: var(--ds-spinner-size-sm);
+  }
+  &[data-size="md"] {
+    height: var(--ds-spinner-size-md);
+    width: var(--ds-spinner-size-md);
+  }
+  &[data-size="lg"] {
+    height: var(--ds-spinner-size-lg);
+    width: var(--ds-spinner-size-lg);
+  }
+  &[data-size="xl"] {
+    height: var(--ds-spinner-size-xl);
+    width: var(--ds-spinner-size-xl);
+  }
+  & > circle:first-child {
+    stroke: var(--ds-color-surface-tinted);
+  }
+  & > circle:last-child {
+    animation: ds-spinner-stroke var(--ds-spinner-duration) ease-in-out infinite;
+    stroke: var(--ds-color-border-default);
+    stroke-dasharray: 1px, 200px;
+    transform-origin: center;
+  }
+}
+
+@keyframes ds-spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Lengths are in the svg's own 50-unit viewBox, not page pixels. */
+@keyframes ds-spinner-stroke {
+  0% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 100px, 200px;
+    stroke-dashoffset: -15px;
+  }
+  100% {
+    stroke-dasharray: 1px, 200px;
+    stroke-dashoffset: -120px;
+  }
+}

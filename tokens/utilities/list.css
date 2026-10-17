@@ -1,0 +1,18 @@
+/* List (designsystemet's list.css): indented bullets / numbers, space between items, less when nested. */
+@utility list-spacing {
+  margin: 0;
+  padding-inline: var(--ds-list-indent) 0;
+
+  &:is(ul) {
+    list-style-type: disc;
+  }
+  &:is(ol) {
+    list-style-type: decimal;
+  }
+  & > li + li {
+    margin-top: var(--ds-list-gap);
+  }
+  & > li > :is(ol, ul) > li + li {
+    margin-top: var(--ds-list-gap-nested);
+  }
+}

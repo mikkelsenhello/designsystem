@@ -43,9 +43,12 @@ for (const [f, theme] of themes) {
 
 checkRefs("components", components, (r) => base.has(r) || components.has(r) || isSpace(r));
 checkRefs("color-context.css", context, (r) => base.has(r));
-for (const r of refs(read("tailwind.css"))) {
-  if (!base.has(r) && !components.has(r) && !context.has(r) && !isSpace(r)) {
-    errors.push(`tailwind.css: ${r} is not a theme, component or context token${global.has(r) ? " (it is global)" : ""}`);
+// tailwind.css and the component utilities it imports. Utilities may define private --_* helpers.
+for (const file of ["tailwind.css", ...cssIn("utilities").map((f) => `utilities/${f}`)]) {
+  for (const r of refs(read(file))) {
+    if (!base.has(r) && !components.has(r) && !context.has(r) && !isSpace(r)) {
+      errors.push(`${file}: ${r} is not a theme, component or context token${global.has(r) ? " (it is global)" : ""}`);
+    }
   }
 }
 

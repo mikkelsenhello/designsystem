@@ -17,5 +17,7 @@
     --ds-motion-enter-blur: 0px !important;
     /* Loading pulse keeps going (it is a fade), but at half speed, as designsystemet does. */
     --ds-motion-duration-pulse: calc(var(--ds-duration-800) * 2) !important;
+    /* Spinner keeps turning (it is the only sign something is happening), 3x slower, as designsystemet does. */
+    --ds-motion-duration-spin: calc(var(--ds-duration-2000) * 3) !important;
   }
 }

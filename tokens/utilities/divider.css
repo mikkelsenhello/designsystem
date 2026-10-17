@@ -1,0 +1,8 @@
+/* Divider (designsystemet's divider.css): a horizontal rule in neutral border-subtle. */
+@utility divider {
+  border: 0;
+  border-top: var(--ds-divider-border-width) solid var(--ds-color-neutral-border-subtle);
+  box-sizing: border-box;
+  margin-block: var(--ds-divider-spacing);
+  width: 100%;
+}

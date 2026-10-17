@@ -13,11 +13,14 @@ import { Button } from "designsystem";
 | Prop | Values | Default | |
 |---|---|---|---|
 | `variant` | `primary` \| `secondary` \| `tertiary` | `primary` | primary = solid fill, the main action (one per view). secondary = outlined. tertiary = text only, for low-emphasis actions. |
-| `size` | `sm` \| `md` \| `lg` | `md` | 40 / 48 / 56px tall. |
+| `size` | `sm` \| `md` \| `lg` | `md` | 40 / 48 / 56px tall, and at least as wide (designsystemet's min width). |
 | `color` | `primary` \| `neutral` \| `danger` \| `success` \| `warning` \| `info` | `primary` | Use `danger` for destructive actions, `neutral` for actions that shouldn't draw the eye. |
 | `fullWidth` | boolean | `false` | Stretch to the container. |
 | `type` | `button` \| `submit` \| `reset` | `button` | Set `submit` in forms. |
 | `static` | boolean | `false` | Turns off the shrink-on-press feedback (e.g. a button that opens something large or moves). |
+| `icon` | boolean | `false` | Square icon-only button (as tall as it is wide). Give it an `aria-label`. |
+| `loading` | boolean | `false` | Spinner before the text, `aria-busy`; an icon button shows only the spinner. Keep it enabled or disable it yourself. |
+| `asChild` | boolean | `false` | Button look on the single child, e.g. a link that must look like a button (`<Button asChild><NextLink href="/annonsor">Bestill</NextLink></Button>`). |
 
 All native `<button>` props (`onClick`, `disabled`, `aria-*`, `ref`, …) pass through. `className` is for layout only (margin, grid placement), not restyling.
 

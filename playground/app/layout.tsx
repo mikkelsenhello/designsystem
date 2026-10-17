@@ -6,7 +6,11 @@ import "playground-theme";
 
 export const metadata = { title: "Designsystem playground" };
 
-const pages = ["button", "heading", "paragraph", "label", "link", "textfield", "checkbox", "radio", "chip", "toggle-group", "file-upload", "inline-editable", "skeleton", "card", "badge", "accordion", "motion"];
+const pages = [
+  "button", "heading", "paragraph", "label", "link", "list", "textfield", "checkbox", "radio", "chip", "toggle-group",
+  "file-upload", "inline-editable", "validation-message", "error-summary", "skeleton", "spinner", "card", "badge", "tag",
+  "alert", "avatar", "accordion", "divider", "table", "breadcrumbs", "pagination", "skip-link", "motion",
+];
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

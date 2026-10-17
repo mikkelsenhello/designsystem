@@ -1,4 +1,4 @@
-import { Button, Heading } from "../../../src";
+import { Button, Heading, Link } from "../../../src";
 import type { ButtonVariant, ColorFamily } from "../../../src";
 import { Preview } from "../Preview";
 
@@ -34,6 +34,19 @@ export default function ButtonPage() {
       <Preview title="press feedback (hold the mouse down) vs. static">
         <Button>Shrinks while pressed</Button>
         <Button static>static</Button>
+      </Preview>
+      <Preview title="icon, loading, asChild link, min width">
+        <Button icon aria-label="Neste">
+          →
+        </Button>
+        <Button icon variant="secondary" aria-label="Neste">
+          →
+        </Button>
+        <Button loading>Lagrer …</Button>
+        <Button asChild variant="secondary">
+          <Link href="#">Link styled as a button</Link>
+        </Button>
+        <Button>OK</Button>
       </Preview>
       <Preview title="fullWidth">
         <Button fullWidth>Subscribe</Button>

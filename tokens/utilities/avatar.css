@@ -1,0 +1,151 @@
+/*
+ * Avatar and AvatarStack (designsystemet's avatar.css, avatar-stack.css). Avatars carry data-avatar so
+ * AvatarStack can find them. Inside a stack, the stack's size and radius win over the avatar's own
+ * (--_avatar-stack-size / --_avatar-stack-radius inherit down); every avatar but the last is masked so the
+ * next one sits in a cut-out with a small gap. Expandable stacks spread out on hover or keyboard focus.
+ * Person icon path from designsystemet (MIT, see NOTICE.md).
+ */
+@utility avatar {
+  --_avatar-size: var(--_avatar-stack-size, var(--ds-avatar-size-md));
+  --_avatar-radius: var(--_avatar-stack-radius, var(--ds-avatar-radius));
+
+  align-items: center;
+  background: var(--ds-color-base-default);
+  border: 0;
+  border-radius: var(--_avatar-radius);
+  box-sizing: border-box;
+  color: var(--ds-color-base-contrast-default);
+  flex-shrink: 0;
+  font-family: inherit;
+  font-size: calc(var(--_avatar-size) * var(--ds-avatar-font-scale));
+  font-weight: var(--ds-font-weight-medium);
+  forced-color-adjust: none;
+  height: var(--_avatar-size);
+  justify-content: center;
+  line-height: 0;
+  overflow: hidden;
+  padding: var(--ds-avatar-padding);
+  print-color-adjust: exact;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: var(--_avatar-size);
+
+  &:not([hidden]) {
+    display: inline-flex;
+  }
+  &[data-size="xs"] {
+    --_avatar-size: var(--_avatar-stack-size, var(--ds-avatar-size-xs));
+  }
+  &[data-size="sm"] {
+    --_avatar-size: var(--_avatar-stack-size, var(--ds-avatar-size-sm));
+  }
+  &[data-size="lg"] {
+    --_avatar-size: var(--_avatar-stack-size, var(--ds-avatar-size-lg));
+  }
+  &[data-variant="square"] {
+    --_avatar-radius: var(--_avatar-stack-radius, var(--ds-avatar-radius-square));
+  }
+
+  &:has(img) {
+    padding: 0;
+  }
+  &:is(button:enabled, a) {
+    cursor: pointer;
+  }
+  & :is(img, svg) {
+    flex-shrink: 0;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+  &:empty::before {
+    background: currentcolor;
+    content: "";
+    forced-color-adjust: none;
+    height: 100%;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.25 7.5a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0M12 2.25a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5M8.288 17.288A5.25 5.25 0 0 1 17.25 21a.75.75 0 0 0 1.5 0 6.75 6.75 0 0 0-13.5 0 .75.75 0 0 0 1.5 0 5.25 5.25 0 0 1 1.538-3.712'/%3E%3C/svg%3E")
+      center / contain no-repeat;
+    width: 100%;
+  }
+}
+
+/* Registered so the overlap can transition when an expandable stack spreads out. */
+@property --_avatar-stack-overlap {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@utility avatar-stack {
+  --_avatar-stack-size: var(--ds-avatar-size-md);
+  --_avatar-stack-radius: var(--ds-avatar-radius);
+  --_avatar-stack-overlap: min(var(--ds-avatar-stack-overlap), var(--_avatar-stack-size) + var(--ds-avatar-stack-gap));
+  --_avatar-stack-negative: calc(var(--_avatar-stack-overlap) * -1);
+
+  align-items: center;
+  gap: var(--ds-avatar-stack-gap);
+  list-style-type: "";
+  margin: 0;
+  padding: 0;
+  transition: --_avatar-stack-overlap var(--ds-avatar-stack-duration) var(--ds-motion-easing-default);
+  width: max-content;
+
+  &:not([hidden]) {
+    display: flex;
+  }
+  &[data-size="xs"] {
+    --_avatar-stack-size: var(--ds-avatar-size-xs);
+  }
+  &[data-size="sm"] {
+    --_avatar-stack-size: var(--ds-avatar-size-sm);
+  }
+  &[data-size="lg"] {
+    --_avatar-stack-size: var(--ds-avatar-size-lg);
+  }
+
+  &:not([data-expandable="fixed"]) > li + li {
+    margin-left: var(--_avatar-stack-negative);
+  }
+  & > li + li:not(:has([data-avatar])) {
+    margin-left: var(--ds-avatar-stack-suffix-gap);
+  }
+  & > li > [data-avatar]:focus-visible {
+    mask: none;
+    z-index: 1;
+  }
+  & > li:has(+ li > [data-avatar]) > [data-avatar] {
+    --_x: calc(var(--_avatar-size) - var(--_avatar-stack-overlap));
+    --_r: calc(min(var(--_avatar-size) / 2, var(--_avatar-radius)) + var(--ds-avatar-stack-gap));
+    --_s: calc(var(--_r) - 0.5px); /* half a pixel smooths the cut-out's edge */
+    mask:
+      linear-gradient(to right, black calc(var(--_x) + 0.5px), transparent calc(var(--_x) + 0.5px)) 0 0 / 100% 100% no-repeat,
+      radial-gradient(circle at 100% 100%, transparent var(--_s), black var(--_r)) var(--_x) calc(0% - var(--ds-avatar-stack-gap)) /
+        var(--_r) var(--_r) no-repeat,
+      radial-gradient(circle at 100% 0, transparent var(--_s), black var(--_r)) var(--_x) calc(100% + var(--ds-avatar-stack-gap)) /
+        var(--_r) var(--_r) no-repeat;
+  }
+
+  &[data-expandable]:hover,
+  &[data-expandable]:focus-visible {
+    --_avatar-stack-overlap: 0px;
+  }
+  /* fixed: the stack keeps its width; avatars slide out to the right of it instead. */
+  &[data-expandable="fixed"] > li:not(:has(> [data-avatar])) {
+    transform: translateX(var(--_avatar-stack-overlap));
+  }
+  &[data-expandable="fixed"] > li:nth-child(2) { translate: var(--_avatar-stack-negative); }
+  &[data-expandable="fixed"] > li:nth-child(3) { translate: calc(var(--_avatar-stack-negative) * 2); }
+  &[data-expandable="fixed"] > li:nth-child(4) { translate: calc(var(--_avatar-stack-negative) * 3); }
+  &[data-expandable="fixed"] > li:nth-child(5) { translate: calc(var(--_avatar-stack-negative) * 4); }
+  &[data-expandable="fixed"] > li:nth-child(6) { translate: calc(var(--_avatar-stack-negative) * 5); }
+  &[data-expandable="fixed"] > li:nth-child(7) { translate: calc(var(--_avatar-stack-negative) * 6); }
+  &[data-expandable="fixed"] > li:nth-child(8) { translate: calc(var(--_avatar-stack-negative) * 7); }
+  &[data-expandable="fixed"] > li:nth-child(9) { translate: calc(var(--_avatar-stack-negative) * 8); }
+  &[data-expandable="fixed"] > li:nth-child(10) { translate: calc(var(--_avatar-stack-negative) * 9); }
+  &[data-expandable="fixed"] > li:nth-child(11) { translate: calc(var(--_avatar-stack-negative) * 10); }
+  &[data-expandable="fixed"] > li:nth-child(12) { translate: calc(var(--_avatar-stack-negative) * 11); }
+}

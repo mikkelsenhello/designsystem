@@ -1,0 +1,22 @@
+/*
+ * Avatar and AvatarStack component tokens. designsystemet's avatar.css: a circle in the context's base fill,
+ * 48px (md), initials at 40% of the size, a person icon when empty. Their sm/lg come from size modes
+ * (16px / 21px base font): 42px / 56px. AvatarStack: avatars overlap by 12px with a 2px cut-out gap,
+ * spread out on hover when expandable.
+ */
+
+:root {
+  --ds-avatar-size-xs: var(--ds-space-9);    /* 36px */
+  --ds-avatar-size-sm: 2.625rem;             /* 42px: designsystemet's 48px in their sm size mode */
+  --ds-avatar-size-md: var(--ds-space-12);   /* 48px */
+  --ds-avatar-size-lg: var(--ds-space-14);   /* 56px */
+  --ds-avatar-radius: var(--ds-radius-full);
+  --ds-avatar-radius-square: var(--ds-radius-sm);
+  --ds-avatar-padding: var(--ds-space-2);    /* around an icon */
+  --ds-avatar-font-scale: 0.4;               /* initials, of the avatar size */
+
+  --ds-avatar-stack-gap: calc(var(--ds-space-1) / 2);   /* 2px cut-out between overlapping avatars */
+  --ds-avatar-stack-overlap: var(--ds-space-3);         /* 12px */
+  --ds-avatar-stack-suffix-gap: var(--ds-space-3);      /* before the "+5" text */
+  --ds-avatar-stack-duration: var(--ds-motion-duration-expand);
+}

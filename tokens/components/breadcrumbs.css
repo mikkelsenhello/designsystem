@@ -1,0 +1,9 @@
+/*
+ * Breadcrumbs component tokens. designsystemet's breadcrumbs.css: text-subtle, a 24px chevron with 8px
+ * on each side between items, 8px between wrapped rows.
+ */
+
+:root {
+  --ds-breadcrumbs-gap: var(--ds-space-2);         /* 8px */
+  --ds-breadcrumbs-icon-size: var(--ds-space-6);   /* 24px */
+}
