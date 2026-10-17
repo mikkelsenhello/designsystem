@@ -32,13 +32,25 @@ const config: NextConfig = { transpilePackages: ["designsystem"] };
 @import "designsystem/tokens/tailwind.css"; /* Tailwind utilities -> tokens; also scans the components */
 ```
 
-**4. Load the font.** The default theme uses Inter but doesn't ship it. Simplest, in the root layout's `<head>`:
+**4. Load the font.** The default theme uses Inter but doesn't ship it. With Next.js, use `next/font` and point the design system's Inter at it:
 
 ```tsx
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+// app/layout.tsx
+import { Inter } from "next/font/google";
+const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
+// <html className={inter.variable}>
 ```
 
-(Using `next/font` instead: give it `variable: "--font-inter"` and set `--ds-font-family-body` / `--ds-font-family-heading` to `var(--font-inter)` in your theme.)
+```css
+/* after the design system imports in the global stylesheet */
+:root {
+  --ds-font-inter: var(--font-inter), sans-serif;
+}
+```
+
+(Without Next.js: a Google Fonts `<link>` for Inter 400/500/600 in `<head>` is enough, no CSS needed.)
+
+Next.js 16's `create-next-app` sets Tailwind up through `@tailwindcss/turbopack` instead of PostCSS; both work with these imports.
 
 **5. Use components:**
 

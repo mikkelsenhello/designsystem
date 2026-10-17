@@ -11,6 +11,7 @@ A rebrandable, reusable design system, consumed by separate projects (first the 
 - **Repo is public, all-rights-reserved** (no OSS license file). designsystemet.no's token *values* are MIT-licensed and attributed in `NOTICE.md` — that attribution stays regardless of this repo's own license.
 - GitHub: `github.com/mikkelsenhello/designsystem`.
 - **Consumers install a pinned tag** (`#v0.1.0`). Setup steps live in `README.md` → "Using it in a project"; update them whenever `package.json` exports, `tokens/index.css`/`base.css`/`tailwind.css`, or required peer setup change. Anything a consumer must import has to be listed in `package.json` `files`.
+- **First consumer:** the "Hva skjer" website at `C:\Users\onkel\Documents\Prosjekter\Hva skjer\Nettside` (a growing multi-page site, worked on in its own Claude session). Requests for missing components/tokens come from there; after adding them, tag a new version (`v0.2.0` …) and tell the user the `npm install "github:mikkelsenhello/designsystem#<tag>"` line to run in that folder.
 - **Before calling work done:** `npm run check` (token wiring + `check-ds` lint + types), and look at the change in the playground (`npm run playground`, light + dark side by side).
 
 ## Structure
