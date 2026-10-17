@@ -1,0 +1,13 @@
+/*
+ * Popover component tokens. designsystemet's popover.css: context surface with a 1px border-default,
+ * md corners, md shadow, 12px / 16px padding, at most 300px wide, a 12px arrow (a rotated square).
+ */
+
+:root {
+  --ds-popover-radius: var(--ds-radius-md);
+  --ds-popover-border-width: var(--ds-border-width-default);
+  --ds-popover-padding-y: var(--ds-space-3);   /* 12px */
+  --ds-popover-padding-x: var(--ds-space-4);   /* 16px */
+  --ds-popover-max-width: 18.75rem;            /* 300px */
+  --ds-popover-arrow-size: var(--ds-space-3);  /* 12px square, so it sticks out ~8.5px */
+}

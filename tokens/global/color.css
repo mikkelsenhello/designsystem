@@ -312,4 +312,7 @@
 
   /* violet (designsystemet: link.visited) */
   --ds-violet-dark: #b49acd;
+
+  /* Modal backdrop (designsystemet: dialog backdrop) */
+  --ds-black-50: rgb(0 0 0 / 0.5);
 }

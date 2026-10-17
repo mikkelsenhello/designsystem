@@ -1,0 +1,11 @@
+/*
+ * Tooltip component tokens. designsystemet's tooltip.css: inverted neutral (dark on light pages, light on
+ * dark), --ds-radius-default corners, 4px / 8px padding, an 8px arrow, shown after 150ms.
+ */
+
+:root {
+  --ds-tooltip-radius: var(--ds-radius-default);
+  --ds-tooltip-padding-y: var(--ds-space-1);   /* 4px */
+  --ds-tooltip-padding-x: var(--ds-space-2);   /* 8px */
+  --ds-tooltip-arrow-size: var(--ds-space-2);  /* 8px */
+}

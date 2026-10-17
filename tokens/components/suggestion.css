@@ -1,0 +1,19 @@
+/*
+ * Suggestion component tokens. designsystemet's suggestion.css: the list on the neutral surface with a 1px
+ * border-subtle, md corners and md shadow, 4px under the input, 12px / 8px padding, 4px between options;
+ * options 12px padding, md corners, a 24px checkmark 8px before a selected option's text.
+ */
+
+:root {
+  --ds-suggestion-list-radius: var(--ds-radius-md);
+  --ds-suggestion-list-border-width: var(--ds-border-width-default);
+  --ds-suggestion-list-offset: var(--ds-space-1);      /* 4px */
+  --ds-suggestion-list-padding-y: var(--ds-space-3);   /* 12px */
+  --ds-suggestion-list-padding-x: var(--ds-space-2);   /* 8px */
+  --ds-suggestion-list-gap: var(--ds-space-1);         /* 4px */
+  --ds-suggestion-list-max-height: 20rem;
+  --ds-suggestion-option-padding: var(--ds-space-3);   /* 12px */
+  --ds-suggestion-option-radius: var(--ds-radius-md);
+  --ds-suggestion-check-size: var(--ds-space-6);       /* 24px */
+  --ds-suggestion-check-gap: var(--ds-space-2);        /* 8px */
+}

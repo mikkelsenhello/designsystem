@@ -33,6 +33,12 @@ All components: `import { Name } from "designsystem";`. Each has a README with p
 | **Breadcrumbs** (+ List / Item / Link) | Where a deep page sits (Forside › Arkiv › Uke 42); back link on mobile | Main navigation; process steps |
 | **Pagination** | Pages of a long list: `href` for links (`linkAs={NextLink}`), `onChange` for buttons | "Load more"; switching views |
 | **SkipLink** | First in `<body>`: "Hopp til hovedinnhold" for keyboard users | Visible in-page links |
+| **Dialog** (+ Block / Trigger / TriggerContext) | Task needing full attention: confirm, short form; modal on `<dialog>`, drawer via `placement` | Settings next to a button (Popover); messages (Alert) |
+| **Popover** (+ Trigger / TriggerContext) | Small non-modal panel by a button: a few settings, a short explanation; `inline` trigger in text | Menus of actions (Dropdown); must-read content |
+| **Dropdown** (+ Trigger / Heading / List / Item / Button) | Menu of actions or links behind one button, arrow-key navigation | Form values (Select, Suggestion) |
+| **Tooltip** | Name of an icon-only button (`type="labelledby"`), short hint on hover/focus | Anything people must read or click |
+| **Tabs** (+ List / Tab / Panel) | Panels of related content in one place | Page navigation; instant mode switch without panels (ToggleGroup) |
+| **Suggestion** + **SuggestionOption** | Type to narrow a long list, pick one (combobox); `name` submits the value | Short lists (Select); free text (Textfield) |
 | **Button** | Actions: submit, confirm, cancel, open. `variant` primary/secondary/tertiary, `color`, `icon` (square), `loading`, `asChild` (link with button look) | Navigation to another page (use a link); clickable cards/rows |
 | **Heading** | All headings. `level` = h1–h6 (structure), `size` = 2xl–2xs (look) | Big non-heading text (Paragraph `size="xl"`); bold body text |
 | **Link** | Navigation: pages, `#sections`, external, `mailto:`. `asChild` wraps a router link (Next `<Link>`) | Actions that don't navigate (Button); raw `<a>` |

@@ -1,0 +1,110 @@
+/*
+ * Suggestion (designsystemet's suggestion.css): an input with a list of options under it. The list sits
+ * 4px under the input on the neutral surface; options get the hover surface on hover, the active-surface
+ * and a checkmark when selected, and a two-tone ring when highlighted by the keyboard
+ * (aria-activedescendant). Chevron drawn like Select's while no clear button shows. Checkmark path from
+ * designsystemet (MIT, see NOTICE.md).
+ */
+@utility suggestion {
+  position: relative;
+
+  & > input {
+    padding-inline-end: calc(var(--ds-search-clear-size) + var(--ds-search-clear-gap));
+  }
+  &:not(:has(> [data-search-clear]:not([hidden]))) > input {
+    --_d1: transparent calc(48% - 0.05em);
+    --_d2: currentcolor calc(50% - 0.05em);
+    --_d3: currentcolor calc(50% + 0.05em);
+    --_d4: transparent calc(52% + 0.05em);
+    background-image:
+      linear-gradient(45deg, var(--_d1), var(--_d2), var(--_d3), var(--_d4)),
+      linear-gradient(-45deg, var(--_d1), var(--_d2), var(--_d3), var(--_d4));
+    background-position: calc(100% - 1.2em + 0.05em), calc(100% - 0.8em);
+    background-repeat: no-repeat;
+    background-size: 0.4em 0.4em;
+  }
+  & > [data-search-clear] {
+    background: transparent;
+    border: 0;
+    border-radius: var(--ds-search-clear-radius);
+    box-sizing: border-box;
+    color: inherit;
+    cursor: pointer;
+    height: var(--ds-search-clear-size);
+    inset-block-start: 50%;
+    inset-inline-end: var(--ds-search-clear-gap);
+    padding: var(--ds-search-clear-padding);
+    position: absolute;
+    scale: var(--ds-search-clear-scale);
+    translate: 0 -50%;
+    width: var(--ds-search-clear-size);
+    & > svg {
+      display: block;
+      height: 100%;
+      width: 100%;
+    }
+    &:hover {
+      background: var(--ds-color-neutral-surface-hover);
+    }
+  }
+  & [role="listbox"] {
+    align-content: start;
+    background: var(--ds-color-neutral-surface-default);
+    border: var(--ds-suggestion-list-border-width) solid var(--ds-color-neutral-border-subtle);
+    border-radius: var(--ds-suggestion-list-radius);
+    box-shadow: var(--ds-shadow-md);
+    box-sizing: border-box;
+    color: var(--ds-color-text-default);
+    display: grid;
+    gap: var(--ds-suggestion-list-gap);
+    inset: 100% 0 auto 0;
+    margin: var(--ds-suggestion-list-offset) 0 0;
+    max-height: var(--ds-suggestion-list-max-height);
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: var(--ds-suggestion-list-padding-y) var(--ds-suggestion-list-padding-x);
+    position: absolute;
+    z-index: 1600;
+  }
+  & [role="listbox"][hidden] {
+    display: none;
+  }
+
+  & [role="option"] {
+    border-radius: var(--ds-suggestion-option-radius);
+    cursor: pointer;
+    line-height: var(--ds-text-body-short-line-height);
+    padding: var(--ds-suggestion-option-padding);
+    position: relative;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: var(--ds-color-surface-hover);
+      }
+    }
+    &[aria-selected="true"] {
+      background: var(--ds-color-surface-active);
+      padding-inline-start: calc(var(--ds-suggestion-option-padding) + var(--ds-suggestion-check-size) + var(--ds-suggestion-check-gap));
+      &::before {
+        background: currentcolor;
+        content: "";
+        forced-color-adjust: none;
+        height: var(--ds-suggestion-check-size);
+        inset-inline-start: var(--ds-suggestion-option-padding);
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18.998 6.94a.75.75 0 0 1 .063 1.058l-8 9a.75.75 0 0 1-1.091.032l-5-5a.75.75 0 1 1 1.06-1.06l4.438 4.437 7.471-8.405A.75.75 0 0 1 19 6.939'/%3E%3C/svg%3E")
+          center / contain no-repeat;
+        position: absolute;
+        width: var(--ds-suggestion-check-size);
+      }
+    }
+    &[data-active] {
+      box-shadow: inset 0 0 0 var(--ds-border-width-focus) var(--ds-color-focus-inner);
+      outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+      outline-offset: 0;
+    }
+  }
+  & [data-suggestion-empty] {
+    padding: var(--ds-suggestion-option-padding);
+    line-height: var(--ds-text-body-short-line-height);
+  }
+}

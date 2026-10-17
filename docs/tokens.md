@@ -90,6 +90,7 @@ Only animate with these. Pick by how often the user sees it: the more often, the
 | `duration-expand` | 200ms: opening/closing in place |
 | `duration-enter` / `duration-exit` | 300ms / 150ms: things appearing / leaving |
 | (Skeleton only) `--ds-motion-duration-pulse` | 800ms each way: loading pulse; halved in speed for reduced motion |
+| (Spinner only) `--ds-motion-duration-spin` | 2s per turn; 3× slower for reduced motion (keeps turning: it is the only sign of progress) |
 | `ease-default`, `ease-emphasized` | easing: almost everything / larger moves that should settle softly |
 | `animate-enter` | one-shot entrance: fade in, rise 12px, sharpen from blur. For infrequent moments (hero, success message), never on things that appear on every click |
 | `delay-stagger-{1,2,…}` | start an `animate-enter` group 1, 2, … steps (100ms) late |
@@ -115,6 +116,9 @@ Tailwind still compiles some classes the theme can't block. `npx check-ds` (in t
 Allowed: `z-*`, `grid-cols-*`, `rotate-*` and arbitrary *variants* like `data-[state=open]:`. Files inside any `tokens/` folder are skipped. A genuine exception gets a `ds-allow: <reason>` comment on the line or the line above, so the reason is visible in review.
 
 ## Component tokens (inside `src/components` only)
+
+Components whose designsystemet CSS needs nested selectors (masked icons, table borders, avatar cut-outs, overlays) get one utility class each in `tokens/utilities/<name>.css` (`alert`, `table-ds`, `dialog`, `popover` …), imported by `tokens/tailwind.css`. They read the same component and theme tokens; they're the components' internals, not for use in apps.
+
 
 Per-component values a brand may want to tune live in `tokens/components/<name>.css` (`--ds-button-radius`, …). Their class is the token name without `--ds-`: `rounded-button`, `px-button-padding-x-md`, `min-h-button-height-md`. Don't use these outside the component they belong to.
 

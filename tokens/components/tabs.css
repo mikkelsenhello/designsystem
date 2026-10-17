@@ -1,0 +1,14 @@
+/*
+ * Tabs component tokens. designsystemet's tabs.css: tabs 12px / 20px padding, a line under the selected tab
+ * 0.15em thick (scales with the text), a 1px border-subtle under the list, panels 16px / 20px padding.
+ */
+
+:root {
+  --ds-tabs-tab-padding-y: var(--ds-space-3);    /* 12px */
+  --ds-tabs-tab-padding-x: var(--ds-space-5);    /* 20px */
+  --ds-tabs-indicator-height: 0.15em;
+  --ds-tabs-list-border-width: var(--ds-border-width-default);
+  --ds-tabs-panel-padding-y: var(--ds-space-4);  /* 16px */
+  --ds-tabs-panel-padding-x: var(--ds-space-5);  /* 20px */
+  --ds-tabs-gap: var(--ds-space-1);              /* icon to text */
+}

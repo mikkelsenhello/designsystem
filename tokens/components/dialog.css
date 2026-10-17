@@ -1,0 +1,16 @@
+/*
+ * Dialog component tokens. designsystemet's dialog.css: 40rem wide at most, 80% of the viewport tall,
+ * 24px padding (also of each DialogBlock), lg corners (dropped when it touches the screen edge), xl shadow,
+ * a subtle 1px border and dividers. Opens by fading in while sliding up 3rem (48px; no slide for reduced motion).
+ */
+
+:root {
+  --ds-dialog-max-width: 40rem;
+  --ds-dialog-max-height: 80vh;
+  --ds-dialog-padding: var(--ds-space-6);                                   /* 24px */
+  --ds-dialog-radius: var(--ds-radius-lg);
+  --ds-dialog-border-width: var(--ds-border-width-default);
+  --ds-dialog-close-spacing: var(--ds-space-3);                             /* close button to edge/content */
+  --ds-dialog-duration: var(--ds-motion-duration-enter);                    /* 300ms */
+  --ds-dialog-enter-distance: calc(var(--ds-motion-enter-distance) * 4);    /* 48px; 0 for reduced motion */
+}

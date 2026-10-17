@@ -7,7 +7,8 @@ This repository is all rights reserved, except for the third-party material list
 The token values in `tokens/global/` (color scales, spacing scale, border-radius scale, shadow scale, type scale, border widths and opacity), and the semantic structure of `tokens/themes/default.css` (color role names and their step mapping, text styles), are taken from **Designsystemet** by Digitaliseringsdirektoratet (Digdir), <https://designsystemet.no>.
 
 - Source: <https://github.com/digdir/designsystemet>, `design-tokens/` (package `@digdir/designsystemet` v1.23.0, commit `c11e60d`, retrieved 2026-10-06)
-- Only the token values were taken, plus component sizing values (heights, paddings) and two icon paths (error, chevron in `src/internal/icons.tsx`) from `packages/css`; none of Designsystemet's component code is included.
+- Token values, component sizing values (heights, paddings), and icon paths (`src/internal/icons.tsx` and the data-URI masks in `tokens/utilities/`) from `packages/css`.
+- The CSS rules in `tokens/utilities/*.css` are adapted from Designsystemet's `packages/css/src/*.css` (retrieved 2026-10-17 from the `main` branch): their `--dsc-*` variables replaced by this repo's tokens, selectors renamed. Behavior logic in Pagination (`paginationSteps`), Breadcrumbs and ErrorSummary follows their `packages/web` web components. The React components themselves are written here; none of Designsystemet's React code is included.
 - Changes: values resolved to static CSS custom properties at the default ("md") size mode, renamed, and hex colors lowercased.
 
 ## Tailwind CSS (Tailwind Labs)

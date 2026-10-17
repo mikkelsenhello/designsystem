@@ -82,3 +82,24 @@ export { Select, SelectOptgroup, SelectOption } from "./components/Select/Select
 export type { SelectProps } from "./components/Select/Select";
 export { Switch } from "./components/Switch/Switch";
 export type { SwitchProps } from "./components/Switch/Switch";
+export { Dialog, DialogBlock, DialogTrigger, DialogTriggerContext } from "./components/Dialog/Dialog";
+export type { DialogProps } from "./components/Dialog/Dialog";
+export {
+  Dropdown,
+  DropdownButton,
+  DropdownHeading,
+  DropdownItem,
+  DropdownList,
+  DropdownTrigger,
+  DropdownTriggerContext,
+} from "./components/Dropdown/Dropdown";
+export type { DropdownItemProps, DropdownProps, DropdownTriggerContextProps } from "./components/Dropdown/Dropdown";
+export { Popover, PopoverTrigger, PopoverTriggerContext } from "./components/Popover/Popover";
+export type { PopoverProps, PopoverTriggerContextProps, PopoverTriggerProps } from "./components/Popover/Popover";
+export { Suggestion, SuggestionOption } from "./components/Suggestion/Suggestion";
+export type { SuggestionOptionProps, SuggestionProps } from "./components/Suggestion/Suggestion";
+export { Tabs, TabsList, TabsPanel, TabsTab } from "./components/Tabs/Tabs";
+export type { TabsPanelProps, TabsProps, TabsTabProps } from "./components/Tabs/Tabs";
+export { Tooltip } from "./components/Tooltip/Tooltip";
+export type { TooltipProps } from "./components/Tooltip/Tooltip";
+export type { Placement } from "./internal/placement";

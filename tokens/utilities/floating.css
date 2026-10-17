@@ -1,0 +1,121 @@
+/*
+ * Floating panels: Popover, Tooltip, Dropdown (designsystemet's popover.css, tooltip.css, dropdown.css and
+ * base.css .ds-floating), positioned by Radix. Each panel sets --_floating-bg / --_floating-border-* so its
+ * arrow matches. floating-arrow: designsystemet's arrow, a rotated square showing two bordered edges,
+ * placed by Radix's Arrow (which rotates it to the side the panel opened on).
+ */
+@utility floating-arrow {
+  display: block;
+  height: calc(var(--_floating-arrow-size) * 0.7072);
+  overflow: hidden;
+  position: relative;
+  translate: 0 calc(var(--_floating-border-width, 0px) * -1);
+  width: calc(var(--_floating-arrow-size) * 1.4143);
+
+  &::before {
+    background: var(--_floating-bg);
+    border-bottom: var(--_floating-border-width, 0px) solid var(--_floating-border-color, transparent);
+    border-right: var(--_floating-border-width, 0px) solid var(--_floating-border-color, transparent);
+    box-sizing: border-box;
+    content: "";
+    height: var(--_floating-arrow-size);
+    left: 50%;
+    position: absolute;
+    rotate: 45deg;
+    top: 0;
+    translate: -50% -50%;
+    width: var(--_floating-arrow-size);
+  }
+}
+
+@keyframes ds-floating-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@utility popover {
+  --_floating-bg: var(--ds-color-surface-default);
+  --_floating-border-color: var(--ds-color-border-default);
+  --_floating-border-width: var(--ds-popover-border-width);
+  --_floating-arrow-size: var(--ds-popover-arrow-size);
+
+  animation: ds-floating-fade var(--ds-motion-duration-exit) ease-in-out;
+  background: var(--_floating-bg);
+  border: var(--_floating-border-width) solid var(--_floating-border-color);
+  border-radius: var(--ds-popover-radius);
+  box-shadow: var(--ds-shadow-md);
+  box-sizing: border-box;
+  color: var(--ds-color-text-default);
+  max-width: min(var(--ds-popover-max-width), var(--radix-popover-content-available-width, 100vw));
+  padding: var(--ds-popover-padding-y) var(--ds-popover-padding-x);
+  z-index: 1600;
+
+  &[data-variant="tinted"] {
+    --_floating-bg: var(--ds-color-surface-tinted);
+  }
+}
+
+/* Popover trigger inside running text: looks like a word with a dotted underline. */
+@utility popover-inline-trigger {
+  all: unset;
+  cursor: pointer;
+  display: inline;
+  font-size: inherit;
+  text-decoration: underline dotted;
+  text-underline-offset: 0.27em;
+}
+
+@utility tooltip {
+  --_floating-bg: var(--ds-color-neutral-text-default);
+  --_floating-arrow-size: var(--ds-tooltip-arrow-size);
+
+  animation: ds-floating-fade var(--ds-motion-duration-exit) ease-in-out;
+  background: var(--_floating-bg);
+  border-radius: var(--ds-tooltip-radius);
+  box-sizing: border-box;
+  color: var(--ds-color-neutral-background-default);
+  line-height: var(--ds-text-body-short-line-height);
+  padding: var(--ds-tooltip-padding-y) var(--ds-tooltip-padding-x);
+  z-index: 1700;
+}
+
+@utility dropdown {
+  animation: ds-floating-fade var(--ds-motion-duration-exit) ease-in-out;
+  background: var(--ds-color-neutral-surface-default);
+  border: var(--ds-dropdown-border-width) solid var(--ds-color-neutral-border-subtle);
+  border-radius: var(--ds-dropdown-radius);
+  box-shadow: var(--ds-shadow-md);
+  box-sizing: border-box;
+  min-width: var(--ds-dropdown-min-width);
+  padding: var(--ds-dropdown-padding-y) var(--ds-dropdown-padding-x);
+  z-index: 1600;
+
+  & [data-dropdown-heading] {
+    align-items: center;
+    box-sizing: border-box;
+    color: var(--ds-color-neutral-text-default);
+    display: flex;
+    font-size: inherit;
+    margin: 0;
+    min-height: var(--ds-dropdown-item-height);
+    padding: var(--ds-dropdown-item-padding-y) var(--ds-dropdown-item-padding-x);
+  }
+  & [role="menuitem"] {
+    display: flex;
+    font-weight: var(--ds-font-weight-regular);
+    justify-content: start;
+    min-height: var(--ds-dropdown-item-height);
+    outline: none;
+    padding: var(--ds-dropdown-item-padding-y) var(--ds-dropdown-item-padding-x);
+    width: 100%;
+  }
+  /* The item under the keyboard or pointer (Radix moves focus there). */
+  & [role="menuitem"][data-highlighted] {
+    background: var(--ds-color-surface-hover);
+  }
+  & [role="menuitem"][data-disabled] {
+    cursor: not-allowed;
+    opacity: var(--ds-opacity-disabled);
+  }
+}

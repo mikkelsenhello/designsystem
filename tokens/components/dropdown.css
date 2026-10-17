@@ -1,0 +1,15 @@
+/*
+ * Dropdown component tokens. designsystemet's dropdown.css: neutral surface, 1px border-subtle, md corners,
+ * md shadow, 12px / 8px padding, at least 15em wide; items and headings 48px tall with 8px / 16px padding.
+ */
+
+:root {
+  --ds-dropdown-radius: var(--ds-radius-md);
+  --ds-dropdown-border-width: var(--ds-border-width-default);
+  --ds-dropdown-padding-y: var(--ds-space-3);       /* 12px */
+  --ds-dropdown-padding-x: var(--ds-space-2);       /* 8px */
+  --ds-dropdown-min-width: 15em;
+  --ds-dropdown-item-height: var(--ds-space-12);    /* 48px */
+  --ds-dropdown-item-padding-y: var(--ds-space-2);  /* 8px */
+  --ds-dropdown-item-padding-x: var(--ds-space-4);  /* 16px */
+}

@@ -1,0 +1,90 @@
+/*
+ * Tabs (designsystemet's tabs.css) on Radix Tabs' roles. Tabs in neutral text-subtle, text-default on hover
+ * with a subtle line; the selected tab in the context's text-subtle with a line in the same color, under
+ * the focus ring. The list scrolls sideways when the tabs don't fit.
+ */
+@utility tabs {
+  & [role="tabpanel"] {
+    padding: var(--ds-tabs-panel-padding-y) var(--ds-tabs-panel-padding-x);
+  }
+  & [role="tabpanel"]:focus-visible {
+    box-shadow: 0 0 0 var(--ds-border-width-focus) var(--ds-color-focus-inner);
+    outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+    outline-offset: var(--ds-border-width-focus);
+  }
+
+  & [role="tablist"] {
+    border-bottom: var(--ds-tabs-list-border-width) solid var(--ds-color-neutral-border-subtle);
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    position: relative;
+  }
+
+  & [role="tab"] {
+    align-items: center;
+    background: none;
+    border: 0;
+    box-sizing: border-box;
+    color: var(--ds-color-neutral-text-subtle);
+    cursor: pointer;
+    display: flex;
+    flex-shrink: 0;
+    font-family: inherit;
+    font-size: inherit;
+    gap: var(--ds-tabs-gap);
+    justify-content: center;
+    line-height: var(--ds-text-body-short-line-height);
+    margin: 0;
+    padding: var(--ds-tabs-tab-padding-y) var(--ds-tabs-tab-padding-x);
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+
+    & svg {
+      flex-shrink: 0;
+      height: var(--ds-space-6);
+      width: var(--ds-space-6);
+    }
+
+    &::after {
+      bottom: 0;
+      content: "";
+      display: block;
+      height: var(--ds-tabs-indicator-height);
+      left: 0;
+      position: absolute;
+      width: 100%;
+    }
+
+    &:focus-visible {
+      box-shadow: inset 0 0 0 calc(var(--ds-border-width-focus) * 2) var(--ds-color-focus-inner);
+      outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+      outline-offset: calc(var(--ds-border-width-focus) * -1);
+      z-index: 2;
+    }
+
+    &[aria-selected="true"] {
+      color: var(--ds-color-text-subtle);
+      &::after {
+        background: var(--ds-color-text-subtle);
+      }
+      &:focus-visible::after {
+        z-index: -1;
+      }
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: var(--ds-opacity-disabled);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover:not([aria-selected="true"], :disabled) {
+        color: var(--ds-color-neutral-text-default);
+        &::after {
+          background: var(--ds-color-neutral-border-subtle);
+        }
+      }
+    }
+  }
+}

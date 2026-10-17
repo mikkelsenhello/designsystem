@@ -21,14 +21,18 @@
 @import "./utilities/alert.css";
 @import "./utilities/avatar.css";
 @import "./utilities/breadcrumbs.css";
+@import "./utilities/dialog.css";
 @import "./utilities/divider.css";
 @import "./utilities/error-summary.css";
+@import "./utilities/floating.css";
 @import "./utilities/input.css";
 @import "./utilities/list.css";
 @import "./utilities/search.css";
 @import "./utilities/spinner.css";
+@import "./utilities/suggestion.css";
 @import "./utilities/switch.css";
 @import "./utilities/table.css";
+@import "./utilities/tabs.css";
 @import "./utilities/tag.css";
 
 @source "../src";

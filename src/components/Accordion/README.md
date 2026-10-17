@@ -4,6 +4,8 @@
 import { Accordion, AccordionItem } from "designsystem";
 ```
 
+This is designsystemet's **Details** (their Accordion was folded into Details), built with Radix for the open/close behavior; there is no separate Details component.
+
 **Use for:** a list of headers that each expand to reveal content, e.g. an FAQ.
 
 **Don't use for:** hiding content that most users need (show it); navigation or tabs; a single show/hide toggle in running text. Don't hand-build one from `<details>` or `useState`: keyboard handling and ARIA come from Radix here.

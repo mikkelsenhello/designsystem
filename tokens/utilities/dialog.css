@@ -1,0 +1,116 @@
+/*
+ * Dialog (designsystemet's dialog.css) on a native <dialog>. Placement via data-placement: center (default),
+ * top/bottom (full width, edge corners square), left/right (full height drawer). Corners drop when it fills
+ * the screen width. The close button floats into the top-right padding. DialogBlock: padded sections
+ * with a divider between them (the dialog then has no padding of its own).
+ */
+@utility dialog {
+  --_dialog-close-margin: calc(var(--ds-dialog-padding) * -1 + var(--ds-dialog-close-spacing));
+  --_dialog-enter-x: 0;
+  --_dialog-enter-y: var(--ds-dialog-enter-distance);
+
+  background: var(--ds-color-neutral-surface-default);
+  border: var(--ds-dialog-border-width) solid var(--ds-color-neutral-border-subtle);
+  border-radius: clamp(0px, ((100vw - 4px) - 100%) * 1e5, var(--ds-dialog-radius));
+  box-shadow: var(--ds-shadow-xl);
+  box-sizing: border-box;
+  color: var(--ds-color-neutral-text-default);
+  inset: 0;
+  margin: auto;
+  max-height: var(--ds-dialog-max-height);
+  max-width: var(--ds-dialog-max-width);
+  outline: none;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: var(--ds-dialog-padding);
+  position: fixed;
+  width: 100%;
+  z-index: 2147483647;
+
+  &::backdrop {
+    animation: ds-dialog-fade var(--ds-dialog-duration) ease-in-out;
+    background: var(--ds-color-backdrop);
+    overflow: hidden;
+    overscroll-behavior: contain;
+  }
+  &[open] {
+    animation: ds-dialog-enter var(--ds-dialog-duration) ease-in-out;
+  }
+
+  &:where([data-placement="bottom"], [data-placement="top"]) {
+    margin-inline: auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  &:where([data-placement="left"], [data-placement="right"]) {
+    border-block-width: 0;
+    border-radius: 0;
+    height: 100%;
+    max-height: unset;
+  }
+  &[data-placement="bottom"] {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-width: 0;
+    top: auto;
+  }
+  &[data-placement="top"] {
+    --_dialog-enter-y: calc(var(--ds-dialog-enter-distance) * -1);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top-width: 0;
+    bottom: auto;
+  }
+  &[data-placement="left"] {
+    --_dialog-enter-x: calc(var(--ds-dialog-enter-distance) * -1);
+    --_dialog-enter-y: 0;
+    border-left-width: 0;
+    right: auto;
+  }
+  &[data-placement="right"] {
+    --_dialog-enter-x: var(--ds-dialog-enter-distance);
+    --_dialog-enter-y: 0;
+    border-right-width: 0;
+    left: auto;
+  }
+  &[data-placement="center"] {
+    align-self: center;
+  }
+
+  &:has(> [data-dialog-block]) {
+    --_dialog-close-margin: var(--ds-dialog-close-spacing);
+    padding: 0;
+  }
+
+  & > [data-dialog-close] {
+    float: inline-end;
+    margin-block: var(--_dialog-close-margin) var(--ds-dialog-close-spacing);
+    margin-inline: var(--ds-dialog-close-spacing) var(--_dialog-close-margin);
+  }
+
+  & > [data-dialog-block] {
+    padding: var(--ds-dialog-padding);
+  }
+  & > [data-dialog-block] + [data-dialog-block] {
+    border-top: var(--ds-dialog-border-width) solid var(--ds-color-neutral-border-subtle);
+  }
+}
+
+@keyframes ds-dialog-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes ds-dialog-enter {
+  from {
+    opacity: 0;
+    translate: var(--_dialog-enter-x) var(--_dialog-enter-y);
+  }
+}
+
+/* No page scroll behind an open modal dialog. */
+@layer base {
+  body:has(dialog[data-dialog]:modal) {
+    overflow: hidden;
+  }
+}
